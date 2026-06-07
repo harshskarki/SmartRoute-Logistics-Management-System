@@ -1,0 +1,16 @@
+export const harbourLine = [
+  "Airoli",
+  "Rabale",
+  "Ghansoli",
+  "Koparkhairane",
+  "Turbhe",
+  "Sanpada",
+  "Juinagar",
+  "Nerul",
+  "Seawoods–Darave",
+  "CBD Belapur",
+  "Kharghar",
+  "Mansarovar",
+  "Khandeshwar",
+  "Panvel",
+];

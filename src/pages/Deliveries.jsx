@@ -31,6 +31,7 @@ function Deliveries() {
   const [destination, setDestination] = useState("");
   const [selectedDelivery, setSelectedDelivery] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const addDelivery = () => {
     if (!source || !destination) return;
@@ -56,43 +57,56 @@ function Deliveries() {
     setDestination("");
   };
 
-  const startDelivery = () => {
-    setCurrentIndex(0);
+ const startDelivery = () => {
+  setCurrentIndex(0);
+  setProgress(0);
 
-    setSelectedDelivery((old) => ({
-      ...old,
-      status: "In Transit",
-    }));
-  };
+  setSelectedDelivery((old) => ({
+    ...old,
+    status: "In Transit",
+  }));
+};
 
-  useEffect(() => {
-    if (!selectedDelivery) return;
+    useEffect(() => {
+  if (!selectedDelivery) return;
 
-    if (selectedDelivery.status !== "In Transit")
-      return;
+  if (selectedDelivery.status !== "In Transit")
+    return;
 
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => {
-        if (
-          prev <
-          selectedDelivery.route.length - 1
-        ) {
-          return prev + 1;
-        }
+  const timer = setInterval(() => {
+    setCurrentIndex((prev) => {
+      if (
+        prev <
+        selectedDelivery.route.length - 1
+      ) {
+        const nextIndex = prev + 1;
 
-        clearInterval(timer);
+        setProgress(
+          Math.floor(
+            (nextIndex /
+              (selectedDelivery.route.length - 1)) *
+              100
+          )
+        );
 
-        setSelectedDelivery((old) => ({
-          ...old,
-          status: "Delivered ✅",
-        }));
+        return nextIndex;
+      }
 
-        return prev;
-      });
-    }, 2000);
+      clearInterval(timer);
 
-    return () => clearInterval(timer);
-  }, [selectedDelivery]);
+      setProgress(100);
+
+      setSelectedDelivery((old) => ({
+        ...old,
+        status: "Delivered ✅",
+      }));
+
+      return prev;
+    });
+  }, 2000);
+
+  return () => clearInterval(timer);
+}, [selectedDelivery]);
 
   return (
     <div>
@@ -250,12 +264,13 @@ function Deliveries() {
       ))}
 
       {selectedDelivery && (
-        <DeliveryDetails
-          delivery={selectedDelivery}
-          currentIndex={currentIndex}
-          startDelivery={startDelivery}
-        />
-      )}
+  <DeliveryDetails
+    delivery={selectedDelivery}
+    currentIndex={currentIndex}
+    progress={progress}
+    startDelivery={startDelivery}
+  />
+)}
     </div>
   );
 }

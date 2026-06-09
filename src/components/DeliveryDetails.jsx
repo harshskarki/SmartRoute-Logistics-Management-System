@@ -1,6 +1,7 @@
 function DeliveryDetails({
   delivery,
   currentIndex,
+  progress,
   startDelivery,
 }) {
   if (!delivery) return null;
@@ -55,16 +56,58 @@ function DeliveryDetails({
           padding: "10px 20px",
           marginTop: "10px",
           cursor: "pointer",
+          background: "#2563eb",
+          color: "white",
+          border: "none",
+          borderRadius: "8px",
+          fontWeight: "bold",
         }}
       >
         ▶ Start Delivery
       </button>
 
+      <h3 style={{ marginTop: "25px" }}>
+        📊 Delivery Progress
+      </h3>
+
+      <div
+        style={{
+          width: "100%",
+          height: "20px",
+          background: "#334155",
+          borderRadius: "10px",
+          overflow: "hidden",
+          marginTop: "10px",
+        }}
+      >
+        <div
+          style={{
+            width: `${progress}%`,
+            height: "100%",
+            background: "#22c55e",
+            transition: "0.5s",
+          }}
+        />
+      </div>
+
+      <p style={{ marginTop: "10px" }}>
+        <strong>{progress}% Complete</strong>
+      </p>
+
       <h3 style={{ marginTop: "20px" }}>
         📍 Current Station
       </h3>
 
-      <div>{currentStation}</div>
+      <div
+        style={{
+          background: "#0f172a",
+          padding: "10px",
+          borderRadius: "8px",
+          marginTop: "8px",
+        }}
+      >
+        🚉 {currentStation}
+      </div>
 
       <h3 style={{ marginTop: "20px" }}>
         ✅ Completed Stops

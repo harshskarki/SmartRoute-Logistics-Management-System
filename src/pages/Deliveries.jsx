@@ -38,7 +38,9 @@ function Deliveries() {
     const route = getRoute(source, destination);
 
     const newDelivery = {
-      id: Date.now(),
+      id: `DLV-${Math.floor(
+        1000 + Math.random() * 9000
+      )}`,
       source,
       destination,
       route,
@@ -101,6 +103,7 @@ function Deliveries() {
           display: "flex",
           gap: "10px",
           marginBottom: "20px",
+          flexWrap: "wrap",
         }}
       >
         <select
@@ -108,6 +111,14 @@ function Deliveries() {
           onChange={(e) =>
             setSource(e.target.value)
           }
+          style={{
+            padding: "10px",
+            borderRadius: "8px",
+            background: "#1e293b",
+            color: "white",
+            border: "1px solid #334155",
+            minWidth: "180px",
+          }}
         >
           <option value="">
             Select Source
@@ -128,6 +139,14 @@ function Deliveries() {
           onChange={(e) =>
             setDestination(e.target.value)
           }
+          style={{
+            padding: "10px",
+            borderRadius: "8px",
+            background: "#1e293b",
+            color: "white",
+            border: "1px solid #334155",
+            minWidth: "180px",
+          }}
         >
           <option value="">
             Select Destination
@@ -143,7 +162,18 @@ function Deliveries() {
           ))}
         </select>
 
-        <button onClick={addDelivery}>
+        <button
+          onClick={addDelivery}
+          style={{
+            background: "#2563eb",
+            color: "white",
+            border: "none",
+            padding: "10px 16px",
+            borderRadius: "8px",
+            cursor: "pointer",
+            fontWeight: "bold",
+          }}
+        >
           Add Delivery
         </button>
       </div>
@@ -156,14 +186,66 @@ function Deliveries() {
           }
           style={{
             background: "#1e293b",
-            padding: "15px",
-            marginBottom: "10px",
-            borderRadius: "8px",
+            padding: "20px",
+            marginBottom: "15px",
+            borderRadius: "12px",
             cursor: "pointer",
+            border: "1px solid #334155",
+            transition: "0.3s",
           }}
         >
-          📦 {delivery.source} →{" "}
-          {delivery.destination}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "10px",
+            }}
+          >
+            <h3>
+              📦 Delivery #{delivery.id}
+            </h3>
+
+            <span
+              style={{
+                background:
+                  delivery.status ===
+                  "Delivered ✅"
+                    ? "#22c55e"
+                    : delivery.status ===
+                      "In Transit"
+                    ? "#3b82f6"
+                    : "#f59e0b",
+                color: "black",
+                padding: "5px 10px",
+                borderRadius: "20px",
+                fontSize: "12px",
+                fontWeight: "bold",
+              }}
+            >
+              {delivery.status}
+            </span>
+          </div>
+
+          <p>
+            <strong>Route:</strong>{" "}
+            {delivery.source} →{" "}
+            {delivery.destination}
+          </p>
+
+          <p>
+            <strong>Vehicle:</strong>{" "}
+            {delivery.vehicle}
+          </p>
+
+          <p>
+            <strong>Distance:</strong>{" "}
+            {delivery.distance}
+          </p>
+
+          <p>
+            <strong>ETA:</strong>{" "}
+            {delivery.eta}
+          </p>
         </div>
       ))}
 

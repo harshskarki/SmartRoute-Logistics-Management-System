@@ -61,10 +61,20 @@ function Deliveries() {
   setCurrentIndex(0);
   setProgress(0);
 
-  setSelectedDelivery((old) => ({
-    ...old,
+  const updatedDelivery = {
+    ...selectedDelivery,
     status: "In Transit",
-  }));
+  };
+
+  setSelectedDelivery(updatedDelivery);
+
+  setDeliveries((prev) =>
+    prev.map((d) =>
+      d.id === updatedDelivery.id
+        ? updatedDelivery
+        : d
+    )
+  );
 };
 
     useEffect(() => {
@@ -92,16 +102,26 @@ function Deliveries() {
         return nextIndex;
       }
 
-      clearInterval(timer);
+        clearInterval(timer);
 
-      setProgress(100);
+setProgress(100);
 
-      setSelectedDelivery((old) => ({
-        ...old,
-        status: "Delivered ✅",
-      }));
+const delivered = {
+  ...selectedDelivery,
+  status: "Delivered ✅",
+};
 
-      return prev;
+setSelectedDelivery(delivered);
+
+setDeliveries((prevDeliveries) =>
+  prevDeliveries.map((d) =>
+    d.id === delivered.id
+      ? delivered
+      : d
+  )
+);
+
+return prev;
     });
   }, 2000);
 

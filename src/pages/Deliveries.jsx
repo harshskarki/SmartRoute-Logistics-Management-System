@@ -32,6 +32,11 @@ function Deliveries() {
   const [selectedDelivery, setSelectedDelivery] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [searchTerm, setSearchTerm] =
+  useState("");
+
+const [filterStatus, setFilterStatus] =
+  useState("All");
 
   const addDelivery = () => {
     if (!source || !destination) return;
@@ -128,9 +133,78 @@ return prev;
   return () => clearInterval(timer);
 }, [selectedDelivery]);
 
+  const filteredDeliveries =
+  deliveries.filter((delivery) => {
+    const matchesSearch =
+      delivery.id
+        .toLowerCase()
+        .includes(
+          searchTerm.toLowerCase()
+        );
+
+    const matchesStatus =
+      filterStatus === "All" ||
+      delivery.status === filterStatus;
+
+    return (
+      matchesSearch &&
+      matchesStatus
+    );
+  });
+
   return (
     <div>
       <h1>📦 Deliveries</h1>
+
+      <div
+  style={{
+    display: "flex",
+    gap: "10px",
+    marginBottom: "20px",
+    flexWrap: "wrap",
+  }}
+>
+  <input
+    type="text"
+    placeholder="Search Delivery ID..."
+    value={searchTerm}
+    onChange={(e) =>
+      setSearchTerm(e.target.value)
+    }
+    style={{
+      padding: "10px",
+      borderRadius: "8px",
+      border: "1px solid #334155",
+      background: "#1e293b",
+      color: "white",
+    }}
+  />
+
+  <select
+    value={filterStatus}
+    onChange={(e) =>
+      setFilterStatus(e.target.value)
+    }
+    style={{
+      padding: "10px",
+      borderRadius: "8px",
+      background: "#1e293b",
+      color: "white",
+      border: "1px solid #334155",
+    }}
+  >
+    <option value="All">All</option>
+    <option value="Pending">
+      Pending
+    </option>
+    <option value="In Transit">
+      In Transit
+    </option>
+    <option value="Delivered ✅">
+      Delivered
+    </option>
+  </select>
+</div>
 
       <div
         style={{
@@ -212,7 +286,7 @@ return prev;
         </button>
       </div>
 
-      {deliveries.map((delivery) => (
+      {filteredDeliveries.map((delivery) => (
         <div
           key={delivery.id}
           onClick={() =>
@@ -249,7 +323,10 @@ return prev;
                       "In Transit"
                     ? "#3b82f6"
                     : "#f59e0b",
-                color: "black",
+                color:
+  delivery.status === "In Transit"
+    ? "white"
+    : "black",
                 padding: "5px 10px",
                 borderRadius: "20px",
                 fontSize: "12px",

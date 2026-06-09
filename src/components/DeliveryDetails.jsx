@@ -50,21 +50,23 @@ function DeliveryDetails({
         {delivery.eta}
       </p>
 
-      <button
-        onClick={startDelivery}
-        style={{
-          padding: "10px 20px",
-          marginTop: "10px",
-          cursor: "pointer",
-          background: "#2563eb",
-          color: "white",
-          border: "none",
-          borderRadius: "8px",
-          fontWeight: "bold",
-        }}
-      >
-        ▶ Start Delivery
-      </button>
+      {delivery.status !== "Delivered ✅" && (
+  <button
+    onClick={startDelivery}
+    style={{
+      padding: "10px 20px",
+      marginTop: "10px",
+      cursor: "pointer",
+      background: "#2563eb",
+      color: "white",
+      border: "none",
+      borderRadius: "8px",
+      fontWeight: "bold",
+    }}
+  >
+    ▶ Start Delivery
+  </button>
+)}
 
       <h3 style={{ marginTop: "25px" }}>
         📊 Delivery Progress
@@ -121,17 +123,22 @@ function DeliveryDetails({
           </div>
         ))}
 
-      <h3 style={{ marginTop: "20px" }}>
-        ⏳ Remaining Stops
-      </h3>
+      {delivery.route.slice(currentIndex + 1)
+  .length > 0 && (
+  <>
+    <h3 style={{ marginTop: "20px" }}>
+      ⏳ Remaining Stops
+    </h3>
 
-      {delivery.route
-        .slice(currentIndex + 1)
-        .map((station) => (
-          <div key={station}>
-            ⏳ {station}
-          </div>
-        ))}
+    {delivery.route
+      .slice(currentIndex + 1)
+      .map((station) => (
+        <div key={station}>
+          ⏳ {station}
+        </div>
+      ))}
+  </>
+)}
     </div>
   );
 }

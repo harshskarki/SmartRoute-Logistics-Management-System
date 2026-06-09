@@ -174,7 +174,57 @@ function Dashboard() {
   {completedDeliveries}
 </h2>
         </div>
+            </div>
+
+      <div
+        style={{
+          marginTop: "40px",
+          background: "#1e293b",
+          padding: "25px",
+          borderRadius: "16px",
+          border: "1px solid #334155",
+        }}
+      >
+        <h2>📊 System Health</h2>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "30px",
+            flexWrap: "wrap",
+            marginTop: "20px",
+          }}
+        >
+          <div>
+            <h4>Fleet Status</h4>
+            <p style={{ color: "#22c55e" }}>
+              🟢 Operational
+            </p>
+          </div>
+
+          <div>
+            <h4>Traffic Conditions</h4>
+            <p style={{ color: "#f59e0b" }}>
+              🟡 Moderate
+            </p>
+          </div>
+
+          <div>
+            <h4>Route Engine</h4>
+            <p style={{ color: "#22c55e" }}>
+              🟢 Online
+            </p>
+          </div>
+
+          <div>
+            <h4>Delivery Success Rate</h4>
+            <p style={{ color: "#22c55e" }}>
+              98.5%
+            </p>
+          </div>
+        </div>
       </div>
+
     </div>
   );
 }

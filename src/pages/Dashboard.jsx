@@ -58,70 +58,121 @@ function Dashboard() {
       >
         <div
           style={{
-            background: "#1e293b",
-            padding: "20px",
-            borderRadius: "10px",
-            width: "220px",
-          }}
+  background: "#1e293b",
+  padding: "25px",
+  borderRadius: "16px",
+  width: "240px",
+  border: "1px solid #334155",
+  boxShadow:
+    "0 4px 12px rgba(0,0,0,0.25)",
+}}
         >
-          <h3>
-            🚚 Active Vehicles
-          </h3>
+          <h3
+  style={{
+    color: "#94a3b8",
+    fontWeight: "500",
+  }}
+>
+  🚚 Active Vehicles
+</h3>
 
-          <h2>
-            {activeVehicles}
-          </h2>
+          <h2
+  style={{
+    fontSize: "42px",
+    marginTop: "10px",
+  }}
+>
+  {activeVehicles}
+</h2>
         </div>
 
         <div
           style={{
-            background: "#1e293b",
-            padding: "20px",
-            borderRadius: "10px",
-            width: "220px",
-          }}
+  background: "#1e293b",
+  padding: "25px",
+  borderRadius: "16px",
+  width: "240px",
+  border: "1px solid #334155",
+  boxShadow:
+    "0 4px 12px rgba(0,0,0,0.25)",
+}}
         >
-          <h3>
-            📦 Pending Deliveries
-          </h3>
+          <h3
+  style={{
+    color: "#94a3b8",
+    fontWeight: "500",
+  }}
+>
+  📦 Pending Deliveries
+</h3>
 
-          <h2>
-            {pendingDeliveries}
-          </h2>
+          <h2
+  style={{
+    fontSize: "42px",
+    marginTop: "10px",
+  }}
+>
+  {pendingDeliveries}
+</h2>
         </div>
 
         <div
           style={{
-            background: "#1e293b",
-            padding: "20px",
-            borderRadius: "10px",
-            width: "220px",
-          }}
+  background: "#1e293b",
+  padding: "25px",
+  borderRadius: "16px",
+  width: "240px",
+  border: "1px solid #334155",
+  boxShadow:
+    "0 4px 12px rgba(0,0,0,0.25)",
+}}
         >
-          <h3>
-            🚛 Active Deliveries
-          </h3>
+          <h3
+  style={{
+    color: "#94a3b8",
+    fontWeight: "500",
+  }}
+>
+  🚛 Active Deliveries
+</h3>
 
-          <h2>
-            {activeDeliveries}
-          </h2>
+          <h2
+  style={{
+    fontSize: "42px",
+    marginTop: "10px",
+  }}
+>
+  {activeDeliveries}
+</h2>
         </div>
 
         <div
           style={{
-            background: "#1e293b",
-            padding: "20px",
-            borderRadius: "10px",
-            width: "220px",
-          }}
+    background: "#1e293b",
+    padding: "25px",
+    borderRadius: "16px",
+    width: "240px",
+    border: "1px solid #334155",
+    boxShadow:"0 4px 12px rgba(0,0,0,0.25)",
+        }}
         >
-          <h3>
-            ✅ Delivered
-          </h3>
+          <h3
+  style={{
+    color: "#94a3b8",
+    fontWeight: "500",
+  }}
+>
+  ✅ Delivered
+</h3>
 
-          <h2>
-            {completedDeliveries}
-          </h2>
+          <h2
+  style={{
+    fontSize: "42px",
+    marginTop: "10px",
+  }}
+>
+  {completedDeliveries}
+</h2>
         </div>
       </div>
     </div>

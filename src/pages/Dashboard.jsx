@@ -1,56 +1,128 @@
+import {
+  vehicles,
+  deliveries,
+} from "../data/mockData";
+
 function Dashboard() {
-  const stats = [
-    {
-      title: "Active Vehicles",
-      value: 12,
-      icon: "🚚",
-    },
-    {
-      title: "Pending Deliveries",
-      value: 28,
-      icon: "📦",
-    },
-    {
-      title: "Completed Today",
-      value: 64,
-      icon: "✅",
-    },
-    {
-      title: "Traffic Alerts",
-      value: 3,
-      icon: "🚦",
-    },
-  ];
+  const activeVehicles =
+    vehicles.filter(
+      (vehicle) =>
+        vehicle.status === "Active"
+    ).length;
+
+  const pendingDeliveries =
+    deliveries.filter(
+      (delivery) =>
+        delivery.status === "Pending"
+    ).length;
+
+  const completedDeliveries =
+    deliveries.filter(
+      (delivery) =>
+        delivery.status ===
+        "Delivered ✅"
+    ).length;
+
+  const activeDeliveries =
+    deliveries.filter(
+      (delivery) =>
+        delivery.status ===
+        "In Transit"
+    ).length;
 
   return (
-    <div className="p-6">
-      <h1 className="text-5xl font-bold text-blue-500 mb-3">
-        SmartRoute Dashboard
+    <div>
+      <h1
+        style={{
+          fontSize: "32px",
+          marginBottom: "10px",
+        }}
+      >
+        🚚 SmartRoute Dashboard
       </h1>
 
-      <p className="text-gray-400 mb-8">
-        Logistics Management & Route Optimization Platform
+      <p
+        style={{
+          marginBottom: "30px",
+        }}
+      >
+        Welcome to SmartRoute Logistics
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-        {stats.map((stat) => (
-          <div
-            key={stat.title}
-            className="bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-700"
-          >
-            <div className="text-4xl mb-3">
-              {stat.icon}
-            </div>
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          flexWrap: "wrap",
+        }}
+      >
+        <div
+          style={{
+            background: "#1e293b",
+            padding: "20px",
+            borderRadius: "10px",
+            width: "220px",
+          }}
+        >
+          <h3>
+            🚚 Active Vehicles
+          </h3>
 
-            <h2 className="text-gray-400 text-sm">
-              {stat.title}
-            </h2>
+          <h2>
+            {activeVehicles}
+          </h2>
+        </div>
 
-            <div className="text-3xl font-bold mt-2">
-              {stat.value}
-            </div>
-          </div>
-        ))}
+        <div
+          style={{
+            background: "#1e293b",
+            padding: "20px",
+            borderRadius: "10px",
+            width: "220px",
+          }}
+        >
+          <h3>
+            📦 Pending Deliveries
+          </h3>
+
+          <h2>
+            {pendingDeliveries}
+          </h2>
+        </div>
+
+        <div
+          style={{
+            background: "#1e293b",
+            padding: "20px",
+            borderRadius: "10px",
+            width: "220px",
+          }}
+        >
+          <h3>
+            🚛 Active Deliveries
+          </h3>
+
+          <h2>
+            {activeDeliveries}
+          </h2>
+        </div>
+
+        <div
+          style={{
+            background: "#1e293b",
+            padding: "20px",
+            borderRadius: "10px",
+            width: "220px",
+          }}
+        >
+          <h3>
+            ✅ Delivered
+          </h3>
+
+          <h2>
+            {completedDeliveries}
+          </h2>
+        </div>
       </div>
     </div>
   );

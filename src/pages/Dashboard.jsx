@@ -225,6 +225,123 @@ function Dashboard() {
         </div>
       </div>
 
+        <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "25px",
+    borderRadius: "16px",
+    border: "1px solid #334155",
+  }}
+>
+  <h2>📦 Recent Delivery Activity</h2>
+
+  <div style={{ marginTop: "20px" }}>
+    {deliveries.map((delivery) => (
+      <div
+        key={delivery.id}
+        style={{
+          padding: "12px",
+          borderBottom:
+            "1px solid #334155",
+        }}
+      >
+        <strong>{delivery.id}</strong>
+
+        <div>
+          Status: {delivery.status}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+      <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "25px",
+    borderRadius: "16px",
+    border: "1px solid #334155",
+  }}
+>
+  <h2>🚚 Fleet Status</h2>
+
+  <div style={{ marginTop: "20px" }}>
+    {vehicles.map((vehicle) => (
+      <div
+        key={vehicle.id}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "12px",
+          borderBottom:
+            "1px solid #334155",
+        }}
+      >
+        <strong>{vehicle.id}</strong>
+
+        <span
+          style={{
+            color:
+              vehicle.status === "Active"
+                ? "#22c55e"
+                : "#f59e0b",
+          }}
+        >
+          {vehicle.status}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
+
+      <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "25px",
+    borderRadius: "16px",
+    border: "1px solid #334155",
+  }}
+>
+  <h2>🚨 Live Alerts</h2>
+
+  <div style={{ marginTop: "20px" }}>
+    <div
+      style={{
+        background: "#7c2d12",
+        padding: "12px",
+        borderRadius: "8px",
+        marginBottom: "10px",
+      }}
+    >
+      ⚠️ Vehicle TRUCK-003 scheduled for maintenance
+    </div>
+
+    <div
+      style={{
+        background: "#78350f",
+        padding: "12px",
+        borderRadius: "8px",
+        marginBottom: "10px",
+      }}
+    >
+      🚦 Moderate traffic detected near Turbhe
+    </div>
+
+    <div
+      style={{
+        background: "#14532d",
+        padding: "12px",
+        borderRadius: "8px",
+      }}
+    >
+      ✅ 2 deliveries completed successfully today
+    </div>
+  </div>
+</div>
+
     </div>
   );
 }

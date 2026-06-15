@@ -34,6 +34,13 @@ const idleVehicles =
       vehicle.status === "Idle"
   ).length;
 
+  const maintenanceVehicles =
+  vehicles.filter(
+    (vehicle) =>
+      vehicle.status ===
+      "Maintenance"
+  ).length;
+
 const totalVehicles =
   vehicles.length;
 
@@ -43,9 +50,6 @@ const totalVehicles =
   const [filterStatus, setFilterStatus] =
     useState("All");
 
-  const addVehicle = () => {
-  if (vehicleId.trim() === "") return;
-
       const toggleVehicleStatus = (id) => {
   setVehicles((prev) =>
     prev.map((vehicle) =>
@@ -53,8 +57,7 @@ const totalVehicles =
         ? {
             ...vehicle,
             status:
-              vehicle.status ===
-              "Active"
+              vehicle.status === "Active"
                 ? "Idle"
                 : "Active",
           }
@@ -63,13 +66,16 @@ const totalVehicles =
   );
 };
 
-      const deleteVehicle = (id) => {
+const deleteVehicle = (id) => {
   setVehicles((prev) =>
     prev.filter(
       (vehicle) => vehicle.id !== id
     )
   );
 };
+
+  const addVehicle = () => {
+  if (vehicleId.trim() === "") return;
 
   const newVehicle = {
   id: vehicleId,
@@ -164,6 +170,21 @@ setDriverName("");
 
     <h2>{idleVehicles}</h2>
   </div>
+
+      <div
+  style={{
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    width: "220px",
+    border: "1px solid #334155",
+  }}
+>
+  <h4>🔧 Maintenance</h4>
+
+  <h2>{maintenanceVehicles}</h2>
+</div>
+
 </div>
 
           <input
@@ -209,6 +230,10 @@ setDriverName("");
 
   <option value="Idle">
     Idle
+  </option>
+    
+  <option value="Maintenance">
+    Maintenance
   </option>
 </select>
 

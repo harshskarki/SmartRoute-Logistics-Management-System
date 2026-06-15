@@ -283,10 +283,13 @@ function Dashboard() {
 
         <span
           style={{
-            color:
-              vehicle.status === "Active"
-                ? "#22c55e"
-                : "#f59e0b",
+              color:
+    vehicle.status === "Active"
+      ? "#22c55e"
+      : vehicle.status ===
+        "Maintenance"
+      ? "#ef4444"
+      : "#f59e0b"
           }}
         >
           {vehicle.status}
@@ -316,7 +319,7 @@ function Dashboard() {
         marginBottom: "10px",
       }}
     >
-      ⚠️ Vehicle TRUCK-003 scheduled for maintenance
+      ⚠️ Maintenance check due for fleet vehicles
     </div>
 
     <div

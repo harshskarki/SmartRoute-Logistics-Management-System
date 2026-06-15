@@ -23,6 +23,7 @@ const stations = [
   "Thane",
   "Turbhe",
   "Vashi",
+  "Harsh Vihar",
 ];
 
 function Deliveries() {
@@ -35,11 +36,22 @@ function Deliveries() {
   const [searchTerm, setSearchTerm] =
   useState("");
 
+  const [error, setError] = useState("");
+
 const [filterStatus, setFilterStatus] =
   useState("All");
 
   const addDelivery = () => {
-    if (!source || !destination) return;
+ if (!source || !destination) return;
+
+if (source === destination) {
+  setError(
+    "Source and Destination cannot be the same"
+  );
+  return;
+}
+
+setError("");
 
     const route = getRoute(source, destination);
 
@@ -155,6 +167,21 @@ return prev;
   return (
     <div>
       <h1>📦 Deliveries</h1>
+
+      {error && (
+  <div
+    style={{
+      background: "#7f1d1d",
+      color: "white",
+      padding: "12px",
+      borderRadius: "8px",
+      marginBottom: "15px",
+      border: "1px solid #ef4444",
+    }}
+  >
+    ⚠️ {error}
+  </div>
+)}
 
       <div
   style={{

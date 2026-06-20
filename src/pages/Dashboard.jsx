@@ -30,6 +30,37 @@ function Dashboard() {
         "In Transit"
     ).length;
 
+    const totalDeliveries =
+  deliveries.length;
+
+const deliverySuccessRate =
+  totalDeliveries > 0
+    ? Math.round(
+        (completedDeliveries /
+          totalDeliveries) *
+          100
+      )
+    : 0;
+
+const fleetUtilization =
+  vehicles.length > 0
+    ? Math.round(
+        (activeVehicles /
+          vehicles.length) *
+          100
+      )
+    : 0;
+
+    const deliveryInsight =
+  deliverySuccessRate >= 80
+    ? "✅ Delivery performance is excellent"
+    : "⚠️ Delivery performance needs attention";
+
+const fleetInsight =
+  fleetUtilization >= 60
+    ? "🚚 Fleet utilization is healthy"
+    : "⚠️ Fleet utilization is low";
+
   return (
     <div>
       <h1
@@ -185,6 +216,120 @@ function Dashboard() {
           border: "1px solid #334155",
         }}
       >
+
+        <div
+  style={{
+    display: "flex",
+    gap: "20px",
+    flexWrap: "wrap",
+    marginTop: "30px",
+  }}
+>
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "240px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>📈 Delivery Success Rate</h4>
+
+    <h2>
+      {deliverySuccessRate}%
+    </h2>
+    <div
+  style={{
+    width: "100%",
+    height: "10px",
+    background: "#334155",
+    borderRadius: "10px",
+    marginTop: "10px",
+    overflow: "hidden",
+  }}
+>
+  <div
+    style={{
+      width: `${deliverySuccessRate}%`,
+      height: "100%",
+      background: "#22c55e",
+    }}
+  />
+</div>
+  </div>
+
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "240px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>🚚 Fleet Utilization</h4>
+
+    <h2>
+      {fleetUtilization}%
+    </h2>
+    <div
+  style={{
+    width: "100%",
+    height: "10px",
+    background: "#334155",
+    borderRadius: "10px",
+    marginTop: "10px",
+    overflow: "hidden",
+  }}
+>
+  <div
+    style={{
+      width: `${fleetUtilization}%`,
+      height: "100%",
+      background: "#3b82f6",
+    }}
+  />
+</div>
+  </div>
+
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "240px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>📦 Total Deliveries</h4>
+
+    <h2>
+      {totalDeliveries}
+    </h2>
+  </div>
+</div>
+
+      <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    border: "1px solid #334155",
+  }}
+>
+  <h2>🧠 Smart Insights</h2>
+
+  <p style={{ marginTop: "15px" }}>
+    {deliveryInsight}
+  </p>
+
+  <p>
+    {fleetInsight}
+  </p>
+</div>
+
         <h2>📊 System Health</h2>
 
         <div
@@ -219,7 +364,7 @@ function Dashboard() {
           <div>
             <h4>Delivery Success Rate</h4>
             <p style={{ color: "#22c55e" }}>
-              98.5%
+              {deliverySuccessRate}%
             </p>
           </div>
         </div>

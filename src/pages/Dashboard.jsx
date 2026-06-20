@@ -10,6 +10,16 @@ function Dashboard() {
         vehicle.status === "Active"
     ).length;
 
+      const idleVehicles =
+  vehicles.filter(
+    (vehicle) =>
+      vehicle.status === "Idle"
+  ).length;
+
+const totalVehicles =
+  vehicles.length;
+
+
   const pendingDeliveries =
     deliveries.filter(
       (delivery) =>
@@ -19,8 +29,7 @@ function Dashboard() {
   const completedDeliveries =
     deliveries.filter(
       (delivery) =>
-        delivery.status ===
-        "Delivered ✅"
+        delivery.status ==="Delivered ✅"
     ).length;
 
   const activeDeliveries =
@@ -55,6 +64,30 @@ const fleetUtilization =
   deliverySuccessRate >= 80
     ? "✅ Delivery performance is excellent"
     : "⚠️ Delivery performance needs attention";
+
+      const pendingCount =
+  deliveries.filter(
+    (delivery) =>
+      delivery.status === "Pending"
+  ).length;
+
+const inTransitCount =
+  deliveries.filter(
+    (delivery) =>
+      delivery.status === "In Transit"
+  ).length;
+
+const deliveredCount =
+  deliveries.filter(
+    (delivery) =>
+      delivery.status === "Delivered ✅"
+  ).length;
+
+  const maintenanceVehicles =
+  vehicles.filter(
+    (vehicle) =>
+      vehicle.status ==="Maintenance"
+  ).length;
 
 const fleetInsight =
   fleetUtilization >= 60
@@ -328,6 +361,194 @@ const fleetInsight =
   <p>
     {fleetInsight}
   </p>
+</div>
+
+          <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "25px",
+    borderRadius: "16px",
+    border: "1px solid #334155",
+  }}
+>
+  <h2>📦 Delivery Status Breakdown</h2>
+
+  <div style={{ marginTop: "20px" }}>
+    <p>Pending ({pendingCount})</p>
+
+    <div
+      style={{
+        height: "12px",
+        background: "#334155",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: `${
+            totalDeliveries > 0
+              ? (pendingCount /
+                  totalDeliveries) *
+                100
+              : 0
+          }%`,
+          height: "100%",
+          background: "#f59e0b",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+
+    <p style={{ marginTop: "15px" }}>
+      In Transit ({inTransitCount})
+    </p>
+
+    <div
+      style={{
+        height: "12px",
+        background: "#334155",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: `${
+            totalDeliveries > 0
+              ? (inTransitCount /
+                  totalDeliveries) *
+                100
+              : 0
+          }%`,
+          height: "100%",
+          background: "#3b82f6",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+
+    <p style={{ marginTop: "15px" }}>
+      Delivered ({deliveredCount})
+    </p>
+
+    <div
+      style={{
+        height: "12px",
+        background: "#334155",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: `${
+            totalDeliveries > 0
+              ? (deliveredCount /
+                  totalDeliveries) *
+                100
+              : 0
+          }%`,
+          height: "100%",
+          background: "#22c55e",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+  </div>
+</div>
+
+        <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "25px",
+    borderRadius: "16px",
+    border: "1px solid #334155",
+  }}
+>
+  <h2>🚚 Fleet Analytics</h2>
+
+  <div style={{ marginTop: "20px" }}>
+    <p>
+      Active ({activeVehicles})
+    </p>
+
+    <div
+      style={{
+        height: "12px",
+        background: "#334155",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: `${
+            totalVehicles > 0
+              ? (activeVehicles /
+                  totalVehicles) *
+                100
+              : 0
+          }%`,
+          height: "100%",
+          background: "#22c55e",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+
+    <p style={{ marginTop: "15px" }}>
+      Idle ({idleVehicles})
+    </p>
+
+    <div
+      style={{
+        height: "12px",
+        background: "#334155",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: `${
+            totalVehicles > 0
+              ? (idleVehicles /
+                  totalVehicles) *
+                100
+              : 0
+          }%`,
+          height: "100%",
+          background: "#f59e0b",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+
+    <p style={{ marginTop: "15px" }}>
+      Maintenance ({maintenanceVehicles})
+    </p>
+
+    <div
+      style={{
+        height: "12px",
+        background: "#334155",
+        borderRadius: "10px",
+      }}
+    >
+      <div
+        style={{
+          width: `${
+            totalVehicles > 0
+              ? (maintenanceVehicles /
+                  totalVehicles) *
+                100
+              : 0
+          }%`,
+          height: "100%",
+          background: "#ef4444",
+          borderRadius: "10px",
+        }}
+      />
+    </div>
+  </div>
 </div>
 
         <h2>📊 System Health</h2>

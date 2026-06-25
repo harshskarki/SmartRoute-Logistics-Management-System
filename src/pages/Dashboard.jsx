@@ -39,8 +39,21 @@ const totalVehicles =
         "In Transit"
     ).length;
 
-    const totalDeliveries =
-  deliveries.length;
+    const totalDeliveries = deliveries.length;
+
+    const averageRouteLength =
+  deliveries.length > 0
+    ? Math.round(
+        deliveries.reduce(
+          (sum, delivery) =>
+            sum +
+            parseInt(
+              delivery.distance || "0"
+            ),
+          0
+        ) / deliveries.length
+      )
+    : 0;
 
 const deliverySuccessRate =
   totalDeliveries > 0
@@ -56,6 +69,16 @@ const fleetUtilization =
     ? Math.round(
         (activeVehicles /
           vehicles.length) *
+          100
+      )
+    : 0;
+    
+      const fleetAvailability =
+  totalVehicles > 0
+    ? Math.round(
+        ((activeVehicles +
+          idleVehicles) /
+          totalVehicles) *
           100
       )
     : 0;
@@ -341,6 +364,39 @@ const fleetInsight =
       {totalDeliveries}
     </h2>
   </div>
+
+  <div
+  style={{
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    width: "240px",
+    border: "1px solid #334155",
+  }}
+>
+  <h4>🛠 Fleet Availability</h4>
+
+  <h2>
+    {fleetAvailability}%
+  </h2>
+</div>
+
+  <div
+  style={{
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    width: "240px",
+    border: "1px solid #334155",
+  }}
+>
+  <h4>📍 Average Route</h4>
+
+  <h2>
+    {averageRouteLength} km
+  </h2>
+</div>
+
 </div>
 
       <div

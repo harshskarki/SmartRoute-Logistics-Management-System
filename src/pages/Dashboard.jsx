@@ -55,6 +55,20 @@ const totalVehicles =
       )
     : 0;
 
+    const averageETA =
+  deliveries.length > 0
+    ? Math.round(
+        deliveries.reduce(
+          (sum, delivery) =>
+            sum +
+            parseInt(
+              delivery.eta || "0"
+            ),
+          0
+        ) / deliveries.length
+      )
+    : 0;
+
 const deliverySuccessRate =
   totalDeliveries > 0
     ? Math.round(
@@ -82,6 +96,13 @@ const fleetUtilization =
           100
       )
     : 0;
+
+    const efficiencyScore = Math.round(
+  (deliverySuccessRate +
+    fleetUtilization +
+    fleetAvailability) /
+    3
+);
 
     const deliveryInsight =
   deliverySuccessRate >= 80
@@ -116,6 +137,16 @@ const fleetInsight =
   fleetUtilization >= 60
     ? "🚚 Fleet utilization is healthy"
     : "⚠️ Fleet utilization is low";
+
+    const efficiencyInsight =
+  efficiencyScore >= 75
+    ? "⚡ Operations are running efficiently"
+    : "⚠️ Operational efficiency can improve";
+
+    const etaInsight =
+  averageETA <= 15
+    ? "⏱ Delivery times are efficient"
+    : "⚠️ Average ETA is increasing";
 
   return (
     <div>
@@ -397,6 +428,22 @@ const fleetInsight =
   </h2>
 </div>
 
+<div
+  style={{
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    width: "240px",
+    border: "1px solid #334155",
+  }}
+>
+  <h4>⚡ Efficiency Score</h4>
+
+  <h2>
+    {efficiencyScore}%
+  </h2>
+</div>
+
 </div>
 
       <div
@@ -408,6 +455,24 @@ const fleetInsight =
     border: "1px solid #334155",
   }}
 >
+
+<div
+  style={{
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    width: "240px",
+    border: "1px solid #334155",
+  }}
+>
+  <h4>⏱ Average ETA</h4>
+
+  <h2>
+    {averageETA} mins
+  </h2>
+</div>
+
+
   <h2>🧠 Smart Insights</h2>
 
   <p style={{ marginTop: "15px" }}>
@@ -417,6 +482,15 @@ const fleetInsight =
   <p>
     {fleetInsight}
   </p>
+
+  <p>
+  {efficiencyInsight}
+</p>
+
+<p>
+  {etaInsight}
+</p>
+
 </div>
 
           <div

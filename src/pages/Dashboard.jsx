@@ -444,18 +444,6 @@ const fleetInsight =
   </h2>
 </div>
 
-</div>
-
-      <div
-  style={{
-    marginTop: "30px",
-    background: "#1e293b",
-    padding: "20px",
-    borderRadius: "12px",
-    border: "1px solid #334155",
-  }}
->
-
 <div
   style={{
     background: "#1e293b",
@@ -472,6 +460,17 @@ const fleetInsight =
   </h2>
 </div>
 
+</div>
+
+      <div
+  style={{
+    marginTop: "30px",
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    border: "1px solid #334155",
+  }}
+>
 
   <h2>🧠 Smart Insights</h2>
 
@@ -733,22 +732,35 @@ const fleetInsight =
   <h2>📦 Recent Delivery Activity</h2>
 
   <div style={{ marginTop: "20px" }}>
-    {deliveries.map((delivery) => (
-      <div
-        key={delivery.id}
-        style={{
-          padding: "12px",
-          borderBottom:
-            "1px solid #334155",
-        }}
-      >
-        <strong>{delivery.id}</strong>
+  {deliveries.length === 0 ? (
+    <p
+      style={{
+        color: "#94a3b8",
+      }}
+    >
+      No deliveries available.
+    </p>
+  ) : (
+    deliveries
+      .slice(-3)
+      .reverse()
+      .map((delivery) => (
+        <div
+          key={delivery.id}
+          style={{
+            padding: "12px",
+            borderBottom:
+              "1px solid #334155",
+          }}
+        >
+          <strong>{delivery.id}</strong>
 
-        <div>
-          Status: {delivery.status}
+          <div>
+            Status: {delivery.status}
+          </div>
         </div>
-      </div>
-    ))}
+      ))
+  )}
   </div>
 </div>
 
@@ -763,8 +775,17 @@ const fleetInsight =
 >
   <h2>🚚 Fleet Status</h2>
 
-  <div style={{ marginTop: "20px" }}>
-    {vehicles.map((vehicle) => (
+<div style={{ marginTop: "20px" }}>
+  {vehicles.length === 0 ? (
+    <p
+      style={{
+        color: "#94a3b8",
+      }}
+    >
+      No vehicles available.
+    </p>
+  ) : (
+    vehicles.map((vehicle) => (
       <div
         key={vehicle.id}
         style={{
@@ -779,19 +800,20 @@ const fleetInsight =
 
         <span
           style={{
-              color:
-    vehicle.status === "Active"
-      ? "#22c55e"
-      : vehicle.status ===
-        "Maintenance"
-      ? "#ef4444"
-      : "#f59e0b"
+            color:
+              vehicle.status === "Active"
+                ? "#22c55e"
+                : vehicle.status ===
+                  "Maintenance"
+                ? "#ef4444"
+                : "#f59e0b",
           }}
         >
           {vehicle.status}
         </span>
       </div>
-    ))}
+    ))
+  )}
   </div>
 </div>
 

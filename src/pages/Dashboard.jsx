@@ -69,57 +69,57 @@ const totalVehicles =
       )
     : 0;
 
-const deliverySuccessRate =
-  totalDeliveries > 0
-    ? Math.round(
-        (completedDeliveries /
-          totalDeliveries) *
-          100
-      )
-    : 0;
+  const deliverySuccessRate =
+    totalDeliveries > 0
+      ? Math.round(
+          (completedDeliveries /
+            totalDeliveries) *
+            100
+        )
+      : 0;
 
-const fleetUtilization =
-  vehicles.length > 0
-    ? Math.round(
-        (activeVehicles /
-          vehicles.length) *
-          100
-      )
-    : 0;
+  const fleetUtilization =
+    vehicles.length > 0
+      ? Math.round(
+          (activeVehicles /
+            vehicles.length) *
+            100
+        )
+      : 0;
     
-      const fleetAvailability =
-  totalVehicles > 0
-    ? Math.round(
-        ((activeVehicles +
-          idleVehicles) /
-          totalVehicles) *
-          100
-      )
-    : 0;
+  const fleetAvailability =
+    totalVehicles > 0
+      ? Math.round(
+          ((activeVehicles +
+            idleVehicles) /
+            totalVehicles) *
+            100
+        )
+      : 0;
 
-    const efficiencyScore = Math.round(
-  (deliverySuccessRate +
-    fleetUtilization +
-    fleetAvailability) /
-    3
-);
+  const efficiencyScore = Math.round(
+    (deliverySuccessRate +
+      fleetUtilization +
+      fleetAvailability) /
+      3
+  );
 
-    const deliveryInsight =
-  deliverySuccessRate >= 80
-    ? "✅ Delivery performance is excellent"
-    : "⚠️ Delivery performance needs attention";
+  const deliveryInsight =
+    deliverySuccessRate >= 80
+      ? "✅ Delivery performance is excellent"
+      : "⚠️ Delivery performance needs attention";
 
-      const pendingCount =
-  deliveries.filter(
-    (delivery) =>
-      delivery.status === "Pending"
-  ).length;
+        const pendingCount =
+    deliveries.filter(
+      (delivery) =>
+        delivery.status === "Pending"
+    ).length;
 
-const inTransitCount =
-  deliveries.filter(
-    (delivery) =>
-      delivery.status === "In Transit"
-  ).length;
+  const inTransitCount =
+    deliveries.filter(
+      (delivery) =>
+        delivery.status === "In Transit"
+    ).length;
 
 const deliveredCount =
   deliveries.filter(
@@ -148,6 +148,16 @@ const fleetInsight =
     ? "⏱ Delivery times are efficient"
     : "⚠️ Average ETA is increasing";
 
+  const cardStyle = {
+    background: "#1e293b",
+    padding: "20px",
+    borderRadius: "12px",
+    width: "240px",
+    border: "1px solid #334155",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  };
+
   return (
     <div>
       <h1
@@ -175,15 +185,19 @@ const fleetInsight =
         }}
       >
         <div
-          style={{
-  background: "#1e293b",
-  padding: "25px",
-  borderRadius: "16px",
-  width: "240px",
-  border: "1px solid #334155",
-  boxShadow:
-    "0 4px 12px rgba(0,0,0,0.25)",
-}}
+          style={cardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-4px)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 25px rgba(0,0,0,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "none";
+          }}
         >
           <h3
   style={{
@@ -205,22 +219,26 @@ const fleetInsight =
         </div>
 
         <div
-          style={{
-  background: "#1e293b",
-  padding: "25px",
-  borderRadius: "16px",
-  width: "240px",
-  border: "1px solid #334155",
-  boxShadow:
-    "0 4px 12px rgba(0,0,0,0.25)",
-}}
+          style={cardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-4px)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 25px rgba(0,0,0,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "none";
+          }}
         >
           <h3
-  style={{
-    color: "#94a3b8",
-    fontWeight: "500",
-  }}
->
+            style={{
+              color: "#94a3b8",
+              fontWeight: "500",
+            }}
+          >
   📦 Pending Deliveries
 </h3>
 
@@ -235,22 +253,26 @@ const fleetInsight =
         </div>
 
         <div
-          style={{
-  background: "#1e293b",
-  padding: "25px",
-  borderRadius: "16px",
-  width: "240px",
-  border: "1px solid #334155",
-  boxShadow:
-    "0 4px 12px rgba(0,0,0,0.25)",
-}}
+          style={cardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-4px)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 25px rgba(0,0,0,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "none";
+          }}
         >
           <h3
-  style={{
-    color: "#94a3b8",
-    fontWeight: "500",
-  }}
->
+            style={{
+              color: "#94a3b8",
+              fontWeight: "500",
+            }}
+          >
   🚛 Active Deliveries
 </h3>
 
@@ -265,21 +287,26 @@ const fleetInsight =
         </div>
 
         <div
-          style={{
-    background: "#1e293b",
-    padding: "25px",
-    borderRadius: "16px",
-    width: "240px",
-    border: "1px solid #334155",
-    boxShadow:"0 4px 12px rgba(0,0,0,0.25)",
-        }}
+          style={cardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-4px)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 25px rgba(0,0,0,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "none";
+          }}
         >
           <h3
-  style={{
-    color: "#94a3b8",
-    fontWeight: "500",
-  }}
->
+            style={{
+              color: "#94a3b8",
+              fontWeight: "500",
+            }}
+          >
   ✅ Delivered
 </h3>
 
@@ -313,12 +340,18 @@ const fleetInsight =
   }}
 >
   <div
-    style={{
-      background: "#1e293b",
-      padding: "20px",
-      borderRadius: "12px",
-      width: "240px",
-      border: "1px solid #334155",
+    style={cardStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 10px 25px rgba(0,0,0,0.35)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "none";
     }}
   >
     <h4>📈 Delivery Success Rate</h4>
@@ -347,12 +380,18 @@ const fleetInsight =
   </div>
 
   <div
-    style={{
-      background: "#1e293b",
-      padding: "20px",
-      borderRadius: "12px",
-      width: "240px",
-      border: "1px solid #334155",
+    style={cardStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 10px 25px rgba(0,0,0,0.35)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "none";
     }}
   >
     <h4>🚚 Fleet Utilization</h4>
@@ -381,12 +420,18 @@ const fleetInsight =
   </div>
 
   <div
-    style={{
-      background: "#1e293b",
-      padding: "20px",
-      borderRadius: "12px",
-      width: "240px",
-      border: "1px solid #334155",
+    style={cardStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 10px 25px rgba(0,0,0,0.35)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "none";
     }}
   >
     <h4>📦 Total Deliveries</h4>
@@ -397,12 +442,18 @@ const fleetInsight =
   </div>
 
   <div
-  style={{
-    background: "#1e293b",
-    padding: "20px",
-    borderRadius: "12px",
-    width: "240px",
-    border: "1px solid #334155",
+  style={cardStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(-4px)";
+    e.currentTarget.style.boxShadow =
+      "0 10px 25px rgba(0,0,0,0.35)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(0)";
+    e.currentTarget.style.boxShadow =
+      "none";
   }}
 >
   <h4>🛠 Fleet Availability</h4>
@@ -413,12 +464,18 @@ const fleetInsight =
 </div>
 
   <div
-  style={{
-    background: "#1e293b",
-    padding: "20px",
-    borderRadius: "12px",
-    width: "240px",
-    border: "1px solid #334155",
+  style={cardStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(-4px)";
+    e.currentTarget.style.boxShadow =
+      "0 10px 25px rgba(0,0,0,0.35)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(0)";
+    e.currentTarget.style.boxShadow =
+      "none";
   }}
 >
   <h4>📍 Average Route</h4>
@@ -429,12 +486,18 @@ const fleetInsight =
 </div>
 
 <div
-  style={{
-    background: "#1e293b",
-    padding: "20px",
-    borderRadius: "12px",
-    width: "240px",
-    border: "1px solid #334155",
+  style={cardStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(-4px)";
+    e.currentTarget.style.boxShadow =
+      "0 10px 25px rgba(0,0,0,0.35)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(0)";
+    e.currentTarget.style.boxShadow =
+      "none";
   }}
 >
   <h4>⚡ Efficiency Score</h4>
@@ -445,12 +508,18 @@ const fleetInsight =
 </div>
 
 <div
-  style={{
-    background: "#1e293b",
-    padding: "20px",
-    borderRadius: "12px",
-    width: "240px",
-    border: "1px solid #334155",
+  style={cardStyle}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(-4px)";
+    e.currentTarget.style.boxShadow =
+      "0 10px 25px rgba(0,0,0,0.35)";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform =
+      "translateY(0)";
+    e.currentTarget.style.boxShadow =
+      "none";
   }}
 >
   <h4>⏱ Average ETA</h4>
@@ -680,6 +749,15 @@ const fleetInsight =
   </div>
 </div>
 
+      <div
+        style={{
+          marginTop: "30px",
+          background: "#1e293b",
+          padding: "25px",
+          borderRadius: "16px",
+          border: "1px solid #334155",
+        }}
+      >
         <h2>📊 System Health</h2>
 
         <div
@@ -719,6 +797,7 @@ const fleetInsight =
           </div>
         </div>
       </div>
+    </div>
 
         <div
   style={{

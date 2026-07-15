@@ -148,17 +148,6 @@ const fleetInsight =
     ? "⏱ Delivery times are efficient"
     : "⚠️ Average ETA is increasing";
 
-  const cardStyle = {
-    background: colors.card,
-    border: `1px solid ${colors.border}`,
-    padding: "20px",
-    borderRadius: "12px",
-    flex: "1 1 240px",
-    minWidth: "240px",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-  };
-
   const colors = {
     card: "#1e293b",
     border: "#334155",
@@ -168,6 +157,17 @@ const fleetInsight =
     warning: "#f59e0b",
     danger: "#ef4444",
     primary: "#3b82f6",
+  };
+
+  const cardStyle = {
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
+    padding: "20px",
+    borderRadius: "12px",
+    flex: "1 1 240px",
+    minWidth: "240px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
   };
 
   return (

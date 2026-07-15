@@ -149,13 +149,24 @@ const fleetInsight =
     : "⚠️ Average ETA is increasing";
 
   const cardStyle = {
-    background: "#1e293b",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
     padding: "20px",
     borderRadius: "12px",
     width: "240px",
-    border: "1px solid #334155",
     cursor: "pointer",
     transition: "all 0.3s ease",
+  };
+
+  const colors = {
+    card: "#1e293b",
+    border: "#334155",
+    textMuted: "#94a3b8",
+
+    success: "#22c55e",
+    warning: "#f59e0b",
+    danger: "#ef4444",
+    primary: "#3b82f6",
   };
 
   return (
@@ -201,7 +212,7 @@ const fleetInsight =
         >
           <h3
   style={{
-    color: "#94a3b8",
+    color: colors.textMuted,
     fontWeight: "500",
   }}
 >
@@ -235,7 +246,7 @@ const fleetInsight =
         >
           <h3
             style={{
-              color: "#94a3b8",
+              color: colors.textMuted,
               fontWeight: "500",
             }}
           >
@@ -269,7 +280,7 @@ const fleetInsight =
         >
           <h3
             style={{
-              color: "#94a3b8",
+              color: colors.textMuted,
               fontWeight: "500",
             }}
           >
@@ -303,7 +314,7 @@ const fleetInsight =
         >
           <h3
             style={{
-              color: "#94a3b8",
+              color: colors.textMuted,
               fontWeight: "500",
             }}
           >
@@ -324,10 +335,10 @@ const fleetInsight =
       <div
         style={{
           marginTop: "40px",
-          background: "#1e293b",
           padding: "25px",
           borderRadius: "16px",
-          border: "1px solid #334155",
+          background: colors.card,
+          border: `1px solid ${colors.border}`,
         }}
       >
 
@@ -373,7 +384,7 @@ const fleetInsight =
     style={{
       width: `${deliverySuccessRate}%`,
       height: "100%",
-      background: "#22c55e",
+      background: colors.success,
     }}
   />
 </div>
@@ -413,7 +424,7 @@ const fleetInsight =
     style={{
       width: `${fleetUtilization}%`,
       height: "100%",
-      background: "#3b82f6",
+      background: colors.primary,
     }}
   />
 </div>
@@ -534,10 +545,10 @@ const fleetInsight =
       <div
   style={{
     marginTop: "30px",
-    background: "#1e293b",
     padding: "20px",
     borderRadius: "12px",
-    border: "1px solid #334155",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
   }}
 >
 
@@ -563,11 +574,11 @@ const fleetInsight =
 
           <div
   style={{
-    marginTop: "30px",
-    background: "#1e293b",
+    marginTop: "30px", 
     padding: "25px",
     borderRadius: "16px",
-    border: "1px solid #334155",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
   }}
 >
   <h2>📦 Delivery Status Breakdown</h2>
@@ -592,7 +603,7 @@ const fleetInsight =
               : 0
           }%`,
           height: "100%",
-          background: "#f59e0b",
+          background: colors.warning,
           borderRadius: "10px",
         }}
       />
@@ -619,7 +630,7 @@ const fleetInsight =
               : 0
           }%`,
           height: "100%",
-          background: "#3b82f6",
+          background: colors.primary,
           borderRadius: "10px",
         }}
       />
@@ -646,7 +657,7 @@ const fleetInsight =
               : 0
           }%`,
           height: "100%",
-          background: "#22c55e",
+          background: colors.success,
           borderRadius: "10px",
         }}
       />
@@ -657,10 +668,10 @@ const fleetInsight =
         <div
   style={{
     marginTop: "30px",
-    background: "#1e293b",
     padding: "25px",
     borderRadius: "16px",
-    border: "1px solid #334155",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
   }}
 >
   <h2>🚚 Fleet Analytics</h2>
@@ -687,7 +698,7 @@ const fleetInsight =
               : 0
           }%`,
           height: "100%",
-          background: "#22c55e",
+          background: colors.success,
           borderRadius: "10px",
         }}
       />
@@ -714,7 +725,7 @@ const fleetInsight =
               : 0
           }%`,
           height: "100%",
-          background: "#f59e0b",
+          background: colors.warning,
           borderRadius: "10px",
         }}
       />
@@ -741,7 +752,7 @@ const fleetInsight =
               : 0
           }%`,
           height: "100%",
-          background: "#ef4444",
+          background: colors.danger,
           borderRadius: "10px",
         }}
       />
@@ -752,10 +763,10 @@ const fleetInsight =
       <div
         style={{
           marginTop: "30px",
-          background: "#1e293b",
           padding: "25px",
           borderRadius: "16px",
-          border: "1px solid #334155",
+          background: colors.card,
+          border: `1px solid ${colors.border}`,
         }}
       >
         <h2>📊 System Health</h2>
@@ -770,28 +781,28 @@ const fleetInsight =
         >
           <div>
             <h4>Fleet Status</h4>
-            <p style={{ color: "#22c55e" }}>
+            <p style={{ color: colors.success }}>
               🟢 Operational
             </p>
           </div>
 
           <div>
             <h4>Traffic Conditions</h4>
-            <p style={{ color: "#f59e0b" }}>
+            <p style={{ color: colors.warning }}>
               🟡 Moderate
             </p>
           </div>
 
           <div>
             <h4>Route Engine</h4>
-            <p style={{ color: "#22c55e" }}>
+            <p style={{ color: colors.success }}>
               🟢 Online
             </p>
           </div>
 
           <div>
             <h4>Delivery Success Rate</h4>
-            <p style={{ color: "#22c55e" }}>
+            <p style={{ color: colors.success }}>
               {deliverySuccessRate}%
             </p>
           </div>
@@ -802,10 +813,10 @@ const fleetInsight =
         <div
   style={{
     marginTop: "30px",
-    background: "#1e293b",
     padding: "25px",
     borderRadius: "16px",
-    border: "1px solid #334155",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
   }}
 >
   <h2>📦 Recent Delivery Activity</h2>
@@ -814,7 +825,7 @@ const fleetInsight =
   {deliveries.length === 0 ? (
     <p
       style={{
-        color: "#94a3b8",
+        color: colors.textMuted,
       }}
     >
       No deliveries available.
@@ -846,10 +857,10 @@ const fleetInsight =
       <div
   style={{
     marginTop: "30px",
-    background: "#1e293b",
     padding: "25px",
     borderRadius: "16px",
-    border: "1px solid #334155",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
   }}
 >
   <h2>🚚 Fleet Status</h2>
@@ -858,7 +869,7 @@ const fleetInsight =
   {vehicles.length === 0 ? (
     <p
       style={{
-        color: "#94a3b8",
+        color: colors.textMuted,
       }}
     >
       No vehicles available.
@@ -881,11 +892,11 @@ const fleetInsight =
           style={{
             color:
               vehicle.status === "Active"
-                ? "#22c55e"
+                ? colors.success
                 : vehicle.status ===
                   "Maintenance"
-                ? "#ef4444"
-                : "#f59e0b",
+                ? colors.danger
+                : colors.warning
           }}
         >
           {vehicle.status}
@@ -899,10 +910,10 @@ const fleetInsight =
       <div
   style={{
     marginTop: "30px",
-    background: "#1e293b",
     padding: "25px",
     borderRadius: "16px",
-    border: "1px solid #334155",
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
   }}
 >
   <h2>🚨 Live Alerts</h2>

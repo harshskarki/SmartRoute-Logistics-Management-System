@@ -153,7 +153,8 @@ const fleetInsight =
     border: `1px solid ${colors.border}`,
     padding: "20px",
     borderRadius: "12px",
-    width: "240px",
+    flex: "1 1 240px",
+    minWidth: "240px",
     cursor: "pointer",
     transition: "all 0.3s ease",
   };
@@ -221,7 +222,7 @@ const fleetInsight =
 
           <h2
   style={{
-    fontSize: "42px",
+    fontSize: "clamp(32px, 5vw, 42px)",
     marginTop: "10px",
   }}
 >
@@ -255,7 +256,7 @@ const fleetInsight =
 
           <h2
   style={{
-    fontSize: "42px",
+    fontSize: "clamp(32px, 5vw, 42px)",
     marginTop: "10px",
   }}
 >
@@ -289,7 +290,7 @@ const fleetInsight =
 
           <h2
   style={{
-    fontSize: "42px",
+    fontSize: "clamp(32px, 5vw, 42px)",
     marginTop: "10px",
   }}
 >
@@ -323,7 +324,7 @@ const fleetInsight =
 
           <h2
   style={{
-    fontSize: "42px",
+    fontSize: "clamp(32px, 5vw, 42px)",
     marginTop: "10px",
   }}
 >

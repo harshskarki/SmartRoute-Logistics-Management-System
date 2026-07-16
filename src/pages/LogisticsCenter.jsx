@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, {
+  useState,
+  useEffect,
+} from "react";
 import {
   MapContainer,
   TileLayer,
@@ -47,8 +50,30 @@ const initialVehicleLocations = [
 ];
 
 function LogisticsCenter() {
-    const [vehicleLocations] =
+    const [vehicleLocations, setVehicleLocations] =
         useState(initialVehicleLocations);
+
+        useEffect(() => {
+            const interval = setInterval(() => {
+                setVehicleLocations((prev) =>
+                prev.map((vehicle, index) => {
+                    if (index === 0) {
+                    return {
+                        ...vehicle,
+                        position: [
+                        vehicle.position[0] + 0.001,
+                        vehicle.position[1] + 0.001,
+                        ],
+                    };
+                    }
+
+                    return vehicle;
+                })
+                );
+            }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <div

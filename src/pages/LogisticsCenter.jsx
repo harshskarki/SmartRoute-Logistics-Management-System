@@ -57,17 +57,21 @@ function LogisticsCenter() {
             const interval = setInterval(() => {
                 setVehicleLocations((prev) =>
                 prev.map((vehicle, index) => {
-                    if (index === 0) {
-                    return {
+                    const movementPatterns = [
+                        [0.001, 0.001],
+                        [-0.001, 0.001],
+                        [0.001, -0.001],
+                        ];
+
+                        return {
                         ...vehicle,
                         position: [
-                        vehicle.position[0] + 0.001,
-                        vehicle.position[1] + 0.001,
+                            vehicle.position[0] +
+                            movementPatterns[index][0],
+                            vehicle.position[1] +
+                            movementPatterns[index][1],
                         ],
-                    };
-                    }
-
-                    return vehicle;
+                        };
                 })
                 );
             }, 3000);

@@ -77,6 +77,12 @@ const routeColors = [
   "#22c55e", // Delivered
 ];
 
+const vehicleAssignments = {
+  "TRUCK-001": "Route A",
+  "TRUCK-002": "Route B",
+  "TRUCK-003": "Route C",
+};
+
 function LogisticsCenter() {
     const [vehicleLocations, setVehicleLocations] =
         useState(initialVehicleLocations);
@@ -170,9 +176,13 @@ function LogisticsCenter() {
                     position={vehicle.position}
                 >
                     <Popup>
-                    🚚 {vehicle.id}
-                    <br />
-                    Status: {vehicleData?.status}
+                      🚚 {vehicle.id}
+                      <br />
+                      Status: {vehicleData?.status}
+                      <br />
+                      Assigned:
+                      {" "}
+                      {vehicleAssignments[vehicle.id]}
                     </Popup>
                 </Marker>
                 );
@@ -217,6 +227,15 @@ function LogisticsCenter() {
 
               <div>
                 Status: {vehicle.status}
+              </div>
+
+              <div
+                style={{
+                  color: "#94a3b8",
+                  fontSize: "14px",
+                }}
+              >
+                {vehicleAssignments[vehicle.id]}
               </div>
             </div>
           ))}

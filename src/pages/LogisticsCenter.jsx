@@ -35,11 +35,25 @@ const stations = [
   },
 ];
 
-const sampleRoute = [
-  [18.9894, 73.1175], // Panvel
-  [19.0247, 73.0398], // Belapur
-  [19.0330, 73.0297], // Nerul
-  [19.0771, 72.9986], // Vashi
+const deliveryRoutes = [
+  [
+    [18.9894, 73.1175],
+    [19.0247, 73.0398],
+    [19.0330, 73.0297],
+    [19.0771, 72.9986],
+  ],
+
+  [
+    [19.2183, 72.9781],
+    [19.0771, 72.9986],
+    [19.0330, 73.0297],
+  ],
+
+  [
+    [19.0247, 73.0398],
+    [19.0330, 73.0297],
+    [18.9894, 73.1175],
+  ],
 ];
 
 const initialVehicleLocations = [
@@ -158,13 +172,16 @@ function LogisticsCenter() {
                 );
             })}
             
-            <Polyline
-            positions={sampleRoute}
-            pathOptions={{
-                color: "#3b82f6",
-                weight: 5,
-            }}
-            />
+            {deliveryRoutes.map((route, index) => (
+              <Polyline
+                key={index}
+                positions={route}
+                pathOptions={{
+                  color: "#3b82f6",
+                  weight: 5,
+                }}
+              />
+            ))}
             
             </MapContainer>
         </div>

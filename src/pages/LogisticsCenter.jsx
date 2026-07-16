@@ -94,13 +94,20 @@ function LogisticsCenter() {
 
       <div
         style={{
-          marginTop: "20px",
-          borderRadius: "16px",
-          overflow: "hidden",
-          border: "1px solid #334155",
+            display: "flex",
+            gap: "20px",
+            marginTop: "20px",
         }}
-      >
-        <MapContainer
+        >
+        <div
+            style={{
+            flex: 3,
+            borderRadius: "16px",
+            overflow: "hidden",
+            border: "1px solid #334155",
+            }}
+        >
+            <MapContainer
             center={[19.0330, 73.0297]}
             zoom={11}
             style={{
@@ -125,25 +132,56 @@ function LogisticsCenter() {
             ))}
 
             {vehicleLocations.map((vehicle) => {
-            const vehicleData = vehicles.find(
+                const vehicleData = vehicles.find(
                 (v) => v.id === vehicle.id
-            );
+                );
 
-            return (
+                return (
                 <Marker
-                key={vehicle.id}
-                position={vehicle.position}
+                    key={vehicle.id}
+                    position={vehicle.position}
                 >
-                <Popup>
+                    <Popup>
                     🚚 {vehicle.id}
                     <br />
                     Status: {vehicleData?.status}
-                </Popup>
+                    </Popup>
                 </Marker>
-            );
+                );
             })}
+            </MapContainer>
+        </div>
 
-        </MapContainer>
+        <div
+            style={{
+            flex: 1,
+            background: "#1e293b",
+            padding: "20px",
+            borderRadius: "16px",
+            border: "1px solid #334155",
+            height: "fit-content",
+            }}
+        >
+            <h2>🚚 Fleet Tracking</h2>
+
+            {vehicles.map((vehicle) => (
+            <div
+                key={vehicle.id}
+                style={{
+                marginTop: "15px",
+                paddingBottom: "12px",
+                borderBottom:
+                    "1px solid #334155",
+                }}
+            >
+                <strong>{vehicle.id}</strong>
+
+                <div>
+                Status: {vehicle.status}
+                </div>
+            </div>
+            ))}
+        </div>
       </div>
     </div>
   );

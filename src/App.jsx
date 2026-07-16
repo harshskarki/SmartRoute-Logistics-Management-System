@@ -3,6 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Vehicles from "./pages/Vehicles";
 import Deliveries from "./pages/Deliveries";
+import LogisticsCenter from "./pages/LogisticsCenter";
 
 function App() {
   const navLinkClass = ({ isActive }) =>
@@ -42,6 +43,10 @@ function App() {
           >
             📦 Deliveries
           </NavLink>
+
+          <NavLink to="/logistics">
+            🗺 Logistics Center
+          </NavLink>
         </nav>
       </aside>
 
@@ -59,6 +64,10 @@ function App() {
           <Route
             path="/deliveries"
             element={<Deliveries />}
+          />
+          <Route
+            path="/logistics"
+            element={<LogisticsCenter />}
           />
         </Routes>
       </main>

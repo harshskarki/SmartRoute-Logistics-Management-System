@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -31,7 +31,7 @@ const stations = [
   },
 ];
 
-const vehicleLocations = [
+const initialVehicleLocations = [
   {
     id: "TRUCK-001",
     position: [19.0330, 73.0297],
@@ -47,6 +47,9 @@ const vehicleLocations = [
 ];
 
 function LogisticsCenter() {
+    const [vehicleLocations] =
+        useState(initialVehicleLocations);
+
   return (
     <div
       style={{

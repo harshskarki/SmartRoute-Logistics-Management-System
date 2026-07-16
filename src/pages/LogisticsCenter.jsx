@@ -83,7 +83,7 @@ const vehicleAssignments = {
   "TRUCK-003": "Route C",
 };
 
-const deliveryTimeline = [
+const initialTimeline = [
   {
     time: "09:00",
     event: "Delivery Created",
@@ -108,7 +108,10 @@ const deliveryTimeline = [
 
 function LogisticsCenter() {
     const [vehicleLocations, setVehicleLocations] =
-        useState(initialVehicleLocations);
+      useState(initialVehicleLocations);
+
+    const [timeline, setTimeline] =
+      useState(initialTimeline);
 
         useEffect(() => {
             const interval = setInterval(() => {
@@ -133,8 +136,36 @@ function LogisticsCenter() {
                 );
             }, 3000);
 
-  return () => clearInterval(interval);
-}, []);
+          return () => clearInterval(interval);
+        }, []);
+
+        useEffect(() => {
+          const interval = setInterval(() => {
+            setTimeline((prev) => {
+              if (prev.length >= 7)
+                return prev;
+
+              const nextEvents = [
+                {
+                  time: "12:30",
+                  event: "Customer Notified",
+                },
+                {
+                  time: "13:00",
+                  event: "Delivery Confirmed",
+                },
+              ];
+
+              return [
+                ...prev,
+                nextEvents[prev.length - 5],
+              ];
+            });
+          }, 8000);
+
+          return () =>
+            clearInterval(interval);
+        }, []);
 
   return (
     <div
@@ -280,22 +311,35 @@ function LogisticsCenter() {
             >
               <h3>📦 Delivery Timeline</h3>
 
-              {deliveryTimeline.map(
+              {timeline.map(
                 (item, index) => (
                   <div
                     key={index}
                     style={{
                       marginTop: "12px",
-                      paddingLeft: "10px",
+                      padding: "10px",
                       borderLeft:
-                        "2px solid #3b82f6",
+                        "3px solid #3b82f6",
+                      background: "#0f172a",
+                      borderRadius: "8px",
                     }}
                   >
-                    <strong>
+                    <div
+                      style={{
+                        color: "#60a5fa",
+                        fontWeight: "bold",
+                        fontSize: "14px",
+                      }}
+                    >
                       {item.time}
-                    </strong>
+                    </div>
 
-                    <div>
+                    <div
+                      style={{
+                        marginTop: "4px",
+                        color: "#e2e8f0",
+                      }}
+                    >
                       {item.event}
                     </div>
                   </div>

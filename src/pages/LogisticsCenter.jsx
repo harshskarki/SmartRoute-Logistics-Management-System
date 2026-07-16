@@ -7,6 +7,7 @@ import {
   TileLayer,
   Marker,
   Popup,
+  Polyline,
 } from "react-leaflet";
 
 import { vehicles } from "../data/mockData";
@@ -32,6 +33,13 @@ const stations = [
     name: "Thane",
     position: [19.2183, 72.9781],
   },
+];
+
+const sampleRoute = [
+  [18.9894, 73.1175], // Panvel
+  [19.0247, 73.0398], // Belapur
+  [19.0330, 73.0297], // Nerul
+  [19.0771, 72.9986], // Vashi
 ];
 
 const initialVehicleLocations = [
@@ -149,6 +157,15 @@ function LogisticsCenter() {
                 </Marker>
                 );
             })}
+            
+            <Polyline
+            positions={sampleRoute}
+            pathOptions={{
+                color: "#3b82f6",
+                weight: 5,
+            }}
+            />
+            
             </MapContainer>
         </div>
 

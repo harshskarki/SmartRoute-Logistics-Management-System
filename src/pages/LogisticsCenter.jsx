@@ -86,22 +86,27 @@ const vehicleAssignments = {
 const initialTimeline = [
   {
     time: "09:00",
+    route: "Route A",
     event: "Delivery Created",
   },
   {
     time: "09:15",
+    route: "Route A",
     event: "Vehicle Assigned",
   },
   {
     time: "10:00",
+    route: "Route A",
     event: "In Transit",
   },
   {
     time: "11:30",
+    route: "Route A",
     event: "Reached Destination Hub",
   },
   {
     time: "12:00",
+    route: "Route A",
     event: "Delivered",
   },
 ];
@@ -148,10 +153,12 @@ function LogisticsCenter() {
               const nextEvents = [
                 {
                   time: "12:30",
+                  route: "Route A",
                   event: "Customer Notified",
                 },
                 {
                   time: "13:00",
+                  route: "Route A",
                   event: "Delivery Confirmed",
                 },
               ];
@@ -332,6 +339,15 @@ function LogisticsCenter() {
                       }}
                     >
                       {item.time}
+                    </div>
+
+                    <div
+                      style={{
+                        color: "#fbbf24",
+                        fontSize: "13px",
+                      }}
+                    >
+                      {item.route}
                     </div>
 
                     <div

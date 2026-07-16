@@ -6,6 +6,8 @@ import {
   Popup,
 } from "react-leaflet";
 
+import { vehicles } from "../data/mockData";
+
 const stations = [
   {
     name: "Panvel",
@@ -26,6 +28,21 @@ const stations = [
   {
     name: "Thane",
     position: [19.2183, 72.9781],
+  },
+];
+
+const vehicleLocations = [
+  {
+    id: "TRUCK-001",
+    position: [19.0330, 73.0297],
+  },
+  {
+    id: "TRUCK-002",
+    position: [19.0771, 72.9986],
+  },
+  {
+    id: "TRUCK-003",
+    position: [18.9894, 73.1175],
   },
 ];
 
@@ -74,6 +91,26 @@ function LogisticsCenter() {
                 </Popup>
                 </Marker>
             ))}
+
+            {vehicleLocations.map((vehicle) => {
+            const vehicleData = vehicles.find(
+                (v) => v.id === vehicle.id
+            );
+
+            return (
+                <Marker
+                key={vehicle.id}
+                position={vehicle.position}
+                >
+                <Popup>
+                    🚚 {vehicle.id}
+                    <br />
+                    Status: {vehicleData?.status}
+                </Popup>
+                </Marker>
+            );
+            })}
+
         </MapContainer>
       </div>
     </div>

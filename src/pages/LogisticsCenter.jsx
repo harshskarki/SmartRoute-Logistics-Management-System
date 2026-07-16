@@ -71,6 +71,12 @@ const initialVehicleLocations = [
   },
 ];
 
+const routeColors = [
+  "#f59e0b", // Pending
+  "#3b82f6", // In Transit
+  "#22c55e", // Delivered
+];
+
 function LogisticsCenter() {
     const [vehicleLocations, setVehicleLocations] =
         useState(initialVehicleLocations);
@@ -177,7 +183,7 @@ function LogisticsCenter() {
                 key={index}
                 positions={route}
                 pathOptions={{
-                  color: "#3b82f6",
+                  color: routeColors[index],
                   weight: 5,
                 }}
               />
@@ -187,34 +193,45 @@ function LogisticsCenter() {
         </div>
 
         <div
-            style={{
+          style={{
             flex: 1,
             background: "#1e293b",
             padding: "20px",
             borderRadius: "16px",
             border: "1px solid #334155",
             height: "fit-content",
-            }}
+          }}
         >
-            <h2>🚚 Fleet Tracking</h2>
+          <h2>🚚 Fleet Tracking</h2>
 
-            {vehicles.map((vehicle) => (
+          {vehicles.map((vehicle) => (
             <div
-                key={vehicle.id}
-                style={{
+              key={vehicle.id}
+              style={{
                 marginTop: "15px",
                 paddingBottom: "12px",
-                borderBottom:
-                    "1px solid #334155",
-                }}
+                borderBottom: "1px solid #334155",
+              }}
             >
-                <strong>{vehicle.id}</strong>
+              <strong>{vehicle.id}</strong>
 
-                <div>
+              <div>
                 Status: {vehicle.status}
-                </div>
+              </div>
             </div>
-            ))}
+          ))}
+
+          <div
+            style={{
+              marginTop: "20px",
+            }}
+          >
+            <h3>📦 Route Status</h3>
+
+            <p>🟠 Pending</p>
+            <p>🔵 In Transit</p>
+            <p>🟢 Delivered</p>
+          </div>
         </div>
       </div>
     </div>

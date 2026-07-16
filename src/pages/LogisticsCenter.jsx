@@ -83,6 +83,29 @@ const vehicleAssignments = {
   "TRUCK-003": "Route C",
 };
 
+const deliveryTimeline = [
+  {
+    time: "09:00",
+    event: "Delivery Created",
+  },
+  {
+    time: "09:15",
+    event: "Vehicle Assigned",
+  },
+  {
+    time: "10:00",
+    event: "In Transit",
+  },
+  {
+    time: "11:30",
+    event: "Reached Destination Hub",
+  },
+  {
+    time: "12:00",
+    event: "Delivered",
+  },
+];
+
 function LogisticsCenter() {
     const [vehicleLocations, setVehicleLocations] =
         useState(initialVehicleLocations);
@@ -250,6 +273,35 @@ function LogisticsCenter() {
             <p>🟠 Pending</p>
             <p>🔵 In Transit</p>
             <p>🟢 Delivered</p>
+            <div
+              style={{
+                marginTop: "25px",
+              }}
+            >
+              <h3>📦 Delivery Timeline</h3>
+
+              {deliveryTimeline.map(
+                (item, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      marginTop: "12px",
+                      paddingLeft: "10px",
+                      borderLeft:
+                        "2px solid #3b82f6",
+                    }}
+                  >
+                    <strong>
+                      {item.time}
+                    </strong>
+
+                    <div>
+                      {item.event}
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>

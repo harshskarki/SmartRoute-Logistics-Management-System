@@ -10,6 +10,7 @@ import {
   Polyline,
 } from "react-leaflet";
 
+import { routeGraph } from "../data/routeGraph";
 import { vehicles } from "../data/mockData";
 
 const stations = [
@@ -130,6 +131,9 @@ const initialAlerts = [
 ];
 
 function LogisticsCenter() {
+
+    console.log(routeGraph);
+
     const [vehicleLocations, setVehicleLocations] =
       useState(initialVehicleLocations);
 

@@ -12,6 +12,7 @@ import {
 
 import { vehicles } from "../data/mockData";
 import { routeGraph } from "../data/routeGraph";
+const trafficMultiplier = 1.3;
 import { dijkstra } from "../utils/dijkstra";
 
 const stations = [
@@ -133,13 +134,29 @@ const initialAlerts = [
 
 function LogisticsCenter() {
 
+    const dynamicGraph = {
+      ...routeGraph,
+
+      Nerul: {
+        ...routeGraph.Nerul,
+
+        Vashi: Math.round(
+          routeGraph.Nerul.Vashi *
+            trafficMultiplier
+        ),
+      },
+    };
+
     const routeData =
       dijkstra(
-        routeGraph,
+        dynamicGraph,
         "Panvel"
       );
 
-    console.log(routeData);
+    console.log(
+      "Dynamic Route Data:",
+      routeData
+    );
 
     const [vehicleLocations, setVehicleLocations] =
       useState(initialVehicleLocations);

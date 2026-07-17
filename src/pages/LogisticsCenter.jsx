@@ -111,12 +111,33 @@ const initialTimeline = [
   },
 ];
 
+const initialAlerts = [
+  {
+    severity: "warning",
+    message:
+      "Heavy traffic detected near Vashi",
+  },
+  {
+    severity: "critical",
+    message:
+      "TRUCK-003 requires maintenance",
+  },
+  {
+    severity: "info",
+    message:
+      "Delivery DLV-1004 completed",
+  },
+];
+
 function LogisticsCenter() {
     const [vehicleLocations, setVehicleLocations] =
       useState(initialVehicleLocations);
 
     const [timeline, setTimeline] =
       useState(initialTimeline);
+
+    const [alerts, setAlerts] =
+      useState(initialAlerts);
 
         useEffect(() => {
             const interval = setInterval(() => {
@@ -311,6 +332,7 @@ function LogisticsCenter() {
             <p>🟠 Pending</p>
             <p>🔵 In Transit</p>
             <p>🟢 Delivered</p>
+
             <div
               style={{
                 marginTop: "25px",
@@ -362,6 +384,34 @@ function LogisticsCenter() {
                 )
               )}
             </div>
+
+            <div
+              style={{
+                marginTop: "25px",
+              }}
+            >
+              <h3>🚨 Live Alerts</h3>
+
+              {alerts.map((alert, index) => (
+                <div
+                  key={index}
+                  style={{
+                    marginTop: "10px",
+                    padding: "10px",
+                    borderRadius: "8px",
+                    background:
+                      alert.severity === "critical"
+                        ? "#7f1d1d"
+                        : alert.severity === "warning"
+                        ? "#78350f"
+                        : "#0f172a",
+                  }}
+                >
+                  {alert.message}
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>

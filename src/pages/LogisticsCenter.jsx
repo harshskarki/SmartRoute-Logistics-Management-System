@@ -407,7 +407,23 @@ function LogisticsCenter() {
                         : "#0f172a",
                   }}
                 >
-                  {alert.message}
+                  <>
+                    <strong>
+                      {alert.severity === "critical"
+                        ? "🔴 CRITICAL"
+                        : alert.severity === "warning"
+                        ? "🟡 WARNING"
+                        : "🟢 INFO"}
+                    </strong>
+
+                    <div
+                      style={{
+                        marginTop: "5px",
+                      }}
+                    >
+                      {alert.message}
+                    </div>
+                  </>
                 </div>
               ))}
             </div>

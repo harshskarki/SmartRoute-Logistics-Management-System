@@ -195,6 +195,35 @@ function LogisticsCenter() {
             clearInterval(interval);
         }, []);
 
+        useEffect(() => {
+          const interval = setInterval(() => {
+            setAlerts((prev) => {
+              if (prev.length >= 5)
+                return prev;
+
+              const newAlerts = [
+                {
+                  severity: "warning",
+                  message:
+                    "Traffic congestion detected near Nerul",
+                },
+                {
+                  severity: "info",
+                  message:
+                    "TRUCK-001 reached destination hub",
+                },
+              ];
+
+              return [
+                ...prev,
+                newAlerts[prev.length - 3],
+              ];
+            });
+          }, 10000);
+
+          return () => clearInterval(interval);
+        }, []);
+
   return (
     <div
       style={{

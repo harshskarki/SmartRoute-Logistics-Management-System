@@ -10,8 +10,9 @@ import {
   Polyline,
 } from "react-leaflet";
 
-import { routeGraph } from "../data/routeGraph";
 import { vehicles } from "../data/mockData";
+import { routeGraph } from "../data/routeGraph";
+import { dijkstra } from "../utils/dijkstra";
 
 const stations = [
   {
@@ -132,7 +133,15 @@ const initialAlerts = [
 
 function LogisticsCenter() {
 
-    console.log(routeGraph);
+    const shortestDistances =
+      dijkstra(
+        routeGraph,
+        "Panvel"
+      );
+
+    console.log(
+      shortestDistances
+    );
 
     const [vehicleLocations, setVehicleLocations] =
       useState(initialVehicleLocations);

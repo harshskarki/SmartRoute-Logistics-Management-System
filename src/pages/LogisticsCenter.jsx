@@ -139,6 +139,21 @@ function LogisticsCenter() {
     const [alerts, setAlerts] =
       useState(initialAlerts);
 
+    const criticalAlerts = alerts.filter(
+      (alert) =>
+        alert.severity === "critical"
+    ).length;
+
+    const warningAlerts = alerts.filter(
+      (alert) =>
+        alert.severity === "warning"
+    ).length;
+
+    const infoAlerts = alerts.filter(
+      (alert) =>
+        alert.severity === "info"
+    ).length;
+
         useEffect(() => {
             const interval = setInterval(() => {
                 setVehicleLocations((prev) =>
@@ -420,6 +435,46 @@ function LogisticsCenter() {
               }}
             >
               <h3>🚨 Live Alerts</h3>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "10px",
+                  marginTop: "15px",
+                  marginBottom: "15px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <div
+                  style={{
+                    background: "#7f1d1d",
+                    padding: "8px 12px",
+                    borderRadius: "8px",
+                  }}
+                >
+                  🔴 {criticalAlerts}
+                </div>
+
+                <div
+                  style={{
+                    background: "#78350f",
+                    padding: "8px 12px",
+                    borderRadius: "8px",
+                  }}
+                >
+                  🟡 {warningAlerts}
+                </div>
+
+                <div
+                  style={{
+                    background: "#0f172a",
+                    padding: "8px 12px",
+                    borderRadius: "8px",
+                    border: "1px solid #334155",
+                  }}
+                >
+                  🟢 {infoAlerts}
+                </div>
+              </div>
 
               {alerts.map((alert, index) => (
                 <div

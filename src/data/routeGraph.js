@@ -10,12 +10,12 @@ export const routeGraph = {
 
   Nerul: {
     Belapur: 5,
-    Vashi: 7,
+    Vashi: 12,
     Thane: 12,
   },
 
   Vashi: {
-    Nerul: 7,
+    Nerul: 12,
     Thane: 10,
   },
 

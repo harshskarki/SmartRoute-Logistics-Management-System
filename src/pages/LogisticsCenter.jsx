@@ -154,16 +154,6 @@ function LogisticsCenter() {
         "Panvel"
       );
 
-    console.log(
-      "Dynamic Route Data:",
-      routeData
-    );
-
-    console.log(
-      "A* Heuristics:",
-      heuristic
-    );
-
     const [vehicleLocations, setVehicleLocations] =
       useState(initialVehicleLocations);
 

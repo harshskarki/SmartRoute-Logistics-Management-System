@@ -14,6 +14,7 @@ import { vehicles } from "../data/mockData";
 import { routeGraph } from "../data/routeGraph";
 const trafficMultiplier = 1.3;
 import { dijkstra } from "../utils/dijkstra";
+import { heuristic } from "../utils/heuristics";
 
 const stations = [
   {
@@ -156,6 +157,11 @@ function LogisticsCenter() {
     console.log(
       "Dynamic Route Data:",
       routeData
+    );
+
+    console.log(
+      "A* Heuristics:",
+      heuristic
     );
 
     const [vehicleLocations, setVehicleLocations] =

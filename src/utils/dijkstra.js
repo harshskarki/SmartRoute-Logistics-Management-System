@@ -1,10 +1,12 @@
 export function dijkstra(graph, start) {
   const distances = {};
   const visited = {};
+  const previous = {};
 
   for (const node in graph) {
     distances[node] = Infinity;
     visited[node] = false;
+    previous[node] = null;
   }
 
   distances[start] = 0;
@@ -33,12 +35,18 @@ export function dijkstra(graph, start) {
       if (
         distance <
         distances[neighbor]
-      ) {
+        ) {
         distances[neighbor] =
-          distance;
-      }
+            distance;
+
+        previous[neighbor] =
+            closestNode;
+        }
     }
   }
 
-  return distances;
+  return {
+    distances,
+    previous,
+    };
 }

@@ -133,15 +133,13 @@ const initialAlerts = [
 
 function LogisticsCenter() {
 
-    const shortestDistances =
+    const routeData =
       dijkstra(
         routeGraph,
         "Panvel"
       );
 
-    console.log(
-      shortestDistances
-    );
+    console.log(routeData);
 
     const [vehicleLocations, setVehicleLocations] =
       useState(initialVehicleLocations);

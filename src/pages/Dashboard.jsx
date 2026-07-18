@@ -159,16 +159,19 @@ const fleetInsight =
     primary: "#3b82f6",
   };
 
-  const cardStyle = {
-    background: colors.card,
-    border: `1px solid ${colors.border}`,
-    padding: "20px",
-    borderRadius: "12px",
-    flex: "1 1 240px",
-    minWidth: "240px",
-    cursor: "pointer",
-    transition: "all 0.3s ease",
-  };
+  const kpiCardStyle = {
+  background: "rgba(30,41,59,0.9)",
+  backdropFilter: "blur(12px)",
+  border: "1px solid rgba(255,255,255,0.08)",
+  borderRadius: "20px",
+  padding: "24px",
+  minWidth: "260px",
+  flex: "1 1 260px",
+  boxShadow:
+    "0 10px 30px rgba(0,0,0,0.35)",
+  transition: "all 0.3s ease",
+  cursor: "pointer",
+};
 
   return (
     <div>
@@ -197,37 +200,71 @@ const fleetInsight =
         }}
       >
         <div
-          style={cardStyle}
+          style={kpiCardStyle}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform =
-              "translateY(-4px)";
-            e.currentTarget.style.boxShadow =
-              "0 10px 25px rgba(0,0,0,0.35)";
+              "translateY(-8px)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform =
               "translateY(0)";
-            e.currentTarget.style.boxShadow =
-              "none";
           }}
         >
-          <h3
-  style={{
-    color: colors.textMuted,
-    fontWeight: "500",
-  }}
->
-  🚚 Active Vehicles
-</h3>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <div
+              style={{
+                width: "55px",
+                height: "55px",
+                borderRadius: "14px",
+                background:
+                  "rgba(34,197,94,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+              }}
+            >
+              🚚
+            </div>
+
+            <span
+              style={{
+                background:
+                  "rgba(34,197,94,0.15)",
+                color: "#22c55e",
+                padding: "6px 12px",
+                borderRadius: "999px",
+                fontSize: "12px",
+              }}
+            >
+              LIVE
+            </span>
+          </div>
+
+          <div
+            style={{
+              color: colors.textMuted,
+              fontSize: "14px",
+            }}
+          >
+            Active Vehicles
+          </div>
 
           <h2
-  style={{
-    fontSize: "clamp(32px, 5vw, 42px)",
-    marginTop: "10px",
-  }}
->
-  {activeVehicles}
-</h2>
+            style={{
+              fontSize: "42px",
+              marginTop: "10px",
+            }}
+          >
+            {activeVehicles}
+          </h2>
         </div>
 
         <div

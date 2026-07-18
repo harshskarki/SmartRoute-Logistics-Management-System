@@ -278,7 +278,21 @@ const fleetInsight =
           </h2>
         </div>
 
-        <div style={kpiCardStyle}>
+        <div
+          style={kpiCardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-8px)";
+            e.currentTarget.style.boxShadow =
+              "0 15px 35px rgba(0,0,0,0.35)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "none";
+          }}
+        >
           <div
             style={{
               display: "flex",

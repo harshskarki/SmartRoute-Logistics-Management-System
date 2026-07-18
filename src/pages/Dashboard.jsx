@@ -278,108 +278,198 @@ const fleetInsight =
           </h2>
         </div>
 
-        <div
-          style={cardStyle}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(-4px)";
-            e.currentTarget.style.boxShadow =
-              "0 10px 25px rgba(0,0,0,0.35)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(0)";
-            e.currentTarget.style.boxShadow =
-              "none";
-          }}
-        >
-          <h3
+        <div style={kpiCardStyle}>
+          <div
             style={{
-              color: colors.textMuted,
-              fontWeight: "500",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
             }}
           >
-  📦 Pending Deliveries
-</h3>
-
-          <h2
-  style={{
-    fontSize: "clamp(32px, 5vw, 42px)",
-    marginTop: "10px",
-  }}
->
-  {pendingDeliveries}
-</h2>
-        </div>
-
-        <div
-          style={cardStyle}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(-4px)";
-            e.currentTarget.style.boxShadow =
-              "0 10px 25px rgba(0,0,0,0.35)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(0)";
-            e.currentTarget.style.boxShadow =
-              "none";
-          }}
-        >
-          <h3
-            style={{
-              color: colors.textMuted,
-              fontWeight: "500",
-            }}
-          >
-  🚛 Active Deliveries
-</h3>
-
-          <h2
-  style={{
-    fontSize: "clamp(32px, 5vw, 42px)",
-    marginTop: "10px",
-  }}
->
-  {activeDeliveries}
-</h2>
-        </div>
-
-        <div
-          style={cardStyle}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(-4px)";
-            e.currentTarget.style.boxShadow =
-              "0 10px 25px rgba(0,0,0,0.35)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform =
-              "translateY(0)";
-            e.currentTarget.style.boxShadow =
-              "none";
-          }}
-        >
-          <h3
-            style={{
-              color: colors.textMuted,
-              fontWeight: "500",
-            }}
-          >
-  ✅ Delivered
-</h3>
-
-          <h2
-  style={{
-    fontSize: "clamp(32px, 5vw, 42px)",
-    marginTop: "10px",
-  }}
->
-  {completedDeliveries}
-</h2>
-        </div>
+            <div
+              style={{
+                width: "55px",
+                height: "55px",
+                borderRadius: "14px",
+                background: "rgba(245,158,11,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+              }}
+            >
+              📦
             </div>
+
+            <span
+              style={{
+                background: "rgba(245,158,11,0.15)",
+                color: "#f59e0b",
+                padding: "6px 12px",
+                borderRadius: "999px",
+                fontSize: "12px",
+              }}
+            >
+              PENDING
+            </span>
+          </div>
+
+          <div
+            style={{
+              color: colors.textMuted,
+              fontSize: "14px",
+            }}
+          >
+            Pending Deliveries
+          </div>
+
+          <h2
+            style={{
+              fontSize: "42px",
+              marginTop: "10px",
+            }}
+          >
+            {pendingDeliveries}
+          </h2>
+        </div>
+
+        <div
+          style={kpiCardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-8px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <div
+              style={{
+                width: "55px",
+                height: "55px",
+                borderRadius: "14px",
+                background:
+                  "rgba(59,130,246,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+              }}
+            >
+              🚛
+            </div>
+
+            <span
+              style={{
+                background:
+                  "rgba(59,130,246,0.15)",
+                color: "#3b82f6",
+                padding: "6px 12px",
+                borderRadius: "999px",
+                fontSize: "12px",
+              }}
+            >
+              ACTIVE
+            </span>
+          </div>
+
+          <div
+            style={{
+              color: colors.textMuted,
+              fontSize: "14px",
+            }}
+          >
+            Active Deliveries
+          </div>
+
+          <h2
+            style={{
+              fontSize: "42px",
+              marginTop: "10px",
+            }}
+          >
+            {activeDeliveries}
+          </h2>
+        </div>
+
+        <div
+          style={kpiCardStyle}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(-8px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform =
+              "translateY(0)";
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "20px",
+            }}
+          >
+            <div
+              style={{
+                width: "55px",
+                height: "55px",
+                borderRadius: "14px",
+                background:
+                  "rgba(34,197,94,0.15)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize: "24px",
+              }}
+            >
+              ✅
+            </div>
+
+            <span
+              style={{
+                background:
+                  "rgba(34,197,94,0.15)",
+                color: "#22c55e",
+                padding: "6px 12px",
+                borderRadius: "999px",
+                fontSize: "12px",
+              }}
+            >
+              COMPLETED
+            </span>
+          </div>
+
+          <div
+            style={{
+              color: colors.textMuted,
+              fontSize: "14px",
+            }}
+          >
+            Delivered
+          </div>
+
+          <h2
+            style={{
+              fontSize: "42px",
+              marginTop: "10px",
+            }}
+          >
+            {completedDeliveries}
+          </h2>
+        </div>
+      </div>
 
       <div
         style={{

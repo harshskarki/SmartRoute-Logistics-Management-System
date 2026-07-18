@@ -159,6 +159,17 @@ const fleetInsight =
     primary: "#3b82f6",
   };
 
+  const cardStyle = {
+    background: colors.card,
+    border: `1px solid ${colors.border}`,
+    padding: "20px",
+    borderRadius: "16px",
+    flex: "1 1 240px",
+    minWidth: "240px",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+  };
+
   const kpiCardStyle = {
   background: "rgba(30,41,59,0.9)",
   backdropFilter: "blur(12px)",

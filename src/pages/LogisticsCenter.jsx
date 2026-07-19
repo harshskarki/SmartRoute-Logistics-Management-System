@@ -569,6 +569,111 @@ function LogisticsCenter() {
                 }}
               />
             ))}
+
+            <div
+              style={{
+                position: "absolute",
+                top: "20px",
+                right: "20px",
+
+                zIndex: 1000,
+
+                background:
+                  "rgba(15,23,42,0.92)",
+
+                backdropFilter: "blur(16px)",
+
+                border:
+                  "1px solid rgba(255,255,255,0.08)",
+
+                borderRadius: "16px",
+
+                padding: "16px",
+
+                minWidth: "220px",
+
+                boxShadow:
+                  "0 10px 30px rgba(0,0,0,0.35)",
+              }}
+            >
+              <h4
+                style={{
+                  marginBottom: "15px",
+                }}
+              >
+                🗺 Route Legend
+              </h4>
+
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "18px",
+                    height: "4px",
+                    background: "#f59e0b",
+                    borderRadius: "10px",
+                  }}
+                />
+                <span>Pending Route</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "18px",
+                    height: "4px",
+                    background: "#3b82f6",
+                    borderRadius: "10px",
+                  }}
+                />
+                <span>In Transit Route</span>
+              </div>
+
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  marginBottom: "10px",
+                }}
+              >
+                <div
+                  style={{
+                    width: "18px",
+                    height: "4px",
+                    background: "#22c55e",
+                    borderRadius: "10px",
+                  }}
+                />
+                <span>Delivered Route</span>
+              </div>
+
+              <div
+                style={{
+                  marginTop: "15px",
+                  paddingTop: "15px",
+                  borderTop:
+                    "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                📍 Station Hub
+                <br />
+                🚚 Vehicle Position
+              </div>
+            </div>
             
             </MapContainer>
         </div>

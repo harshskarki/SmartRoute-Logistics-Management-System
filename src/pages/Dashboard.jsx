@@ -104,6 +104,11 @@ const totalVehicles =
       3
   );
 
+  const activeVehicleTrend = "+12%";
+  const pendingDeliveryTrend = "-5%";
+  const activeDeliveryTrend = "+8%";
+  const deliveredTrend = "+15%";
+
   const deliveryInsight =
     deliverySuccessRate >= 80
       ? "✅ Delivery performance is excellent"
@@ -272,10 +277,21 @@ const fleetInsight =
             style={{
               fontSize: "42px",
               marginTop: "10px",
+              marginBottom: "8px",
             }}
           >
             {activeVehicles}
           </h2>
+
+          <div
+            style={{
+              color: "#22c55e",
+              fontSize: "13px",
+              fontWeight: "600",
+            }}
+          >
+            ▲ {activeVehicleTrend} vs last week
+          </div>
         </div>
 
         <div
@@ -342,10 +358,21 @@ const fleetInsight =
             style={{
               fontSize: "42px",
               marginTop: "10px",
+              marginBottom: "8px",
             }}
           >
             {pendingDeliveries}
           </h2>
+
+          <div
+            style={{
+              color: "#ef4444",
+              fontSize: "13px",
+              fontWeight: "600",
+            }}
+          >
+            ▼ {pendingDeliveryTrend} vs yesterday
+          </div>
         </div>
 
         <div
@@ -410,10 +437,21 @@ const fleetInsight =
             style={{
               fontSize: "42px",
               marginTop: "10px",
+              marginBottom: "8px",
             }}
           >
             {activeDeliveries}
           </h2>
+
+          <div
+            style={{
+              color: "#3b82f6",
+              fontSize: "13px",
+              fontWeight: "600",
+            }}
+          >
+            ▲ {activeDeliveryTrend} in transit
+          </div>
         </div>
 
         <div
@@ -478,10 +516,21 @@ const fleetInsight =
             style={{
               fontSize: "42px",
               marginTop: "10px",
+              marginBottom: "8px",
             }}
           >
             {completedDeliveries}
           </h2>
+
+          <div
+            style={{
+              color: "#22c55e",
+              fontSize: "13px",
+              fontWeight: "600",
+            }}
+          >
+            ▲ {deliveredTrend} completed
+          </div>
         </div>
       </div>
 

@@ -66,7 +66,7 @@ function App() {
             element={<Deliveries />}
           />
           <Route
-            path="/logistics"
+            path="/logistics-center"
             element={<LogisticsCenter />}
           />
         </Routes>

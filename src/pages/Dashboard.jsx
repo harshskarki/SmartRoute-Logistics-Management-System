@@ -813,34 +813,110 @@ const fleetInsight =
 </div>
 
       <div
-  style={{
-    marginTop: "30px",
-    padding: "20px",
-    borderRadius: "12px",
-    background: colors.card,
-    border: `1px solid ${colors.border}`,
-  }}
->
+        style={{
+          marginTop: "30px",
+        }}
+      >
+        <h2
+          style={{
+            marginBottom: "20px",
+          }}
+        >
+          🧠 Smart Insights
+        </h2>
 
-  <h2>🧠 Smart Insights</h2>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "20px",
+          }}
+        >
+          <div
+            style={{
+              ...cardStyle,
+              borderLeft:
+                "4px solid #22c55e",
+            }}
+          >
+            <h4>
+              📦 Delivery Performance
+            </h4>
 
-  <p style={{ marginTop: "15px" }}>
-    {deliveryInsight}
-  </p>
+            <p
+              style={{
+                marginTop: "12px",
+                color: colors.textMuted,
+              }}
+            >
+              {deliveryInsight}
+            </p>
+          </div>
 
-  <p>
-    {fleetInsight}
-  </p>
+          <div
+            style={{
+              ...cardStyle,
+              borderLeft:
+                "4px solid #3b82f6",
+            }}
+          >
+            <h4>
+              🚚 Fleet Utilization
+            </h4>
 
-  <p>
-  {efficiencyInsight}
-</p>
+            <p
+              style={{
+                marginTop: "12px",
+                color: colors.textMuted,
+              }}
+            >
+              {fleetInsight}
+            </p>
+          </div>
 
-<p>
-  {etaInsight}
-</p>
+          <div
+            style={{
+              ...cardStyle,
+              borderLeft:
+                "4px solid #f59e0b",
+            }}
+          >
+            <h4>
+              ⚡ Efficiency
+            </h4>
 
-</div>
+            <p
+              style={{
+                marginTop: "12px",
+                color: colors.textMuted,
+              }}
+            >
+              {efficiencyInsight}
+            </p>
+          </div>
+
+          <div
+            style={{
+              ...cardStyle,
+              borderLeft:
+                "4px solid #8b5cf6",
+            }}
+          >
+            <h4>
+              ⏱ ETA Analysis
+            </h4>
+
+            <p
+              style={{
+                marginTop: "12px",
+                color: colors.textMuted,
+              }}
+            >
+              {etaInsight}
+            </p>
+          </div>
+        </div>
+      </div>
 
           <div
   style={{

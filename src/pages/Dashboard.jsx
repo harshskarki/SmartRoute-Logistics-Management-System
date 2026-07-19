@@ -471,6 +471,11 @@ const fleetInsight =
   }}
 >
   <button
+    onClick={() =>
+      window.location.href =
+        "/deliveries"
+    }
+
     style={{
       background: "#3b82f6",
       color: "white",
@@ -485,6 +490,10 @@ const fleetInsight =
   </button>
 
   <button
+    onClick={() =>
+      window.location.href =
+        "/vehicles"
+    }
     style={{
       background: "#22c55e",
       color: "white",
@@ -499,6 +508,10 @@ const fleetInsight =
   </button>
 
   <button
+    onClick={() =>
+      window.location.href =
+        "/logistics-center"
+    }
     style={{
       background: colors.glass,
       border:
@@ -514,6 +527,11 @@ const fleetInsight =
   </button>
 
   <button
+    onClick={() =>
+      alert(
+        "Report generation coming in Phase 11"
+      )
+    }
     style={{
       background: colors.glass,
       border:

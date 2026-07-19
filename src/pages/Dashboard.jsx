@@ -961,13 +961,13 @@ const fleetInsight =
       >
 
         <div
-  style={{
-    display: "flex",
-    gap: "20px",
-    flexWrap: "wrap",
-    marginTop: "30px",
-  }}
->
+          style={{
+            display: "flex",
+            gap: "20px",
+            flexWrap: "wrap",
+            marginTop: "30px",
+          }}
+        >
   <div
     style={cardStyle}
     onMouseEnter={(e) => {

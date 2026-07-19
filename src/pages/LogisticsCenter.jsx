@@ -363,6 +363,138 @@ function LogisticsCenter() {
         </div>
       </div>
 
+{/* Live Stats Above Map */}
+<div
+  style={{
+    display: "flex",
+    gap: "16px",
+    flexWrap: "wrap",
+    marginTop: "25px",
+    marginBottom: "20px",
+  }}
+>
+  <div
+    style={{
+      flex: "1",
+      minWidth: "180px",
+      background: "rgba(59,130,246,0.12)",
+      border: "1px solid rgba(59,130,246,0.25)",
+      backdropFilter: "blur(12px)",
+      borderRadius: "16px",
+      padding: "18px",
+    }}
+  >
+    <div
+      style={{
+        color: "#94a3b8",
+        fontSize: "13px",
+      }}
+    >
+      🚚 Active Vehicles
+    </div>
+
+    <h2
+      style={{
+        marginTop: "10px",
+      }}
+    >
+      {
+        vehicles.filter(
+          (v) => v.status === "Active"
+        ).length
+      }
+    </h2>
+  </div>
+
+  <div
+    style={{
+      flex: "1",
+      minWidth: "180px",
+      background: "rgba(34,197,94,0.12)",
+      border: "1px solid rgba(34,197,94,0.25)",
+      backdropFilter: "blur(12px)",
+      borderRadius: "16px",
+      padding: "18px",
+    }}
+  >
+    <div
+      style={{
+        color: "#94a3b8",
+        fontSize: "13px",
+      }}
+    >
+      📦 Active Routes
+    </div>
+
+    <h2
+      style={{
+        marginTop: "10px",
+      }}
+    >
+      {deliveryRoutes.length}
+    </h2>
+  </div>
+
+  <div
+    style={{
+      flex: "1",
+      minWidth: "180px",
+      background: "rgba(245,158,11,0.12)",
+      border: "1px solid rgba(245,158,11,0.25)",
+      backdropFilter: "blur(12px)",
+      borderRadius: "16px",
+      padding: "18px",
+    }}
+  >
+    <div
+      style={{
+        color: "#94a3b8",
+        fontSize: "13px",
+      }}
+    >
+      🚨 Live Alerts
+    </div>
+
+    <h2
+      style={{
+        marginTop: "10px",
+      }}
+    >
+      {alerts.length}
+    </h2>
+  </div>
+
+  <div
+    style={{
+      flex: "1",
+      minWidth: "180px",
+      background: "rgba(168,85,247,0.12)",
+      border: "1px solid rgba(168,85,247,0.25)",
+      backdropFilter: "blur(12px)",
+      borderRadius: "16px",
+      padding: "18px",
+    }}
+  >
+    <div
+      style={{
+        color: "#94a3b8",
+        fontSize: "13px",
+      }}
+    >
+      ⚡ Route Engine
+    </div>
+
+    <h2
+      style={{
+        marginTop: "10px",
+      }}
+    >
+      Online
+    </h2>
+  </div>
+</div>
+
+{/* Map + Operations Panel */}
       <div
         style={{
           display: "grid",

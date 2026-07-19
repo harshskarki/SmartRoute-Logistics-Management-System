@@ -223,6 +223,7 @@ const fleetInsight =
 
   const colors = {
     card: "#1e293b",
+    glass: "rgba(30,41,59,0.55)",
     border: "#334155",
     textMuted: "#94a3b8",
 
@@ -233,36 +234,69 @@ const fleetInsight =
   };
 
   const cardStyle = {
-    background: colors.card,
-    border: `1px solid ${colors.border}`,
+    background: colors.glass,
+
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
+
+    border: "1px solid rgba(255,255,255,0.08)",
+
     padding: "20px",
-    borderRadius: "16px",
+
+    borderRadius: "20px",
+
     flex: "1 1 240px",
+
     minWidth: "240px",
+
     cursor: "pointer",
+
     transition: "all 0.3s ease",
+
+    boxShadow:
+      "0 8px 32px rgba(0,0,0,0.25)",
   };
 
   const kpiCardStyle = {
-  background: "rgba(30,41,59,0.9)",
-  backdropFilter: "blur(12px)",
-  border: "1px solid rgba(255,255,255,0.08)",
-  borderRadius: "20px",
-  padding: "24px",
-  minWidth: "260px",
-  flex: "1 1 260px",
-  boxShadow:
-    "0 10px 30px rgba(0,0,0,0.35)",
-  transition: "all 0.3s ease",
-  cursor: "pointer",
-};
+    background: colors.glass,
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
+
+    border: "1px solid rgba(255,255,255,0.08)",
+
+    padding: "24px",
+    borderRadius: "20px",
+
+    flex: "1 1 240px",
+    minWidth: "240px",
+
+    cursor: "pointer",
+
+    transition: "all 0.3s ease",
+
+    boxShadow:
+      "0 8px 32px rgba(0,0,0,0.25)",
+
+    overflow: "hidden",
+
+    position: "relative",
+  };
 
   return (
     <div>
       <h1
         style={{
-          fontSize: "32px",
+          fontSize: "38px",
+          fontWeight: "700",
           marginBottom: "10px",
+
+          background:
+            "linear-gradient(90deg,#60a5fa,#22c55e)",
+
+          WebkitBackgroundClip: "text",
+
+          WebkitTextFillColor:
+            "transparent",
         }}
       >
         🚚 SmartRoute Dashboard
@@ -273,7 +307,7 @@ const fleetInsight =
           marginBottom: "30px",
         }}
       >
-        Welcome to SmartRoute Logistics
+        Smart Logistics Intelligence Platform
       </p>
 
       <div
@@ -607,7 +641,9 @@ const fleetInsight =
           marginTop: "40px",
           padding: "25px",
           borderRadius: "16px",
-          background: colors.card,
+          background: colors.glass,
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
           border: `1px solid ${colors.border}`,
         }}
       >
@@ -923,7 +959,9 @@ const fleetInsight =
     marginTop: "30px", 
     padding: "25px",
     borderRadius: "16px",
-    background: colors.card,
+    background: colors.glass,
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
     border: `1px solid ${colors.border}`,
   }}
 >
@@ -1016,7 +1054,9 @@ const fleetInsight =
     marginTop: "30px",
     padding: "25px",
     borderRadius: "16px",
-    background: colors.card,
+    background: colors.glass,
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
     border: `1px solid ${colors.border}`,
   }}
 >
@@ -1111,7 +1151,9 @@ const fleetInsight =
           marginTop: "30px",
           padding: "25px",
           borderRadius: "16px",
-          background: colors.card,
+          background: colors.glass,
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
           border: `1px solid ${colors.border}`,
         }}
       >
@@ -1161,7 +1203,9 @@ const fleetInsight =
     marginTop: "30px",
     padding: "25px",
     borderRadius: "16px",
-    background: colors.card,
+    background: colors.glass,
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
     border: `1px solid ${colors.border}`,
   }}
 >
@@ -1205,7 +1249,9 @@ const fleetInsight =
     marginTop: "30px",
     padding: "25px",
     borderRadius: "16px",
-    background: colors.card,
+    background: colors.glass,
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
     border: `1px solid ${colors.border}`,
   }}
 >
@@ -1258,7 +1304,9 @@ const fleetInsight =
     marginTop: "30px",
     padding: "25px",
     borderRadius: "16px",
-    background: colors.card,
+    background: colors.glass,
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
     border: `1px solid ${colors.border}`,
   }}
 >

@@ -34,7 +34,6 @@ function Dashboard() {
 const totalVehicles =
   vehicles.length;
 
-
   const pendingDeliveries =
     deliveries.filter(
       (delivery) =>
@@ -46,6 +45,15 @@ const totalVehicles =
       (delivery) =>
         delivery.status ==="Delivered ✅"
     ).length;
+
+  const activeDeliveries =
+    deliveries.filter(
+      (delivery) =>
+        delivery.status ===
+        "In Transit"
+    ).length;
+
+    const totalDeliveries = deliveries.length;
 
     useEffect(() => {
       let activeCounter = 0;
@@ -101,42 +109,33 @@ const totalVehicles =
       completedDeliveries,
     ]);
 
-  const activeDeliveries =
-    deliveries.filter(
-      (delivery) =>
-        delivery.status ===
-        "In Transit"
-    ).length;
-
-    const totalDeliveries = deliveries.length;
-
     const averageRouteLength =
-  deliveries.length > 0
-    ? Math.round(
-        deliveries.reduce(
-          (sum, delivery) =>
-            sum +
-            parseInt(
-              delivery.distance || "0"
-            ),
-          0
-        ) / deliveries.length
-      )
-    : 0;
+      deliveries.length > 0
+        ? Math.round(
+            deliveries.reduce(
+              (sum, delivery) =>
+                sum +
+                parseInt(
+                  delivery.distance || "0"
+                ),
+              0
+            ) / deliveries.length
+          )
+        : 0;
 
     const averageETA =
-  deliveries.length > 0
-    ? Math.round(
-        deliveries.reduce(
-          (sum, delivery) =>
-            sum +
-            parseInt(
-              delivery.eta || "0"
-            ),
-          0
-        ) / deliveries.length
-      )
-    : 0;
+      deliveries.length > 0
+        ? Math.round(
+            deliveries.reduce(
+              (sum, delivery) =>
+                sum +
+                parseInt(
+                  delivery.eta || "0"
+                ),
+              0
+            ) / deliveries.length
+          )
+        : 0;
 
   const deliverySuccessRate =
     totalDeliveries > 0

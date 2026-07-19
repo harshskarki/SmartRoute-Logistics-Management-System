@@ -462,6 +462,73 @@ const fleetInsight =
         )}
       </div>
 
+<div
+  style={{
+    display: "flex",
+    gap: "15px",
+    flexWrap: "wrap",
+    marginBottom: "30px",
+  }}
+>
+  <button
+    style={{
+      background: "#3b82f6",
+      color: "white",
+      border: "none",
+      padding: "12px 18px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      fontWeight: "600",
+    }}
+  >
+    ➕ New Delivery
+  </button>
+
+  <button
+    style={{
+      background: "#22c55e",
+      color: "white",
+      border: "none",
+      padding: "12px 18px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      fontWeight: "600",
+    }}
+  >
+    🚚 Add Vehicle
+  </button>
+
+  <button
+    style={{
+      background: colors.glass,
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+      color: "white",
+      padding: "12px 18px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      fontWeight: "600",
+    }}
+  >
+    🗺 Map View
+  </button>
+
+  <button
+    style={{
+      background: colors.glass,
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+      color: "white",
+      padding: "12px 18px",
+      borderRadius: "12px",
+      cursor: "pointer",
+      fontWeight: "600",
+    }}
+  >
+    📊 Generate Report
+  </button>
+</div>
+
 {/* KPI Cards */}
 
       <div

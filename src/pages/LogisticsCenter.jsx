@@ -270,22 +270,111 @@ function LogisticsCenter() {
         color: "white",
       }}
     >
-      <h1>🗺 Logistics Center</h1>
+      <div
+        style={{
+          background:
+            "rgba(255,255,255,0.03)",
+          border:
+            "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "20px",
+          padding: "25px",
+          marginBottom: "25px",
+          backdropFilter: "blur(16px)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent:
+              "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "20px",
+          }}
+        >
+          <div>
+            <h1
+              style={{
+                margin: 0,
+                fontSize: "38px",
+              }}
+            >
+              🗺 Logistics Command Center
+            </h1>
 
-      <p>
-        Real-time vehicle tracking and route intelligence.
-      </p>
+            <p
+              style={{
+                color: "#94a3b8",
+                marginTop: "10px",
+              }}
+            >
+              Real-time fleet tracking,
+              route intelligence and
+              operational monitoring
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "12px",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              style={{
+                background:
+                  "rgba(34,197,94,0.15)",
+                color: "#22c55e",
+                padding: "10px 16px",
+                borderRadius: "999px",
+                fontWeight: "600",
+              }}
+            >
+              🚚 {vehicles.length} Vehicles
+            </div>
+
+            <div
+              style={{
+                background:
+                  "rgba(59,130,246,0.15)",
+                color: "#60a5fa",
+                padding: "10px 16px",
+                borderRadius: "999px",
+                fontWeight: "600",
+              }}
+            >
+              📦 {timeline.length} Events
+            </div>
+
+            <div
+              style={{
+                background:
+                  "rgba(245,158,11,0.15)",
+                color: "#f59e0b",
+                padding: "10px 16px",
+                borderRadius: "999px",
+                fontWeight: "600",
+              }}
+            >
+              🚨 {alerts.length} Alerts
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div
         style={{
-            display: "flex",
-            gap: "20px",
-            marginTop: "20px",
+          display: "grid",
+          gridTemplateColumns:
+            "2.5fr 1fr",
+          gap: "20px",
+          alignItems: "start",
         }}
-        >
+      >
         <div
             style={{
-            flex: 3,
+            width: "100%",
             borderRadius: "16px",
             overflow: "hidden",
             border: "1px solid #334155",
@@ -354,7 +443,7 @@ function LogisticsCenter() {
 
         <div
           style={{
-            flex: 1,
+            width: "100%",
             background: "#1e293b",
             padding: "20px",
             borderRadius: "16px",

@@ -44,7 +44,7 @@ function App() {
             📦 Deliveries
           </NavLink>
 
-          <NavLink to="/logistics">
+          <NavLink to="/logistics-center">
             🗺 Logistics Center
           </NavLink>
         </nav>

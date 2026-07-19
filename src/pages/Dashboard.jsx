@@ -19,6 +19,9 @@ function Dashboard() {
   const [displayCompletedDeliveries, setDisplayCompletedDeliveries] =
     useState(0);
 
+  const [timeFilter, setTimeFilter] =
+    useState("Today");
+
   const activeVehicles =
     vehicles.filter(
       (vehicle) =>
@@ -282,6 +285,8 @@ const fleetInsight =
     position: "relative",
   };
 
+{/*Dashboard Header Section*/}
+
   return (
     <div>
       <div
@@ -402,6 +407,62 @@ const fleetInsight =
           </div>
         </div>
       </div>
+
+      {/* Time Filter */}
+
+      <div
+        style={{
+          display: "flex",
+          gap: "12px",
+          marginBottom: "30px",
+          flexWrap: "wrap",
+        }}
+      >
+        {["Today", "Week", "Month"].map(
+          (filter) => (
+            <button
+              key={filter}
+              onClick={() =>
+                setTimeFilter(filter)
+              }
+              style={{
+                padding: "10px 18px",
+
+                borderRadius: "12px",
+
+                border:
+                  timeFilter === filter
+                    ? "1px solid #3b82f6"
+                    : "1px solid rgba(255,255,255,0.08)",
+
+                background:
+                  timeFilter === filter
+                    ? "rgba(59,130,246,0.2)"
+                    : colors.glass,
+
+                color:
+                  timeFilter === filter
+                    ? "#60a5fa"
+                    : "#ffffff",
+
+                cursor: "pointer",
+
+                fontWeight: "600",
+
+                backdropFilter:
+                  "blur(16px)",
+
+                transition:
+                  "all 0.3s ease",
+              }}
+            >
+              {filter}
+            </button>
+          )
+        )}
+      </div>
+
+{/* KPI Cards */}
 
       <div
         style={{

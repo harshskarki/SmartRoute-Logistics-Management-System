@@ -444,14 +444,93 @@ function LogisticsCenter() {
         <div
           style={{
             width: "100%",
-            background: "#1e293b",
-            padding: "20px",
-            borderRadius: "16px",
-            border: "1px solid #334155",
+
+            position: "sticky",
+            top: "20px",
+
+            background:
+              "rgba(15,23,42,0.85)",
+
+            backdropFilter: "blur(18px)",
+
+            WebkitBackdropFilter:
+              "blur(18px)",
+
+            padding: "24px",
+
+            borderRadius: "20px",
+
+            border:
+              "1px solid rgba(255,255,255,0.08)",
+
+            boxShadow:
+              "0 10px 40px rgba(0,0,0,0.35)",
+
             height: "fit-content",
           }}
         >
-          <h2>🚚 Fleet Tracking</h2>
+          <h2
+            style={{
+              marginBottom: "20px",
+            }}
+          >
+            🚚 Live Operations Panel
+          </h2>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            marginBottom: "25px",
+            flexWrap: "wrap",
+          }}
+        >
+          <div
+            style={{
+              background:
+                "rgba(34,197,94,0.15)",
+              color: "#22c55e",
+              padding: "8px 12px",
+              borderRadius: "10px",
+              fontSize: "13px",
+            }}
+          >
+            🟢 Active {vehicles.filter(
+              (v) => v.status === "Active"
+            ).length}
+          </div>
+
+          <div
+            style={{
+              background:
+                "rgba(245,158,11,0.15)",
+              color: "#f59e0b",
+              padding: "8px 12px",
+              borderRadius: "10px",
+              fontSize: "13px",
+            }}
+          >
+            🟡 Idle {vehicles.filter(
+              (v) => v.status === "Idle"
+            ).length}
+          </div>
+
+          <div
+            style={{
+              background:
+                "rgba(239,68,68,0.15)",
+              color: "#ef4444",
+              padding: "8px 12px",
+              borderRadius: "10px",
+              fontSize: "13px",
+            }}
+          >
+            🔴 Maintenance {vehicles.filter(
+              (v) =>
+                v.status === "Maintenance"
+            ).length}
+          </div>
+        </div>
 
           {vehicles.map((vehicle) => (
             <div
@@ -495,7 +574,14 @@ function LogisticsCenter() {
                 marginTop: "25px",
               }}
             >
-              <h3>📦 Delivery Timeline</h3>
+              <h3
+                style={{
+                  marginBottom: "15px",
+                  color: "#60a5fa",
+                }}
+              >
+                📦 Live Delivery Timeline
+              </h3>
 
               {timeline.map(
                 (item, index) => (
@@ -547,7 +633,14 @@ function LogisticsCenter() {
                 marginTop: "25px",
               }}
             >
-              <h3>🚨 Live Alerts</h3>
+              <h3
+                style={{
+                  marginBottom: "15px",
+                  color: "#f59e0b",
+                }}
+              >
+                🚨 Alert Center
+              </h3>
               <div
                 style={{
                   display: "flex",

@@ -1,9 +1,24 @@
+import { useEffect, useState } from "react";
+
 import {
   vehicles,
   deliveries,
 } from "../data/mockData";
 
 function Dashboard() {
+
+  const [displayActiveVehicles, setDisplayActiveVehicles] =
+    useState(0);
+
+  const [displayPendingDeliveries, setDisplayPendingDeliveries] =
+    useState(0);
+
+  const [displayActiveDeliveries, setDisplayActiveDeliveries] =
+    useState(0);
+
+  const [displayCompletedDeliveries, setDisplayCompletedDeliveries] =
+    useState(0);
+
   const activeVehicles =
     vehicles.filter(
       (vehicle) =>
@@ -31,6 +46,60 @@ const totalVehicles =
       (delivery) =>
         delivery.status ==="Delivered ✅"
     ).length;
+
+    useEffect(() => {
+      let activeCounter = 0;
+      let pendingCounter = 0;
+      let transitCounter = 0;
+      let deliveredCounter = 0;
+
+      const interval = setInterval(() => {
+        if (activeCounter < activeVehicles) {
+          activeCounter++;
+          setDisplayActiveVehicles(activeCounter);
+        }
+
+        if (pendingCounter < pendingDeliveries) {
+          pendingCounter++;
+          setDisplayPendingDeliveries(
+            pendingCounter
+          );
+        }
+
+        if (transitCounter < activeDeliveries) {
+          transitCounter++;
+          setDisplayActiveDeliveries(
+            transitCounter
+          );
+        }
+
+        if (
+          deliveredCounter <
+          completedDeliveries
+        ) {
+          deliveredCounter++;
+          setDisplayCompletedDeliveries(
+            deliveredCounter
+          );
+        }
+
+        if (
+          activeCounter >= activeVehicles &&
+          pendingCounter >= pendingDeliveries &&
+          transitCounter >= activeDeliveries &&
+          deliveredCounter >= completedDeliveries
+        ) {
+          clearInterval(interval);
+        }
+      }, 120);
+
+      return () => clearInterval(interval);
+    }, [
+      activeVehicles,
+      pendingDeliveries,
+      activeDeliveries,
+      completedDeliveries,
+    ]);
 
   const activeDeliveries =
     deliveries.filter(
@@ -280,7 +349,7 @@ const fleetInsight =
               marginBottom: "8px",
             }}
           >
-            {activeVehicles}
+            {displayActiveVehicles}
           </h2>
 
           <div
@@ -361,7 +430,7 @@ const fleetInsight =
               marginBottom: "8px",
             }}
           >
-            {pendingDeliveries}
+            {displayPendingDeliveries}
           </h2>
 
           <div
@@ -440,7 +509,7 @@ const fleetInsight =
               marginBottom: "8px",
             }}
           >
-            {activeDeliveries}
+            {displayActiveDeliveries}
           </h2>
 
           <div
@@ -519,7 +588,7 @@ const fleetInsight =
               marginBottom: "8px",
             }}
           >
-            {completedDeliveries}
+            {displayCompletedDeliveries}
           </h2>
 
           <div
@@ -880,7 +949,7 @@ const fleetInsight =
 
   <div style={{ marginTop: "20px" }}>
     <p>
-      Active ({activeVehicles})
+      Active ({displayActiveVehicles})
     </p>
 
     <div

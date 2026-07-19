@@ -529,6 +529,79 @@ const fleetInsight =
   </button>
 </div>
 
+<div
+  style={{
+    background:
+      "linear-gradient(90deg, rgba(239,68,68,0.15), rgba(245,158,11,0.15))",
+
+    border:
+      "1px solid rgba(239,68,68,0.25)",
+
+    borderRadius: "16px",
+
+    padding: "18px 24px",
+
+    marginBottom: "30px",
+
+    display: "flex",
+
+    justifyContent: "space-between",
+
+    alignItems: "center",
+
+    flexWrap: "wrap",
+
+    gap: "15px",
+  }}
+>
+  <div>
+    <div
+      style={{
+        color: "#fca5a5",
+        fontWeight: "700",
+        marginBottom: "5px",
+      }}
+    >
+      🚨 Operational Alert
+    </div>
+
+    <div
+      style={{
+        color: "#cbd5e1",
+        fontSize: "14px",
+      }}
+    >
+      {pendingDeliveries > 0
+        ? `${pendingDeliveries} pending deliveries require attention`
+        : "No operational anomalies detected"}
+    </div>
+  </div>
+
+  <div
+    style={{
+      background:
+        pendingDeliveries > 0
+          ? "rgba(239,68,68,0.2)"
+          : "rgba(34,197,94,0.2)",
+
+      color:
+        pendingDeliveries > 0
+          ? "#ef4444"
+          : "#22c55e",
+
+      padding: "8px 14px",
+
+      borderRadius: "999px",
+
+      fontWeight: "600",
+    }}
+  >
+    {pendingDeliveries > 0
+      ? "Action Required"
+      : "Healthy"}
+  </div>
+</div>
+
 {/* KPI Cards */}
 
       <div

@@ -774,23 +774,120 @@ function LogisticsCenter() {
               key={vehicle.id}
               style={{
                 marginTop: "15px",
-                paddingBottom: "12px",
-                borderBottom: "1px solid #334155",
+
+                background:
+                  "rgba(15,23,42,0.8)",
+
+                border:
+                  "1px solid rgba(255,255,255,0.08)",
+
+                borderRadius: "14px",
+
+                padding: "15px",
+
+                transition:
+                  "all 0.3s ease",
               }}
             >
-              <strong>{vehicle.id}</strong>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent:
+                    "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <strong>
+                  🚚 {vehicle.id}
+                </strong>
 
-              <div>
-                Status: {vehicle.status}
+                <span
+                  style={{
+                    background:
+                      vehicle.status ===
+                      "Active"
+                        ? "rgba(34,197,94,0.15)"
+                        : vehicle.status ===
+                          "Maintenance"
+                        ? "rgba(239,68,68,0.15)"
+                        : "rgba(245,158,11,0.15)",
+
+                    color:
+                      vehicle.status ===
+                      "Active"
+                        ? "#22c55e"
+                        : vehicle.status ===
+                          "Maintenance"
+                        ? "#ef4444"
+                        : "#f59e0b",
+
+                    padding: "6px 12px",
+
+                    borderRadius: "999px",
+
+                    fontSize: "12px",
+
+                    fontWeight: "600",
+                  }}
+                >
+                  {vehicle.status}
+                </span>
               </div>
 
               <div
                 style={{
+                  marginTop: "10px",
                   color: "#94a3b8",
-                  fontSize: "14px",
+                  fontSize: "13px",
                 }}
               >
-                {vehicleAssignments[vehicle.id]}
+                Assigned:
+                {" "}
+                {
+                  vehicleAssignments[
+                    vehicle.id
+                  ]
+                }
+              </div>
+
+              <div
+                style={{
+                  marginTop: "12px",
+                }}
+              >
+                <div
+                  style={{
+                    height: "8px",
+                    background:
+                      "#1e293b",
+                    borderRadius: "999px",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      width:
+                        vehicle.status ===
+                        "Active"
+                          ? "100%"
+                          : vehicle.status ===
+                            "Idle"
+                          ? "60%"
+                          : "25%",
+
+                      height: "100%",
+
+                      background:
+                        vehicle.status ===
+                        "Active"
+                          ? "#22c55e"
+                          : vehicle.status ===
+                            "Idle"
+                          ? "#f59e0b"
+                          : "#ef4444",
+                    }}
+                  />
+                </div>
               </div>
             </div>
           ))}

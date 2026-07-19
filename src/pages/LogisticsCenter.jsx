@@ -962,95 +962,172 @@ function LogisticsCenter() {
               )}
             </div>
 
-            <div
+            <h3
               style={{
-                marginTop: "25px",
+                marginBottom: "15px",
+                fontSize: "20px",
               }}
             >
-              <h3
-                style={{
-                  marginBottom: "15px",
-                  color: "#f59e0b",
-                }}
-              >
-                🚨 Alert Center
-              </h3>
+              🚨 Alert Command Center
+            </h3>
+
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns:
+                  "repeat(auto-fit,minmax(90px,1fr))",
+                gap: "10px",
+                marginBottom: "20px",
+              }}
+            >
               <div
                 style={{
-                  display: "flex",
-                  gap: "10px",
-                  marginTop: "15px",
-                  marginBottom: "15px",
-                  flexWrap: "wrap",
+                  background:
+                    "rgba(239,68,68,0.15)",
+                  border:
+                    "1px solid rgba(239,68,68,0.3)",
+                  borderRadius: "12px",
+                  padding: "12px",
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: "22px" }}>
+                  🔴
+                </div>
+
+                <h3>{criticalAlerts}</h3>
+
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#94a3b8",
+                  }}
+                >
+                  Critical
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background:
+                    "rgba(245,158,11,0.15)",
+                  border:
+                    "1px solid rgba(245,158,11,0.3)",
+                  borderRadius: "12px",
+                  padding: "12px",
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: "22px" }}>
+                  🟡
+                </div>
+
+                <h3>{warningAlerts}</h3>
+
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#94a3b8",
+                  }}
+                >
+                  Warning
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background:
+                    "rgba(34,197,94,0.15)",
+                  border:
+                    "1px solid rgba(34,197,94,0.3)",
+                  borderRadius: "12px",
+                  padding: "12px",
+                  textAlign: "center",
+                }}
+              >
+                <div style={{ fontSize: "22px" }}>
+                  🟢
+                </div>
+
+                <h3>{infoAlerts}</h3>
+
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#94a3b8",
+                  }}
+                >
+                  Info
+                </p>
+              </div>
+            </div>
+
+            {alerts.map((alert, index) => (
+              <div
+                key={index}
+                style={{
+                  marginBottom: "12px",
+
+                  padding: "14px",
+
+                  borderRadius: "12px",
+
+                  border:
+                    alert.severity === "critical"
+                      ? "1px solid rgba(239,68,68,0.4)"
+                      : alert.severity ===
+                        "warning"
+                      ? "1px solid rgba(245,158,11,0.4)"
+                      : "1px solid rgba(34,197,94,0.4)",
+
+                  background:
+                    alert.severity === "critical"
+                      ? "rgba(239,68,68,0.12)"
+                      : alert.severity ===
+                        "warning"
+                      ? "rgba(245,158,11,0.12)"
+                      : "rgba(34,197,94,0.12)",
+
+                  backdropFilter: "blur(12px)",
                 }}
               >
                 <div
                   style={{
-                    background: "#7f1d1d",
-                    padding: "8px 12px",
-                    borderRadius: "8px",
+                    display: "flex",
+                    justifyContent:
+                      "space-between",
+                    alignItems: "center",
                   }}
                 >
-                  🔴 {criticalAlerts}
+                  <strong>
+                    {alert.severity === "critical"
+                      ? "🔴 Critical Alert"
+                      : alert.severity ===
+                        "warning"
+                      ? "🟡 Warning Alert"
+                      : "🟢 Information"}
+                  </strong>
+
+                  <span
+                    style={{
+                      fontSize: "12px",
+                      color: "#94a3b8",
+                    }}
+                  >
+                    LIVE
+                  </span>
                 </div>
 
-                <div
+                <p
                   style={{
-                    background: "#78350f",
-                    padding: "8px 12px",
-                    borderRadius: "8px",
+                    marginTop: "8px",
+                    color: "#e2e8f0",
                   }}
                 >
-                  🟡 {warningAlerts}
-                </div>
-
-                <div
-                  style={{
-                    background: "#0f172a",
-                    padding: "8px 12px",
-                    borderRadius: "8px",
-                    border: "1px solid #334155",
-                  }}
-                >
-                  🟢 {infoAlerts}
-                </div>
+                  {alert.message}
+                </p>
               </div>
-
-              {alerts.map((alert, index) => (
-                <div
-                  key={index}
-                  style={{
-                    marginTop: "10px",
-                    padding: "10px",
-                    borderRadius: "8px",
-                    background:
-                      alert.severity === "critical"
-                        ? "#7f1d1d"
-                        : alert.severity === "warning"
-                        ? "#78350f"
-                        : "#0f172a",
-                  }}
-                >
-                  <>
-                    <strong>
-                      {alert.severity === "critical"
-                        ? "🔴 CRITICAL"
-                        : alert.severity === "warning"
-                        ? "🟡 WARNING"
-                        : "🟢 INFO"}
-                    </strong>
-
-                    <div
-                      style={{
-                        marginTop: "5px",
-                      }}
-                    >
-                      {alert.message}
-                    </div>
-                  </>
-                </div>
-              ))}
-            </div>
+            ))}
 
           </div>
         </div>

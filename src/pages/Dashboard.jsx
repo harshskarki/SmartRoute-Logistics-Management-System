@@ -284,31 +284,124 @@ const fleetInsight =
 
   return (
     <div>
-      <h1
+      <div
         style={{
-          fontSize: "38px",
-          fontWeight: "700",
-          marginBottom: "10px",
+          background: colors.glass,
+          backdropFilter: "blur(16px)",
+          WebkitBackdropFilter: "blur(16px)",
 
-          background:
-            "linear-gradient(90deg,#60a5fa,#22c55e)",
+          border:
+            "1px solid rgba(255,255,255,0.08)",
 
-          WebkitBackgroundClip: "text",
+          borderRadius: "24px",
 
-          WebkitTextFillColor:
-            "transparent",
-        }}
-      >
-        🚚 SmartRoute Dashboard
-      </h1>
+          padding: "30px",
 
-      <p
-        style={{
           marginBottom: "30px",
+
+          boxShadow:
+            "0 8px 32px rgba(0,0,0,0.25)",
         }}
       >
-        Smart Logistics Intelligence Platform
-      </p>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "20px",
+          }}
+        >
+          <div>
+            <h1
+              style={{
+                fontSize: "42px",
+                fontWeight: "700",
+
+                background:
+                  "linear-gradient(90deg,#60a5fa,#22c55e)",
+
+                WebkitBackgroundClip: "text",
+
+                WebkitTextFillColor:
+                  "transparent",
+
+                marginBottom: "10px",
+              }}
+            >
+              🚚 SmartRoute Dashboard
+            </h1>
+
+            <p
+              style={{
+                color: colors.textMuted,
+                fontSize: "15px",
+              }}
+            >
+              Smart Logistics Intelligence Platform
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              style={{
+                background:
+                  "rgba(59,130,246,0.15)",
+
+                color: "#60a5fa",
+
+                padding: "10px 18px",
+
+                borderRadius: "999px",
+
+                fontWeight: "600",
+              }}
+            >
+              🚚 Fleet: {totalVehicles}
+            </div>
+
+            <div
+              style={{
+                background:
+                  "rgba(34,197,94,0.15)",
+
+                color: "#22c55e",
+
+                padding: "10px 18px",
+
+                borderRadius: "999px",
+
+                fontWeight: "600",
+              }}
+            >
+              📦 Deliveries: {totalDeliveries}
+            </div>
+
+            <div
+              style={{
+                background:
+                  "rgba(245,158,11,0.15)",
+
+                color: "#f59e0b",
+
+                padding: "10px 18px",
+
+                borderRadius: "999px",
+
+                fontWeight: "600",
+              }}
+            >
+              ⚡ Efficiency: {efficiencyScore}%
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div
         style={{

@@ -163,6 +163,15 @@ function LogisticsCenter() {
     const [alerts, setAlerts] =
       useState(initialAlerts);
 
+    const [showStations, setShowStations] =
+      useState(true);
+
+    const [showVehicles, setShowVehicles] =
+      useState(true);
+
+    const [showRoutes, setShowRoutes] =
+      useState(true);
+
     const criticalAlerts = alerts.filter(
       (alert) =>
         alert.severity === "critical"
@@ -505,13 +514,77 @@ function LogisticsCenter() {
         }}
       >
         <div
-            style={{
-            width: "100%",
-            borderRadius: "16px",
-            overflow: "hidden",
-            border: "1px solid #334155",
-            }}
+          style={{
+            flex: 3,
+          }}
         >
+
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            flexWrap: "wrap",
+            marginBottom: "15px",
+          }}
+        >
+          <button
+            onClick={() =>
+              setShowStations(!showStations)
+            }
+            style={{
+              padding: "10px 14px",
+              borderRadius: "10px",
+              border: "none",
+              cursor: "pointer",
+              background: showStations
+                ? "#22c55e"
+                : "#334155",
+              color: "white",
+              fontWeight: "600",
+            }}
+          >
+            📍 Stations
+          </button>
+
+          <button
+            onClick={() =>
+              setShowVehicles(!showVehicles)
+            }
+            style={{
+              padding: "10px 14px",
+              borderRadius: "10px",
+              border: "none",
+              cursor: "pointer",
+              background: showVehicles
+                ? "#3b82f6"
+                : "#334155",
+              color: "white",
+              fontWeight: "600",
+            }}
+          >
+            🚚 Vehicles
+          </button>
+
+          <button
+            onClick={() =>
+              setShowRoutes(!showRoutes)
+            }
+            style={{
+              padding: "10px 14px",
+              borderRadius: "10px",
+              border: "none",
+              cursor: "pointer",
+              background: showRoutes
+                ? "#f59e0b"
+                : "#334155",
+              color: "white",
+              fontWeight: "600",
+            }}
+          >
+            🛣 Routes
+          </button>
+        </div>
+        
             <MapContainer
             center={[19.0330, 73.0297]}
             zoom={11}
@@ -536,7 +609,8 @@ function LogisticsCenter() {
                 </Marker>
             ))}
 
-            {vehicleLocations.map((vehicle) => {
+            {showVehicles &&
+              vehicleLocations.map((vehicle) => {
                 const vehicleData = vehicles.find(
                 (v) => v.id === vehicle.id
                 );
@@ -559,7 +633,8 @@ function LogisticsCenter() {
                 );
             })}
             
-            {deliveryRoutes.map((route, index) => (
+            {showRoutes &&
+              deliveryRoutes.map((route, index) => (
               <Polyline
                 key={index}
                 positions={route}

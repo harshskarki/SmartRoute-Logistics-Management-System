@@ -172,6 +172,12 @@ function LogisticsCenter() {
     const [showRoutes, setShowRoutes] =
       useState(true);
 
+    const [playbackProgress, setPlaybackProgress] =
+      useState(35);
+
+    const [isPlaying, setIsPlaying] =
+      useState(false);
+
     const criticalAlerts = alerts.filter(
       (alert) =>
         alert.severity === "critical"
@@ -189,29 +195,40 @@ function LogisticsCenter() {
 
         useEffect(() => {
             const interval = setInterval(() => {
-                setVehicleLocations((prev) =>
-                prev.map((vehicle, index) => {
-                    const movementPatterns = [
-                        [0.001, 0.001],
-                        [-0.001, 0.001],
-                        [0.001, -0.001],
-                        ];
+                if (!isPlaying) return;
 
-                        return {
-                        ...vehicle,
-                        position: [
-                            vehicle.position[0] +
-                            movementPatterns[index][0],
-                            vehicle.position[1] +
-                            movementPatterns[index][1],
-                        ],
-                        };
-                })
+                setPlaybackProgress((prev) => {
+                  if (prev >= 100) {
+                    return 100;
+                  }
+
+                  return prev + 5;
+                });
+
+                setVehicleLocations((prev) =>
+                  prev.map((vehicle, index) => {
+                    const movementPatterns = [
+                      [0.001, 0.001],
+                      [-0.001, 0.001],
+                      [0.001, -0.001],
+                    ];
+
+                    return {
+                      ...vehicle,
+                      position: [
+                        vehicle.position[0] +
+                          movementPatterns[index][0],
+
+                        vehicle.position[1] +
+                          movementPatterns[index][1],
+                      ],
+                    };
+                  })
                 );
             }, 3000);
 
           return () => clearInterval(interval);
-        }, []);
+        }, [isPlaying]);
 
         useEffect(() => {
           const interval = setInterval(() => {
@@ -519,6 +536,8 @@ function LogisticsCenter() {
           }}
         >
 
+{/* Map Layer Controls*/}
+
         <div
           style={{
             display: "flex",
@@ -585,6 +604,87 @@ function LogisticsCenter() {
           </button>
         </div>
         
+        <div
+          style={{
+            background: "#1e293b",
+            border: "1px solid #334155",
+            borderRadius: "14px",
+            padding: "15px",
+            marginBottom: "15px",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              marginBottom: "12px",
+            }}
+          >
+            <h4
+              style={{
+                margin: 0,
+              }}
+            >
+              🎬 Route Playback
+            </h4>
+
+            <button
+              onClick={() =>
+                setIsPlaying(!isPlaying)
+              }
+              style={{
+                background: isPlaying
+                  ? "#ef4444"
+                  : "#22c55e",
+
+                border: "none",
+
+                color: "white",
+
+                padding: "8px 14px",
+
+                borderRadius: "8px",
+
+                cursor: "pointer",
+
+                fontWeight: "600",
+              }}
+            >
+              {isPlaying
+                ? "⏸ Pause"
+                : "▶ Play"}
+            </button>
+          </div>
+
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={playbackProgress}
+            onChange={(e) =>
+              setPlaybackProgress(
+                Number(e.target.value)
+              )
+            }
+            style={{
+              width: "100%",
+            }}
+          />
+
+          <div
+            style={{
+              marginTop: "10px",
+              color: "#94a3b8",
+              fontSize: "14px",
+            }}
+          >
+            Route Progress:
+            {" "}
+            {playbackProgress}%
+          </div>
+        </div>
+
             <MapContainer
             center={[19.0330, 73.0297]}
             zoom={11}

@@ -1037,7 +1037,7 @@ const fleetInsight =
           }}
         >
   <div
-    style={cardStyle}
+    style={kpiCardStyle}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform =
         "translateY(-4px)";
@@ -1081,7 +1081,7 @@ const fleetInsight =
   </div>
 
   <div
-    style={cardStyle}
+    style={kpiCardStyle}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform =
         "translateY(-4px)";
@@ -1123,7 +1123,7 @@ const fleetInsight =
   </div>
 
   <div
-    style={cardStyle}
+    style={kpiCardStyle}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform =
         "translateY(-4px)";
@@ -1147,7 +1147,7 @@ const fleetInsight =
   </div>
 
   <div
-  style={cardStyle}
+  style={kpiCardStyle}
   onMouseEnter={(e) => {
     e.currentTarget.style.transform =
       "translateY(-4px)";
@@ -1171,7 +1171,7 @@ const fleetInsight =
 </div>
 
   <div
-  style={cardStyle}
+  style={kpiCardStyle}
   onMouseEnter={(e) => {
     e.currentTarget.style.transform =
       "translateY(-4px)";
@@ -1195,7 +1195,7 @@ const fleetInsight =
 </div>
 
 <div
-  style={cardStyle}
+  style={kpiCardStyle}
   onMouseEnter={(e) => {
     e.currentTarget.style.transform =
       "translateY(-4px)";
@@ -1219,7 +1219,7 @@ const fleetInsight =
 </div>
 
 <div
-  style={cardStyle}
+  style={kpiCardStyle}
   onMouseEnter={(e) => {
     e.currentTarget.style.transform =
       "translateY(-4px)";

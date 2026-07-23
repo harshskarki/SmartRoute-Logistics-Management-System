@@ -314,6 +314,41 @@ const fleetInsight =
       "0 6px 18px rgba(0,0,0,0.2)",
   };
 
+  const typography = {
+    pageTitle: {
+      fontSize: "42px",
+      fontWeight: "700",
+      letterSpacing: "x-1px",
+    },
+
+    sectionTitle: {
+      fontSize: "24px",
+      fontWeight: "600",
+    },
+
+    smallTitle: {
+      fontSize: "16px",
+      fontWeight: "600",
+    },
+
+    cardTitle: {
+      fontSize: "14px",
+      fontWeight: "500",
+      color: colors.textMuted,
+    },
+
+    cardValue: {
+      fontSize: "42px",
+      fontWeight: "700",
+      marginTop: "10px",
+    },
+
+    bodyText: {
+      fontSize: "15px",
+      color: colors.textMuted,
+    },
+  };
+
 {/*Dashboard Header Section*/}
 
   return (
@@ -349,11 +384,10 @@ const fleetInsight =
           <div>
             <h1
               style={{
-                fontSize: "42px",
-                fontWeight: "700",
+                ...typography.pageTitle,
 
                 background:
-                  "linear-gradient(90deg,#3b82f6,#22c55e)",
+                  "linear-gradient(90deg,#60a5fa,#22c55e)",
 
                 WebkitBackgroundClip: "text",
 
@@ -366,12 +400,7 @@ const fleetInsight =
               🚚 SmartRoute Dashboard
             </h1>
 
-            <p
-              style={{
-                color: colors.textMuted,
-                fontSize: "15px",
-              }}
-            >
+            <p style={typography.bodyText}>
               Smart Logistics Intelligence Platform
             </p>
           </div>
@@ -1024,9 +1053,11 @@ const fleetInsight =
         "0 10px 30px rgba(0,0,0,0.25)";
     }}
   >
-    <h4>📈 Delivery Success Rate</h4>
+    <h4 style={typography.smallTitle}>
+      📈 Delivery Success Rate
+    </h4>
 
-    <h2>
+    <h2 style={typography.cardValue}>
       {deliverySuccessRate}%
     </h2>
     <div
@@ -1064,9 +1095,11 @@ const fleetInsight =
         "0 10px 30px rgba(0,0,0,0.25)";
     }}
   >
-    <h4>🚚 Fleet Utilization</h4>
+    <h4 style={typography.smallTitle}>
+      🚚 Fleet Utilization
+    </h4>
 
-    <h2>
+    <h2 style={typography.cardValue}>
       {fleetUtilization}%
     </h2>
     <div
@@ -1104,11 +1137,13 @@ const fleetInsight =
         "0 10px 30px rgba(0,0,0,0.25)";
     }}
   >
-    <h4>📦 Total Deliveries</h4>
+    <h4 style={typography.smallTitle}>
+      📦 Total Deliveries
+    </h4>
 
-    <h2>
-      {totalDeliveries}
-    </h2>
+    <h2 style={typography.cardValue}>
+    {totalDeliveries}
+  </h2>
   </div>
 
   <div
@@ -1126,9 +1161,11 @@ const fleetInsight =
       "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
-  <h4>🛠 Fleet Availability</h4>
+  <h4 style={typography.smallTitle}>
+    🛠 Fleet Availability
+  </h4>
 
-  <h2>
+  <h2 style={typography.cardValue}>
     {fleetAvailability}%
   </h2>
 </div>
@@ -1148,9 +1185,11 @@ const fleetInsight =
       "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
-  <h4>📍 Average Route</h4>
+  <h4 style={typography.smallTitle}>
+    📍 Average Route
+  </h4>
 
-  <h2>
+  <h2 style={typography.cardValue}>
     {averageRouteLength} km
   </h2>
 </div>
@@ -1170,9 +1209,11 @@ const fleetInsight =
       "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
-  <h4>⚡ Efficiency Score</h4>
+  <h4 style={typography.smallTitle}>
+    ⚡ Efficiency Score
+  </h4>
 
-  <h2>
+  <h2 style={typography.cardValue}>
     {efficiencyScore}%
   </h2>
 </div>
@@ -1192,9 +1233,11 @@ const fleetInsight =
       "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
-  <h4>⏱ Average ETA</h4>
+  <h4 style={typography.smallTitle}>
+    ⏱ Average ETA
+  </h4>
 
-  <h2>
+  <h2 style={typography.cardValue}>
     {averageETA} mins
   </h2>
 </div>
@@ -1208,6 +1251,7 @@ const fleetInsight =
       >
         <h2
           style={{
+            ...typography.sectionTitle,
             marginBottom: "20px",
           }}
         >
@@ -1228,7 +1272,7 @@ const fleetInsight =
                 "4px solid #22c55e",
             }}
           >
-            <h4>
+            <h4 style={typography.smallTitle}>
               📦 Delivery Performance
             </h4>
 
@@ -1249,7 +1293,7 @@ const fleetInsight =
                 "4px solid #3b82f6",
             }}
           >
-            <h4>
+            <h4 style={typography.smallTitle}>
               🚚 Fleet Utilization
             </h4>
 
@@ -1270,7 +1314,7 @@ const fleetInsight =
                 "4px solid #f59e0b",
             }}
           >
-            <h4>
+            <h4 style={typography.smallTitle}>
               ⚡ Efficiency
             </h4>
 
@@ -1291,7 +1335,7 @@ const fleetInsight =
                 "4px solid #8b5cf6",
             }}
           >
-            <h4>
+            <h4 style={typography.smallTitle}>
               ⏱ ETA Analysis
             </h4>
 
@@ -1319,7 +1363,14 @@ const fleetInsight =
       "1px solid rgba(255,255,255,0.08)",
   }}
 >
-  <h2>📦 Delivery Status Breakdown</h2>
+  <h2
+    style={{
+      ...typography.sectionTitle,
+      marginBottom: "20px",
+    }}
+  >
+    📦 Delivery Status Breakdown
+  </h2>
 
   <div style={{ marginTop: "20px" }}>
     <p>Pending ({pendingCount})</p>
@@ -1415,7 +1466,14 @@ const fleetInsight =
       "1px solid rgba(255,255,255,0.08)",
   }}
 >
-  <h2>🚚 Fleet Analytics</h2>
+  <h2
+    style={{
+      ...typography.sectionTitle,
+      marginBottom: "20px",
+    }}
+  >
+    🚚 Fleet Analytics
+  </h2>
 
   <div style={{ marginTop: "20px" }}>
     <p>
@@ -1513,7 +1571,14 @@ const fleetInsight =
             "1px solid rgba(255,255,255,0.08)",
         }}
       >
-        <h2>📊 System Health</h2>
+        <h2
+          style={{
+            ...typography.sectionTitle,
+            marginBottom: "20px",
+          }}
+        >
+          📊 System Health
+        </h2>
 
         <div
           style={{
@@ -1524,28 +1589,36 @@ const fleetInsight =
           }}
         >
           <div>
-            <h4>Fleet Status</h4>
+            <h4 style={typography.smallTitle}>
+              Fleet Status
+            </h4>
             <p style={{ color: colors.success }}>
               🟢 Operational
             </p>
           </div>
 
           <div>
-            <h4>Traffic Conditions</h4>
+            <h4 style={typography.smallTitle}>
+              Traffic Conditions
+            </h4>
             <p style={{ color: colors.warning }}>
               🟡 Moderate
             </p>
           </div>
 
           <div>
-            <h4>Route Engine</h4>
+            <h4 style={typography.smallTitle}>
+              Route Engine
+            </h4>
             <p style={{ color: colors.success }}>
               🟢 Online
             </p>
           </div>
 
           <div>
-            <h4>Delivery Success Rate</h4>
+            <h4 style={typography.smallTitle}>
+              Delivery Success Rate
+            </h4>
             <p style={{ color: colors.success }}>
               {deliverySuccessRate}%
             </p>
@@ -1566,7 +1639,14 @@ const fleetInsight =
       "1px solid rgba(255,255,255,0.08)",
   }}
 >
-  <h2>📦 Recent Delivery Activity</h2>
+  <h2
+    style={{
+      ...typography.sectionTitle,
+      marginBottom: "20px",
+    }}
+  >
+    📦 Recent Delivery Activity
+  </h2>
 
   <div style={{ marginTop: "20px" }}>
   {deliveries.length === 0 ? (
@@ -1613,7 +1693,14 @@ const fleetInsight =
       "1px solid rgba(255,255,255,0.08)",
   }}
 >
-  <h2>🚚 Fleet Status</h2>
+  <h2
+    style={{
+      ...typography.sectionTitle,
+      marginBottom: "20px",
+    }}
+  >
+    🚚 Fleet Status
+  </h2>
 
 <div style={{ marginTop: "20px" }}>
   {vehicles.length === 0 ? (
@@ -1669,7 +1756,14 @@ const fleetInsight =
       "1px solid rgba(255,255,255,0.08)",
   }}
 >
-  <h2>🚨 Live Alerts</h2>
+  <h2
+    style={{
+      ...typography.sectionTitle,
+      marginBottom: "20px",
+    }}
+  >
+    🚨 Live Alerts
+  </h2>
 
   <div style={{ marginTop: "20px" }}>
     <div

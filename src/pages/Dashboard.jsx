@@ -262,53 +262,30 @@ const fleetInsight =
       "linear-gradient(135deg,#ef4444,#f87171)",
   };
 
-  const cardStyle = {
-    background: colors.glass,
-
-    backdropFilter: "blur(16px)",
-    WebkitBackdropFilter: "blur(16px)",
-
-    border: "1px solid rgba(255,255,255,0.08)",
-
-    padding: "20px",
-
-    borderRadius: "20px",
-
-    flex: "1 1 240px",
-
-    minWidth: "240px",
-
-    cursor: "pointer",
-
-    transition: "all 0.3s ease",
-
-    boxShadow:
-      "0 8px 32px rgba(0,0,0,0.25)",
-  };
-
   const kpiCardStyle = {
     background: colors.glass,
+
     backdropFilter: "blur(16px)",
+
     WebkitBackdropFilter: "blur(16px)",
 
-    border: "1px solid rgba(255,255,255,0.08)",
+    border:
+      "1px solid rgba(255,255,255,0.08)",
 
-    padding: "24px",
     borderRadius: "20px",
 
-    flex: "1 1 240px",
-    minWidth: "240px",
+    padding: "24px",
+
+    flex: "1 1 260px",
+
+    minWidth: "260px",
 
     cursor: "pointer",
 
     transition: "all 0.3s ease",
 
     boxShadow:
-      "0 8px 32px rgba(0,0,0,0.25)",
-
-    overflow: "hidden",
-
-    position: "relative",
+      "0 10px 30px rgba(0,0,0,0.25)",
   };
 
 {/*Dashboard Header Section*/}
@@ -659,11 +636,15 @@ const fleetInsight =
           style={kpiCardStyle}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform =
-              "translateY(-8px)";
+              "translateY(-10px)";
+            e.currentTarget.style.boxShadow =
+              "0 20px 40px rgba(0,0,0,0.35)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform =
               "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 30px rgba(0,0,0,0.25)";
           }}
         >
           <div
@@ -738,15 +719,15 @@ const fleetInsight =
           style={kpiCardStyle}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform =
-              "translateY(-8px)";
+              "translateY(-10px)";
             e.currentTarget.style.boxShadow =
-              "0 15px 35px rgba(0,0,0,0.35)";
+              "0 20px 40px rgba(0,0,0,0.35)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform =
               "translateY(0)";
             e.currentTarget.style.boxShadow =
-              "none";
+              "0 10px 30px rgba(0,0,0,0.25)";
           }}
         >
           <div
@@ -819,11 +800,15 @@ const fleetInsight =
           style={kpiCardStyle}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform =
-              "translateY(-8px)";
+              "translateY(-10px)";
+            e.currentTarget.style.boxShadow =
+              "0 20px 40px rgba(0,0,0,0.35)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform =
               "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 30px rgba(0,0,0,0.25)";
           }}
         >
           <div
@@ -898,11 +883,15 @@ const fleetInsight =
           style={kpiCardStyle}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform =
-              "translateY(-8px)";
+              "translateY(-10px)";
+            e.currentTarget.style.boxShadow =
+              "0 20px 40px rgba(0,0,0,0.35)";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform =
               "translateY(0)";
+            e.currentTarget.style.boxShadow =
+              "0 10px 30px rgba(0,0,0,0.25)";
           }}
         >
           <div
@@ -982,7 +971,8 @@ const fleetInsight =
           background: colors.glass,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
-          border: `1px solid ${colors.border}`,
+          border:
+            "1px solid rgba(255,255,255,0.08)",
         }}
       >
 
@@ -1001,12 +991,14 @@ const fleetInsight =
         "translateY(-4px)";
       e.currentTarget.style.boxShadow =
         "0 10px 25px rgba(0,0,0,0.35)";
+      e.currentTarget.style.boxShadow =
+        "0 20px 40px rgba(0,0,0,0.35)";
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.transform =
         "translateY(0)";
       e.currentTarget.style.boxShadow =
-        "none";
+        "0 10px 30px rgba(0,0,0,0.25)";
     }}
   >
     <h4>📈 Delivery Success Rate</h4>
@@ -1040,13 +1032,13 @@ const fleetInsight =
       e.currentTarget.style.transform =
         "translateY(-4px)";
       e.currentTarget.style.boxShadow =
-        "0 10px 25px rgba(0,0,0,0.35)";
+        "0 20px 40px rgba(0,0,0,0.35)";
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.transform =
         "translateY(0)";
       e.currentTarget.style.boxShadow =
-        "none";
+        "0 10px 30px rgba(0,0,0,0.25)";
     }}
   >
     <h4>🚚 Fleet Utilization</h4>
@@ -1080,13 +1072,13 @@ const fleetInsight =
       e.currentTarget.style.transform =
         "translateY(-4px)";
       e.currentTarget.style.boxShadow =
-        "0 10px 25px rgba(0,0,0,0.35)";
+        "0 20px 40px rgba(0,0,0,0.35)";
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.transform =
         "translateY(0)";
       e.currentTarget.style.boxShadow =
-        "none";
+        "0 10px 30px rgba(0,0,0,0.25)";
     }}
   >
     <h4>📦 Total Deliveries</h4>
@@ -1102,13 +1094,13 @@ const fleetInsight =
     e.currentTarget.style.transform =
       "translateY(-4px)";
     e.currentTarget.style.boxShadow =
-      "0 10px 25px rgba(0,0,0,0.35)";
+      "0 20px 40px rgba(0,0,0,0.35)";
   }}
   onMouseLeave={(e) => {
     e.currentTarget.style.transform =
       "translateY(0)";
     e.currentTarget.style.boxShadow =
-      "none";
+      "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
   <h4>🛠 Fleet Availability</h4>
@@ -1124,13 +1116,13 @@ const fleetInsight =
     e.currentTarget.style.transform =
       "translateY(-4px)";
     e.currentTarget.style.boxShadow =
-      "0 10px 25px rgba(0,0,0,0.35)";
+      "0 20px 40px rgba(0,0,0,0.35)";
   }}
   onMouseLeave={(e) => {
     e.currentTarget.style.transform =
       "translateY(0)";
     e.currentTarget.style.boxShadow =
-      "none";
+      "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
   <h4>📍 Average Route</h4>
@@ -1146,13 +1138,13 @@ const fleetInsight =
     e.currentTarget.style.transform =
       "translateY(-4px)";
     e.currentTarget.style.boxShadow =
-      "0 10px 25px rgba(0,0,0,0.35)";
+      "0 20px 40px rgba(0,0,0,0.35)";
   }}
   onMouseLeave={(e) => {
     e.currentTarget.style.transform =
       "translateY(0)";
     e.currentTarget.style.boxShadow =
-      "none";
+      "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
   <h4>⚡ Efficiency Score</h4>
@@ -1168,13 +1160,13 @@ const fleetInsight =
     e.currentTarget.style.transform =
       "translateY(-4px)";
     e.currentTarget.style.boxShadow =
-      "0 10px 25px rgba(0,0,0,0.35)";
+      "0 20px 40px rgba(0,0,0,0.35)";
   }}
   onMouseLeave={(e) => {
     e.currentTarget.style.transform =
       "translateY(0)";
     e.currentTarget.style.boxShadow =
-      "none";
+      "0 10px 30px rgba(0,0,0,0.25)";
   }}
 >
   <h4>⏱ Average ETA</h4>
@@ -1300,7 +1292,8 @@ const fleetInsight =
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
-    border: `1px solid ${colors.border}`,
+    border:
+      "1px solid rgba(255,255,255,0.08)",
   }}
 >
   <h2>📦 Delivery Status Breakdown</h2>
@@ -1395,7 +1388,8 @@ const fleetInsight =
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
-    border: `1px solid ${colors.border}`,
+    border:
+      "1px solid rgba(255,255,255,0.08)",
   }}
 >
   <h2>🚚 Fleet Analytics</h2>
@@ -1492,7 +1486,8 @@ const fleetInsight =
           background: colors.glass,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
-          border: `1px solid ${colors.border}`,
+          border:
+            "1px solid rgba(255,255,255,0.08)",
         }}
       >
         <h2>📊 System Health</h2>
@@ -1544,7 +1539,8 @@ const fleetInsight =
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
-    border: `1px solid ${colors.border}`,
+    border:
+      "1px solid rgba(255,255,255,0.08)",
   }}
 >
   <h2>📦 Recent Delivery Activity</h2>
@@ -1590,7 +1586,8 @@ const fleetInsight =
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
-    border: `1px solid ${colors.border}`,
+    border:
+      "1px solid rgba(255,255,255,0.08)",
   }}
 >
   <h2>🚚 Fleet Status</h2>
@@ -1645,7 +1642,8 @@ const fleetInsight =
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
-    border: `1px solid ${colors.border}`,
+    border:
+      "1px solid rgba(255,255,255,0.08)",
   }}
 >
   <h2>🚨 Live Alerts</h2>

@@ -288,6 +288,32 @@ const fleetInsight =
       "0 10px 30px rgba(0,0,0,0.25)",
   };
 
+  const buttonStyle = {
+    background: colors.glass,
+
+    backdropFilter: "blur(16px)",
+
+    WebkitBackdropFilter: "blur(16px)",
+
+    border:
+      "1px solid rgba(255,255,255,0.08)",
+
+    color: colors.text,
+
+    padding: "12px 18px",
+
+    borderRadius: "12px",
+
+    cursor: "pointer",
+
+    fontWeight: "600",
+
+    transition: "all 0.3s ease",
+
+    boxShadow:
+      "0 6px 18px rgba(0,0,0,0.2)",
+  };
+
 {/*Dashboard Header Section*/}
 
   return (
@@ -474,80 +500,77 @@ const fleetInsight =
   }}
 >
   <button
-    onClick={() =>
-      window.location.href =
-        "/deliveries"
-    }
-
-    style={{
-      background: colors.primary,
-      color: colors.text,
-      border: "none",
-      padding: "12px 18px",
-      borderRadius: "12px",
-      cursor: "pointer",
-      fontWeight: "600",
+    style={buttonStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 12px 24px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "0 6px 18px rgba(0,0,0,0.2)";
     }}
   >
     ➕ New Delivery
   </button>
 
   <button
-    onClick={() =>
-      window.location.href =
-        "/vehicles"
-    }
-    style={{
-      background: colors.success,
-      color: colors.text,
-      border: "none",
-      padding: "12px 18px",
-      borderRadius: "12px",
-      cursor: "pointer",
-      fontWeight: "600",
+    style={buttonStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 12px 24px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "0 6px 18px rgba(0,0,0,0.2)";
     }}
   >
     🚚 Add Vehicle
   </button>
 
   <button
-    onClick={() =>
-      window.location.href =
-        "/logistics-center"
-    }
-    style={{
-      background: colors.glass,
-      border:
-        "1px solid rgba(255,255,255,0.08)",
-      color: colors.text,
-      padding: "12px 18px",
-      borderRadius: "12px",
-      cursor: "pointer",
-      fontWeight: "600",
+    style={buttonStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 12px 24px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "0 6px 18px rgba(0,0,0,0.2)";
     }}
   >
     🗺 Map View
   </button>
 
   <button
-    onClick={() =>
-      alert(
-        "Report generation coming in Phase 11"
-      )
-    }
-    style={{
-      background: colors.glass,
-      border:
-        "1px solid rgba(255,255,255,0.08)",
-      color: colors.text,
-      padding: "12px 18px",
-      borderRadius: "12px",
-      cursor: "pointer",
-      fontWeight: "600",
+    style={buttonStyle}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(-4px)";
+      e.currentTarget.style.boxShadow =
+        "0 12px 24px rgba(0,0,0,0.3)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform =
+        "translateY(0)";
+      e.currentTarget.style.boxShadow =
+        "0 6px 18px rgba(0,0,0,0.2)";
     }}
   >
     📊 Generate Report
   </button>
+
 </div>
 
 <div

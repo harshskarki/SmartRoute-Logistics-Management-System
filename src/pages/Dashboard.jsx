@@ -1267,7 +1267,7 @@ const fleetInsight =
         >
           <div
             style={{
-              ...cardStyle,
+              ...kpiCardStyle,
               borderLeft:
                 "4px solid #22c55e",
             }}
@@ -1288,7 +1288,7 @@ const fleetInsight =
 
           <div
             style={{
-              ...cardStyle,
+              ...kpiCardStyle,
               borderLeft:
                 "4px solid #3b82f6",
             }}
@@ -1309,7 +1309,7 @@ const fleetInsight =
 
           <div
             style={{
-              ...cardStyle,
+              ...kpiCardStyle,
               borderLeft:
                 "4px solid #f59e0b",
             }}
@@ -1330,7 +1330,7 @@ const fleetInsight =
 
           <div
             style={{
-              ...cardStyle,
+              ...kpiCardStyle,
               borderLeft:
                 "4px solid #8b5cf6",
             }}

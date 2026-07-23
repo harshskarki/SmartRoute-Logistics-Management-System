@@ -343,6 +343,12 @@ const fleetInsight =
       marginTop: "10px",
     },
 
+    smallCardValue: {
+      fontSize: "28px",
+      fontWeight: "700",
+      marginTop: "8px",
+    },
+
     bodyText: {
       fontSize: "15px",
       color: colors.textMuted,
@@ -1057,7 +1063,7 @@ const fleetInsight =
       📈 Delivery Success Rate
     </h4>
 
-    <h2 style={typography.cardValue}>
+    <h2 style={typography.smallCardValue}>
       {deliverySuccessRate}%
     </h2>
     <div
@@ -1099,7 +1105,7 @@ const fleetInsight =
       🚚 Fleet Utilization
     </h4>
 
-    <h2 style={typography.cardValue}>
+    <h2 style={typography.smallCardValue}>
       {fleetUtilization}%
     </h2>
     <div
@@ -1141,9 +1147,9 @@ const fleetInsight =
       📦 Total Deliveries
     </h4>
 
-    <h2 style={typography.cardValue}>
-    {totalDeliveries}
-  </h2>
+    <h2 style={typography.smallCardValue}>
+      {totalDeliveries}
+    </h2>
   </div>
 
   <div
@@ -1165,7 +1171,7 @@ const fleetInsight =
     🛠 Fleet Availability
   </h4>
 
-  <h2 style={typography.cardValue}>
+  <h2 style={typography.smallCardValue}>
     {fleetAvailability}%
   </h2>
 </div>
@@ -1189,7 +1195,7 @@ const fleetInsight =
     📍 Average Route
   </h4>
 
-  <h2 style={typography.cardValue}>
+  <h2 style={typography.smallCardValue}>
     {averageRouteLength} km
   </h2>
 </div>
@@ -1213,7 +1219,7 @@ const fleetInsight =
     ⚡ Efficiency Score
   </h4>
 
-  <h2 style={typography.cardValue}>
+  <h2 style={typography.smallCardValue}>
     {efficiencyScore}%
   </h2>
 </div>
@@ -1237,7 +1243,7 @@ const fleetInsight =
     ⏱ Average ETA
   </h4>
 
-  <h2 style={typography.cardValue}>
+  <h2 style={typography.smallCardValue}>
     {averageETA} mins
   </h2>
 </div>

@@ -225,15 +225,41 @@ const fleetInsight =
     : "⚠️ Average ETA is increasing";
 
   const colors = {
+    background: "#0f172a",
+
     card: "#1e293b",
-    glass: "rgba(30,41,59,0.55)",
+
+    glass: "rgba(30,41,59,0.65)",
+
     border: "#334155",
+
+    text: "#f8fafc",
+
     textMuted: "#94a3b8",
 
-    success: "#22c55e",
-    warning: "#f59e0b",
-    danger: "#ef4444",
     primary: "#3b82f6",
+
+    success: "#22c55e",
+
+    warning: "#f59e0b",
+
+    danger: "#ef4444",
+
+    info: "#06b6d4",
+
+    purple: "#8b5cf6",
+
+    gradientPrimary:
+      "linear-gradient(135deg,#3b82f6,#60a5fa)",
+
+    gradientSuccess:
+      "linear-gradient(135deg,#22c55e,#4ade80)",
+
+    gradientWarning:
+      "linear-gradient(135deg,#f59e0b,#fbbf24)",
+
+    gradientDanger:
+      "linear-gradient(135deg,#ef4444,#f87171)",
   };
 
   const cardStyle = {
@@ -324,7 +350,7 @@ const fleetInsight =
                 fontWeight: "700",
 
                 background:
-                  "linear-gradient(90deg,#60a5fa,#22c55e)",
+                  "linear-gradient(90deg,#3b82f6,#22c55e)",
 
                 WebkitBackgroundClip: "text",
 
@@ -357,7 +383,7 @@ const fleetInsight =
             <div
               style={{
                 background:
-                  "rgba(59,130,246,0.15)",
+                  `${colors.primary}20`,
 
                 color: "#60a5fa",
 
@@ -374,9 +400,9 @@ const fleetInsight =
             <div
               style={{
                 background:
-                  "rgba(34,197,94,0.15)",
+                  `${colors.success}20`,
 
-                color: "#22c55e",
+                color: colors.success,
 
                 padding: "10px 18px",
 
@@ -391,9 +417,9 @@ const fleetInsight =
             <div
               style={{
                 background:
-                  "rgba(245,158,11,0.15)",
+                  `${colors.warning}20`,
 
-                color: "#f59e0b",
+                color: colors.warning,
 
                 padding: "10px 18px",
 
@@ -477,8 +503,8 @@ const fleetInsight =
     }
 
     style={{
-      background: "#3b82f6",
-      color: "white",
+      background: colors.primary,
+      color: colors.text,
       border: "none",
       padding: "12px 18px",
       borderRadius: "12px",
@@ -495,8 +521,8 @@ const fleetInsight =
         "/vehicles"
     }
     style={{
-      background: "#22c55e",
-      color: "white",
+      background: colors.success,
+      color: colors.text,
       border: "none",
       padding: "12px 18px",
       borderRadius: "12px",
@@ -516,7 +542,7 @@ const fleetInsight =
       background: colors.glass,
       border:
         "1px solid rgba(255,255,255,0.08)",
-      color: "white",
+      color: colors.text,
       padding: "12px 18px",
       borderRadius: "12px",
       cursor: "pointer",
@@ -536,7 +562,7 @@ const fleetInsight =
       background: colors.glass,
       border:
         "1px solid rgba(255,255,255,0.08)",
-      color: "white",
+      color: colors.text,
       padding: "12px 18px",
       borderRadius: "12px",
       cursor: "pointer",
@@ -604,8 +630,8 @@ const fleetInsight =
 
       color:
         pendingDeliveries > 0
-          ? "#ef4444"
-          : "#22c55e",
+          ? colors.danger
+          : colors.success,
 
       padding: "8px 14px",
 
@@ -654,7 +680,7 @@ const fleetInsight =
                 height: "55px",
                 borderRadius: "14px",
                 background:
-                  "rgba(34,197,94,0.15)",
+                  `${colors.success}20`,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -667,8 +693,8 @@ const fleetInsight =
             <span
               style={{
                 background:
-                  "rgba(34,197,94,0.15)",
-                color: "#22c55e",
+                  `${colors.success}20`,
+                color: colors.success,
                 padding: "6px 12px",
                 borderRadius: "999px",
                 fontSize: "12px",
@@ -699,7 +725,7 @@ const fleetInsight =
 
           <div
             style={{
-              color: "#22c55e",
+              color: colors.success,
               fontSize: "13px",
               fontWeight: "600",
             }}
@@ -749,7 +775,7 @@ const fleetInsight =
             <span
               style={{
                 background: "rgba(245,158,11,0.15)",
-                color: "#f59e0b",
+                color: colors.warning,
                 padding: "6px 12px",
                 borderRadius: "999px",
                 fontSize: "12px",
@@ -780,7 +806,7 @@ const fleetInsight =
 
           <div
             style={{
-              color: "#ef4444",
+              color: colors.danger,
               fontSize: "13px",
               fontWeight: "600",
             }}
@@ -814,7 +840,7 @@ const fleetInsight =
                 height: "55px",
                 borderRadius: "14px",
                 background:
-                  "rgba(59,130,246,0.15)",
+                  `${colors.primary}20`,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -827,8 +853,8 @@ const fleetInsight =
             <span
               style={{
                 background:
-                  "rgba(59,130,246,0.15)",
-                color: "#3b82f6",
+                  `${colors.primary}20`,
+                color: colors.primary,
                 padding: "6px 12px",
                 borderRadius: "999px",
                 fontSize: "12px",
@@ -859,7 +885,7 @@ const fleetInsight =
 
           <div
             style={{
-              color: "#3b82f6",
+              color: colors.primary,
               fontSize: "13px",
               fontWeight: "600",
             }}
@@ -893,7 +919,7 @@ const fleetInsight =
                 height: "55px",
                 borderRadius: "14px",
                 background:
-                  "rgba(34,197,94,0.15)",
+                  `${colors.success}20`,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -906,8 +932,8 @@ const fleetInsight =
             <span
               style={{
                 background:
-                  "rgba(34,197,94,0.15)",
-                color: "#22c55e",
+                  `${colors.success}20`,
+                color: colors.success,
                 padding: "6px 12px",
                 borderRadius: "999px",
                 fontSize: "12px",
@@ -938,7 +964,7 @@ const fleetInsight =
 
           <div
             style={{
-              color: "#22c55e",
+              color: colors.success,
               fontSize: "13px",
               fontWeight: "600",
             }}

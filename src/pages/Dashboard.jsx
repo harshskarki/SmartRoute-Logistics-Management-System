@@ -355,6 +355,15 @@ const fleetInsight =
     },
   };
 
+  const spacing = {
+    xs: "8px",
+    sm: "12px",
+    md: "20px",
+    lg: "30px",
+    xl: "40px",
+    xxl: "60px",
+  };
+
 {/*Dashboard Header Section*/}
 
   return (
@@ -370,9 +379,9 @@ const fleetInsight =
 
           borderRadius: "24px",
 
-          padding: "30px",
+          padding: spacing.lg,
 
-          marginBottom: "30px",
+          marginBottom: spacing.lg,
 
           boxShadow:
             "0 8px 32px rgba(0,0,0,0.25)",
@@ -414,7 +423,7 @@ const fleetInsight =
           <div
             style={{
               display: "flex",
-              gap: "15px",
+              gap: spacing.sm,
               flexWrap: "wrap",
             }}
           >
@@ -529,7 +538,7 @@ const fleetInsight =
 <div
   style={{
     display: "flex",
-    gap: "15px",
+    gap: spacing.sm,
     flexWrap: "wrap",
     marginBottom: "30px",
   }}
@@ -630,7 +639,7 @@ const fleetInsight =
 
     flexWrap: "wrap",
 
-    gap: "15px",
+    gap: spacing.sm,
   }}
 >
   <div>
@@ -686,8 +695,9 @@ const fleetInsight =
       <div
         style={{
           display: "flex",
-          gap: "20px",
+          gap: spacing.md,
           flexWrap: "wrap",
+          marginBottom: spacing.lg,
         }}
       >
         <div
@@ -1037,9 +1047,9 @@ const fleetInsight =
         <div
           style={{
             display: "flex",
-            gap: "20px",
+            gap: spacing.md,
             flexWrap: "wrap",
-            marginTop: "30px",
+            marginBottom: spacing.lg,
           }}
         >
   <div
@@ -1267,8 +1277,9 @@ const fleetInsight =
         <div
           style={{
             display: "flex",
+            gap: spacing.md,
             flexWrap: "wrap",
-            gap: "20px",
+            marginBottom: spacing.lg,
           }}
         >
           <div

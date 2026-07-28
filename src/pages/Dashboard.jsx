@@ -262,31 +262,38 @@ const fleetInsight =
       "linear-gradient(135deg,#ef4444,#f87171)",
   };
 
-  const kpiCardStyle = {
-    background: colors.glass,
-
-    backdropFilter: "blur(16px)",
-
-    WebkitBackdropFilter: "blur(16px)",
-
-    border:
-      "1px solid rgba(255,255,255,0.08)",
-
-    borderRadius: "20px",
-
-    padding: "24px",
-
-    flex: "1 1 260px",
-
-    minWidth: "260px",
-
-    cursor: "pointer",
-
-    transition: "all 0.3s ease",
-
-    boxShadow:
-      "0 10px 30px rgba(0,0,0,0.25)",
+   const spacing = {
+    xs: "8px",
+    sm: "12px",
+    md: "20px",
+    lg: "30px",
+    xl: "40px",
+    xxl: "60px",
   };
+
+  const kpiCardStyle = {
+  background: colors.glass,
+
+  backdropFilter: "blur(16px)",
+
+  WebkitBackdropFilter: "blur(16px)",
+
+  border:
+    "1px solid rgba(255,255,255,0.08)",
+
+  borderRadius: "20px",
+
+  padding: spacing.md,
+
+  minWidth: "260px",
+
+  flex: "1",
+
+  boxShadow:
+    "0 8px 24px rgba(0,0,0,0.25)",
+
+  transition: "all 0.3s ease",
+};
 
   const buttonStyle = {
     background: colors.glass,
@@ -353,15 +360,6 @@ const fleetInsight =
       fontSize: "15px",
       color: colors.textMuted,
     },
-  };
-
-  const spacing = {
-    xs: "8px",
-    sm: "12px",
-    md: "20px",
-    lg: "30px",
-    xl: "40px",
-    xxl: "60px",
   };
 
 {/*Dashboard Header Section*/}
@@ -625,7 +623,7 @@ const fleetInsight =
     border:
       "1px solid rgba(239,68,68,0.25)",
 
-    borderRadius: "16px",
+    borderRadius: "20px",
 
     padding: "18px 24px",
 
@@ -1035,7 +1033,7 @@ const fleetInsight =
         style={{
           marginTop: "40px",
           padding: "25px",
-          borderRadius: "16px",
+          borderRadius: "20px",
           background: colors.glass,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
@@ -1372,7 +1370,7 @@ const fleetInsight =
   style={{
     marginTop: "30px", 
     padding: "25px",
-    borderRadius: "16px",
+    borderRadius: "20px",
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
@@ -1475,7 +1473,7 @@ const fleetInsight =
   style={{
     marginTop: "30px",
     padding: "25px",
-    borderRadius: "16px",
+    borderRadius: "20px",
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
@@ -1580,7 +1578,7 @@ const fleetInsight =
         style={{
           marginTop: "30px",
           padding: "25px",
-          borderRadius: "16px",
+          borderRadius: "20px",
           background: colors.glass,
           backdropFilter: "blur(16px)",
           WebkitBackdropFilter: "blur(16px)",
@@ -1648,7 +1646,7 @@ const fleetInsight =
   style={{
     marginTop: "30px",
     padding: "25px",
-    borderRadius: "16px",
+    borderRadius: "20px",
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
@@ -1702,7 +1700,7 @@ const fleetInsight =
   style={{
     marginTop: "30px",
     padding: "25px",
-    borderRadius: "16px",
+    borderRadius: "20px",
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
@@ -1765,7 +1763,7 @@ const fleetInsight =
   style={{
     marginTop: "30px",
     padding: "25px",
-    borderRadius: "16px",
+    borderRadius: "20px",
     background: colors.glass,
     backdropFilter: "blur(16px)",
     WebkitBackdropFilter: "blur(16px)",
@@ -1776,7 +1774,7 @@ const fleetInsight =
   <h2
     style={{
       ...typography.sectionTitle,
-      marginBottom: "20px",
+      marginBottom: spacing.md,
     }}
   >
     🚨 Live Alerts

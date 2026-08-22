@@ -298,34 +298,73 @@ setDriverName("");
       </div>
 
       {filteredVehicles.map((vehicle) => (
-  <div
-    key={vehicle.id}
-    style={{
-      background: "#1e293b",
-      padding: "20px",
-      marginBottom: "15px",
-      borderRadius: "12px",
-      border: "1px solid #334155",
-    }}
-  >
+        <div
+          key={vehicle.id}
+          style={{
+            background:
+              "rgba(255,255,255,0.05)",
+
+            backdropFilter:
+              "blur(16px)",
+
+            WebkitBackdropFilter:
+              "blur(16px)",
+
+            padding: "24px",
+
+            marginBottom: "20px",
+
+            borderRadius: "20px",
+
+            border:
+              "1px solid rgba(255,255,255,0.08)",
+
+            boxShadow:
+              "0 8px 24px rgba(0,0,0,0.25)",
+
+            transition:
+              "all 0.3s ease",
+          }}
+        >
     <div
       style={{
         display: "flex",
         justifyContent: "space-between",
       }}
     >
-      <h3>🚚 {vehicle.id}</h3>
+      <h3
+        style={{
+          fontSize: "22px",
+          margin: 0,
+        }}
+      >
+        🚚 {vehicle.id}
+      </h3>
 
       <span
         style={{
           background:
             vehicle.status === "Active"
+              ? "rgba(34,197,94,0.15)"
+              : vehicle.status ===
+                "Maintenance"
+              ? "rgba(239,68,68,0.15)"
+              : "rgba(245,158,11,0.15)",
+
+          color:
+            vehicle.status === "Active"
               ? "#22c55e"
+              : vehicle.status ===
+                "Maintenance"
+              ? "#ef4444"
               : "#f59e0b",
-          color: "black",
-          padding: "5px 10px",
-          borderRadius: "20px",
-          fontWeight: "bold",
+
+          padding: "6px 14px",
+
+          borderRadius: "999px",
+
+          fontWeight: "600",
+
           fontSize: "12px",
         }}
       >
@@ -333,14 +372,20 @@ setDriverName("");
       </span>
     </div>
 
-    <p>
-      <strong>Driver:</strong>{" "}
-      {vehicle.driver}
+    <p
+      style={{
+        color: "#cbd5e1",
+      }}
+    >
+      👨‍✈️ {vehicle.driver}
     </p>
 
-    <p>
-      <strong>Location:</strong>{" "}
-      {vehicle.location}
+    <p
+      style={{
+        color: "#94a3b8",
+      }}
+    >
+      📍 {vehicle.location}
     </p>
 
           <button

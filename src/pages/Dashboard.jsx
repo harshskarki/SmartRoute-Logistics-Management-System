@@ -22,6 +22,9 @@ function Dashboard() {
   const [timeFilter, setTimeFilter] =
     useState("Today");
 
+  const [density, setDensity] =
+    useState("comfortable");
+
   const activeVehicles =
     vehicles.filter(
       (vehicle) =>
@@ -225,6 +228,14 @@ const fleetInsight =
     : "⚠️ Average ETA is increasing";
 
   const colors = {
+
+    alerts: {
+      critical: "#ef4444",
+      warning: "#f59e0b",
+      success: "#22c55e",
+      info: "#3b82f6",
+    },
+
     background: "#0f172a",
 
     card: "#1e293b",
@@ -283,7 +294,10 @@ const fleetInsight =
 
   borderRadius: "20px",
 
-  padding: spacing.md,
+  padding:
+  density === "compact"
+    ? "14px"
+    : "20px",
 
   minWidth: "260px",
 
@@ -430,7 +444,7 @@ const fleetInsight =
                 background:
                   `${colors.primary}20`,
 
-                color: "#60a5fa",
+                color: colors.alerts.info,
 
                 padding: "10px 18px",
 
@@ -474,6 +488,39 @@ const fleetInsight =
               }}
             >
               ⚡ Efficiency: {efficiencyScore}%
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+                marginTop: "15px",
+              }}
+            >
+              <button
+                onClick={() =>
+                  setDensity("comfortable")
+                }
+                style={{
+                  padding: "8px 14px",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                }}
+              >
+                Comfortable
+              </button>
+
+              <button
+                onClick={() =>
+                  setDensity("compact")
+                }
+                style={{
+                  padding: "8px 14px",
+                  borderRadius: "10px",
+                  cursor: "pointer",
+                }}
+              >
+                Compact
+              </button>
             </div>
           </div>
         </div>
@@ -1794,7 +1841,7 @@ const fleetInsight =
 
     <div
       style={{
-        background: "#78350f",
+        background: colors.alerts.warning,
         padding: "12px",
         borderRadius: "8px",
         marginBottom: "10px",

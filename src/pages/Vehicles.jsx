@@ -112,23 +112,53 @@ setDriverName("");
 
   return (
     <div>
-      <h1
-        style={{
-          fontSize: "32px",
-          marginBottom: "20px",
-        }}
-      >
-        🚚 Vehicles
-      </h1>
 
-            <div
+{/* Fleet Header */}
+
+      <div
   style={{
-    display: "flex",
-    gap: "20px",
-    flexWrap: "wrap",
-    marginBottom: "25px",
+    marginBottom: "30px",
+    padding: "24px",
+    borderRadius: "20px",
+    background:
+      "rgba(255,255,255,0.05)",
+    backdropFilter: "blur(16px)",
+    border:
+      "1px solid rgba(255,255,255,0.08)",
   }}
 >
+  <h1
+    style={{
+      fontSize: "32px",
+      marginBottom: "10px",
+    }}
+  >
+    🚚 Fleet Management Center
+  </h1>
+
+  <p
+    style={{
+      color: "#94a3b8",
+      fontSize: "14px",
+      margin: 0,
+    }}
+  >
+    Manage vehicles, monitor fleet
+    status, and track operational
+    availability in real time.
+  </p>
+</div>
+
+{/* KPI Cards */}
+
+            <div
+              style={{
+                display: "flex",
+                gap: "20px",
+                flexWrap: "wrap",
+                marginBottom: "25px",
+              }}
+            >
   <div
     style={{
       background: "#1e293b",
@@ -187,55 +217,61 @@ setDriverName("");
 
 </div>
 
-          <input
-  type="text"
-  placeholder="Search Vehicle..."
-  value={searchTerm}
-  onChange={(e) =>
-    setSearchTerm(e.target.value)
-  }
-  style={{
-    padding: "10px",
-    marginBottom: "20px",
-    borderRadius: "8px",
-    border: "1px solid #334155",
-    background: "#1e293b",
-    color: "white",
-    width: "250px",
-  }}
-/>
+ {/* Search & Filter */}
 
-    <select
-  value={filterStatus}
-  onChange={(e) =>
-    setFilterStatus(e.target.value)
-  }
+<div
   style={{
-    padding: "10px",
-    marginLeft: "10px",
-    marginBottom: "20px",
-    borderRadius: "8px",
-    background: "#1e293b",
-    color: "white",
-    border: "1px solid #334155",
+    display: "flex",
+    gap: "12px",
+    flexWrap: "wrap",
+    marginBottom: "25px",
   }}
 >
-  <option value="All">
-    All
-  </option>
+  <input
+    type="text"
+    placeholder="Search Vehicle..."
+    value={searchTerm}
+    onChange={(e) =>
+      setSearchTerm(e.target.value)
+    }
+    style={{
+      padding: "14px 18px",
+      borderRadius: "14px",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+      background:
+        "rgba(255,255,255,0.05)",
+      backdropFilter: "blur(16px)",
+      color: "white",
+      width: "320px",
+      fontSize: "14px",
+      outline: "none",
+    }}
+  />
 
-  <option value="Active">
-    Active
-  </option>
+  <select
+    value={filterStatus}
+    onChange={(e) =>
+      setFilterStatus(e.target.value)
+    }
+    style={{
+      padding: "14px 18px",
+      borderRadius: "14px",
+      background:"rgba(255,255,255,0.05)",
+      backdropFilter: "blur(16px)",
+      color: "white",
+      border:"1px solid rgba(255,255,255,0.08)",
+      fontSize: "14px",
+    }}
+  >
+    <option value="All">All</option>
+    <option value="Active">Active</option>
+    <option value="Idle">Idle</option>
+    <option value="Maintenance">Maintenance</option>
+  </select>
+</div>
 
-  <option value="Idle">
-    Idle
-  </option>
-    
-  <option value="Maintenance">
-    Maintenance
-  </option>
-</select>
+{/* Add Vehicle Form */}
 
       <div
         style={{

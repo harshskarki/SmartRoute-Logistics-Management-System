@@ -343,6 +343,10 @@ setDriverName("");
 
       <span
         style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+
           background:
             vehicle.status === "Active"
               ? "rgba(34,197,94,0.15)"
@@ -359,15 +363,29 @@ setDriverName("");
               ? "#ef4444"
               : "#f59e0b",
 
-          padding: "6px 14px",
+          padding: "8px 16px",
 
           borderRadius: "999px",
 
           fontWeight: "600",
 
           fontSize: "12px",
+
+          border:
+            vehicle.status === "Active"
+              ? "1px solid rgba(34,197,94,0.3)"
+              : vehicle.status ===
+                "Maintenance"
+              ? "1px solid rgba(239,68,68,0.3)"
+              : "1px solid rgba(245,158,11,0.3)",
         }}
       >
+        {vehicle.status === "Active"
+          ? "🟢"
+          : vehicle.status === "Maintenance"
+          ? "🔴"
+          : "🟡"}
+
         {vehicle.status}
       </span>
     </div>

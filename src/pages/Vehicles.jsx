@@ -50,6 +50,9 @@ const totalVehicles =
   const [filterStatus, setFilterStatus] =
     useState("All");
 
+  const [viewMode, setViewMode] =
+    useState("grid");
+
       const toggleVehicleStatus = (id) => {
   setVehicles((prev) =>
     prev.map((vehicle) =>
@@ -271,6 +274,60 @@ setDriverName("");
   </select>
 </div>
 
+{/* View Toggle Buttons */}
+
+<div
+  style={{
+    display: "flex",
+    gap: "10px",
+    marginBottom: "20px",
+  }}
+>
+  <button
+    onClick={() =>
+      setViewMode("grid")
+    }
+    style={{
+      padding: "10px 16px",
+      borderRadius: "10px",
+      border: "none",
+      cursor: "pointer",
+      fontWeight: "bold",
+
+      background:
+        viewMode === "grid"
+          ? "#2563eb"
+          : "#1e293b",
+
+      color: "white",
+    }}
+  >
+    📇 Card View
+  </button>
+
+  <button
+    onClick={() =>
+      setViewMode("table")
+    }
+    style={{
+      padding: "10px 16px",
+      borderRadius: "10px",
+      border: "none",
+      cursor: "pointer",
+      fontWeight: "bold",
+
+      background:
+        viewMode === "table"
+          ? "#2563eb"
+          : "#1e293b",
+
+      color: "white",
+    }}
+  >
+    📋 Table View
+  </button>
+</div>
+
 {/* Add Vehicle Form */}
 
       <div
@@ -367,6 +424,7 @@ setDriverName("");
     </p>
   </div>
 ) : (
+  viewMode === "grid" ? (
   filteredVehicles.map((vehicle) => (
     <div
       key={vehicle.id}
@@ -550,9 +608,100 @@ setDriverName("");
       </select>
     </div>
   ))
+) : (
+  <div
+    style={{
+      background:
+        "rgba(255,255,255,0.05)",
+      borderRadius: "20px",
+      overflow: "hidden",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+    }}
+  >
+    <table
+      style={{
+        width: "100%",
+        borderCollapse: "collapse",
+      }}
+    >
+      <thead>
+        <tr>
+          <th style={{ padding: "16px" }}>
+            Vehicle
+          </th>
+
+          <th style={{ padding: "16px" }}>
+            Driver
+          </th>
+
+          <th style={{ padding: "16px" }}>
+            Status
+          </th>
+
+          <th style={{ padding: "16px" }}>
+            Location
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {filteredVehicles.map(
+          (vehicle) => (
+            <tr
+              key={vehicle.id}
+            >
+              <td
+                style={{
+                  padding: "16px",
+                }}
+              >
+                {vehicle.id}
+              </td>
+
+              <td
+                style={{
+                  padding: "16px",
+                }}
+              >
+                {vehicle.driver}
+              </td>
+
+              <td
+                style={{
+                  padding: "16px",
+                }}
+              >
+                {vehicle.status}
+              </td>
+
+              <td
+                style={{
+                  padding: "16px",
+                }}
+              >
+                {vehicle.location}
+              </td>
+            </tr>
+          )
+        )}
+      </tbody>
+    </table>
+  </div>
+)
 )}
     </div>
   );
 }
 
 export default Vehicles;
+
+// No Vehicles Found
+// ↓
+// Grid View ?
+// ↓
+// Vehicle Cards
+// ↓
+// Else
+// ↓
+// Table View

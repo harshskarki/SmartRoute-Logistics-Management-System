@@ -374,7 +374,13 @@ setDriverName("");
           margin: 0,
         }}
       >
-        🚚 {vehicle.id}
+        {vehicle.status === "Active"
+          ? "🚚"
+          : vehicle.status === "Maintenance"
+          ? "🔧"
+          : "🅿️"}{" "}
+
+        {vehicle.id}
       </h3>
 
       <span
@@ -436,10 +442,15 @@ setDriverName("");
 
     <p
       style={{
-        color: "#94a3b8",
+        color: "#64748b",
+        fontSize: "13px",
       }}
     >
-      📍 {vehicle.location}
+      {vehicle.status === "Active"
+        ? "🟢 Operational Vehicle"
+        : vehicle.status === "Maintenance"
+        ? "🔧 Under Maintenance"
+        : "🅿️ Waiting Assignment"}
     </p>
 
           <button

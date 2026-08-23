@@ -333,204 +333,224 @@ setDriverName("");
         </button>
       </div>
 
-      {filteredVehicles.map((vehicle) => (
-        <div
-          key={vehicle.id}
-          style={{
-            background:
-              "rgba(255,255,255,0.05)",
-
-            backdropFilter:
-              "blur(16px)",
-
-            WebkitBackdropFilter:
-              "blur(16px)",
-
-            padding: "24px",
-
-            marginBottom: "20px",
-
-            borderRadius: "20px",
-
-            border:
-              "1px solid rgba(255,255,255,0.08)",
-
-            boxShadow:
-              "0 8px 24px rgba(0,0,0,0.25)",
-
-            transition:
-              "all 0.3s ease",
-          }}
-        >
+      {filteredVehicles.length === 0 ? (
+  <div
+    style={{
+      background: "rgba(255,255,255,0.05)",
+      backdropFilter: "blur(16px)",
+      border: "1px solid rgba(255,255,255,0.08)",
+      borderRadius: "20px",
+      padding: "50px",
+      textAlign: "center",
+      marginTop: "20px",
+    }}
+  >
     <div
       style={{
-        display: "flex",
-        justifyContent: "space-between",
+        fontSize: "60px",
+        marginBottom: "15px",
       }}
     >
-      <h3
-        style={{
-          fontSize: "22px",
-          margin: 0,
-        }}
-      >
-        {vehicle.status === "Active"
-          ? "🚚"
-          : vehicle.status === "Maintenance"
-          ? "🔧"
-          : "🅿️"}{" "}
-
-        {vehicle.id}
-      </h3>
-
-      <span
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-
-          background:
-            vehicle.status === "Active"
-              ? "rgba(34,197,94,0.15)"
-              : vehicle.status ===
-                "Maintenance"
-              ? "rgba(239,68,68,0.15)"
-              : "rgba(245,158,11,0.15)",
-
-          color:
-            vehicle.status === "Active"
-              ? "#22c55e"
-              : vehicle.status ===
-                "Maintenance"
-              ? "#ef4444"
-              : "#f59e0b",
-
-          padding: "8px 16px",
-
-          borderRadius: "999px",
-
-          fontWeight: "600",
-
-          fontSize: "12px",
-
-          border:
-            vehicle.status === "Active"
-              ? "1px solid rgba(34,197,94,0.3)"
-              : vehicle.status ===
-                "Maintenance"
-              ? "1px solid rgba(239,68,68,0.3)"
-              : "1px solid rgba(245,158,11,0.3)",
-        }}
-      >
-        {vehicle.status === "Active"
-          ? "🟢"
-          : vehicle.status === "Maintenance"
-          ? "🔴"
-          : "🟡"}
-
-        {vehicle.status}
-      </span>
+      🚚
     </div>
 
-    <p
-      style={{
-        color: "#cbd5e1",
-      }}
-    >
-      👨‍✈️ {vehicle.driver}
-    </p>
+    <h2>No Vehicles Found</h2>
 
     <p
       style={{
-        color: "#64748b",
-        fontSize: "13px",
+        color: "#94a3b8",
       }}
     >
-      {vehicle.status === "Active"
-        ? "🟢 Operational Vehicle"
-        : vehicle.status === "Maintenance"
-        ? "🔧 Under Maintenance"
-        : "🅿️ Waiting Assignment"}
+      Try changing your search,
+      filter settings, or add a new
+      vehicle to the fleet.
     </p>
+  </div>
+) : (
+  filteredVehicles.map((vehicle) => (
+    <div
+      key={vehicle.id}
+      style={{
+        background:
+          "rgba(255,255,255,0.05)",
+        backdropFilter:
+          "blur(16px)",
+        WebkitBackdropFilter:
+          "blur(16px)",
+        padding: "24px",
+        marginBottom: "20px",
+        borderRadius: "20px",
+        border:
+          "1px solid rgba(255,255,255,0.08)",
+        boxShadow:
+          "0 8px 24px rgba(0,0,0,0.25)",
+        transition:
+          "all 0.3s ease",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <h3
+          style={{
+            fontSize: "22px",
+            margin: 0,
+          }}
+        >
+          {vehicle.status === "Active"
+            ? "🚚"
+            : vehicle.status === "Maintenance"
+            ? "🔧"
+            : "🅿️"}{" "}
+          {vehicle.id}
+        </h3>
 
-          <button
-  onClick={() =>
-    toggleVehicleStatus(
-      vehicle.id
-    )
-  }
-  style={{
-    marginTop: "10px",
-    background: "#2563eb",
-    color: "white",
-    border: "none",
-    padding: "8px 14px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  }}
->
-  Toggle Status
-</button>
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "6px",
+            background:
+              vehicle.status === "Active"
+                ? "rgba(34,197,94,0.15)"
+                : vehicle.status ===
+                  "Maintenance"
+                ? "rgba(239,68,68,0.15)"
+                : "rgba(245,158,11,0.15)",
+            color:
+              vehicle.status === "Active"
+                ? "#22c55e"
+                : vehicle.status ===
+                  "Maintenance"
+                ? "#ef4444"
+                : "#f59e0b",
+            padding: "8px 16px",
+            borderRadius: "999px",
+            fontWeight: "600",
+            fontSize: "12px",
+            border:
+              vehicle.status === "Active"
+                ? "1px solid rgba(34,197,94,0.3)"
+                : vehicle.status ===
+                  "Maintenance"
+                ? "1px solid rgba(239,68,68,0.3)"
+                : "1px solid rgba(245,158,11,0.3)",
+          }}
+        >
+          {vehicle.status === "Active"
+            ? "🟢"
+            : vehicle.status === "Maintenance"
+            ? "🔴"
+            : "🟡"}
+
+          {vehicle.status}
+        </span>
+      </div>
+
+      <p
+        style={{
+          color: "#cbd5e1",
+        }}
+      >
+        👨‍✈️ {vehicle.driver}
+      </p>
+
+      <p
+        style={{
+          color: "#64748b",
+          fontSize: "13px",
+        }}
+      >
+        {vehicle.status === "Active"
+          ? "🟢 Operational Vehicle"
+          : vehicle.status === "Maintenance"
+          ? "🔧 Under Maintenance"
+          : "🅿️ Waiting Assignment"}
+      </p>
 
       <button
-  onClick={() =>
-    deleteVehicle(vehicle.id)
-  }
-  style={{
-    marginTop: "10px",
-    marginLeft: "10px",
-    background: "#dc2626",
-    color: "white",
-    border: "none",
-    padding: "8px 14px",
-    borderRadius: "8px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  }}
->
-  Delete
-</button>
+        onClick={() =>
+          toggleVehicleStatus(
+            vehicle.id
+          )
+        }
+        style={{
+          marginTop: "10px",
+          background: "#2563eb",
+          color: "white",
+          border: "none",
+          padding: "8px 14px",
+          borderRadius: "8px",
+          cursor: "pointer",
+          fontWeight: "bold",
+        }}
+      >
+        Toggle Status
+      </button>
 
-        <select
-  value={vehicle.status}
-  onChange={(e) => {
-    const updatedVehicles =
-      vehicles.map((v) =>
-        v.id === vehicle.id
-          ? {
-              ...v,
-              status: e.target.value,
-            }
-          : v
-      );
+      <button
+        onClick={() =>
+          deleteVehicle(vehicle.id)
+        }
+        style={{
+          marginTop: "10px",
+          marginLeft: "10px",
+          background: "#dc2626",
+          color: "white",
+          border: "none",
+          padding: "8px 14px",
+          borderRadius: "8px",
+          cursor: "pointer",
+          fontWeight: "bold",
+        }}
+      >
+        Delete
+      </button>
 
-    setVehicles(updatedVehicles);
-  }}
-  style={{
-    marginTop: "10px",
-    padding: "8px",
-    borderRadius: "8px",
-    background: "#0f172a",
-    color: "white",
-    border: "1px solid #334155",
-  }}
->
-  <option value="Active">
-    Active
-  </option>
+      <select
+        value={vehicle.status}
+        onChange={(e) => {
+          const updatedVehicles =
+            vehicles.map((v) =>
+              v.id === vehicle.id
+                ? {
+                    ...v,
+                    status:
+                      e.target.value,
+                  }
+                : v
+            );
 
-  <option value="Idle">
-    Idle
-  </option>
+          setVehicles(updatedVehicles);
+        }}
+        style={{
+          marginTop: "10px",
+          padding: "8px",
+          borderRadius: "8px",
+          background: "#0f172a",
+          color: "white",
+          border:
+            "1px solid #334155",
+        }}
+      >
+        <option value="Active">
+          Active
+        </option>
 
-  <option value="Maintenance">
-    Maintenance
-  </option>
-</select>
+        <option value="Idle">
+          Idle
+        </option>
 
-  </div>
-))}
+        <option value="Maintenance">
+          Maintenance
+        </option>
+      </select>
+    </div>
+  ))
+)}
     </div>
   );
 }

@@ -166,7 +166,39 @@ return prev;
 
   return (
     <div>
-      <h1>📦 Deliveries</h1>
+      <div
+  style={{
+    marginBottom: "30px",
+    padding: "24px",
+    borderRadius: "20px",
+    background:
+      "rgba(255,255,255,0.05)",
+    backdropFilter: "blur(16px)",
+    border:
+      "1px solid rgba(255,255,255,0.08)",
+  }}
+>
+  <h1
+    style={{
+      fontSize: "32px",
+      marginBottom: "10px",
+    }}
+  >
+    📦 Delivery Operations Center
+  </h1>
+
+  <p
+    style={{
+      color: "#94a3b8",
+      fontSize: "14px",
+      margin: 0,
+    }}
+  >
+    Create deliveries, manage routes,
+    monitor shipment progress, and
+    track logistics operations.
+  </p>
+</div>
 
       {error && (
   <div
@@ -199,11 +231,17 @@ return prev;
       setSearchTerm(e.target.value)
     }
     style={{
-      padding: "10px",
-      borderRadius: "8px",
-      border: "1px solid #334155",
-      background: "#1e293b",
+      padding: "14px 18px",
+      borderRadius: "14px",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+      background:
+        "rgba(255,255,255,0.05)",
+      backdropFilter: "blur(16px)",
       color: "white",
+      width: "320px",
+      fontSize: "14px",
+      outline: "none",
     }}
   />
 
@@ -213,21 +251,54 @@ return prev;
       setFilterStatus(e.target.value)
     }
     style={{
-      padding: "10px",
-      borderRadius: "8px",
-      background: "#1e293b",
+      padding: "14px 18px",
+      borderRadius: "14px",
+      background:
+        "rgba(255,255,255,0.05)",
+      backdropFilter: "blur(16px)",
       color: "white",
-      border: "1px solid #334155",
+      border:
+        "1px solid rgba(255,255,255,0.08)",
+      fontSize: "14px",
     }}
   >
-    <option value="All">All</option>
-    <option value="Pending">
+    <option
+      value="All"
+      style={{
+        background: "#0f172a",
+        color: "white",
+      }}
+    >
+      All
+    </option>
+
+    <option
+      value="Pending"
+      style={{
+        background: "#0f172a",
+        color: "white",
+      }}
+    >
       Pending
     </option>
-    <option value="In Transit">
+
+    <option
+      value="In Transit"
+      style={{
+        background: "#0f172a",
+        color: "white",
+      }}
+    >
       In Transit
     </option>
-    <option value="Delivered ✅">
+
+    <option
+      value="Delivered ✅"
+      style={{
+        background: "#0f172a",
+        color: "white",
+      }}
+    >
       Delivered
     </option>
   </select>
@@ -247,15 +318,24 @@ return prev;
             setSource(e.target.value)
           }
           style={{
-            padding: "10px",
-            borderRadius: "8px",
-            background: "#1e293b",
+            padding: "14px 18px",
+            borderRadius: "14px",
+            background:
+              "rgba(255,255,255,0.05)",
+            backdropFilter: "blur(16px)",
             color: "white",
-            border: "1px solid #334155",
-            minWidth: "180px",
+            border:
+              "1px solid rgba(255,255,255,0.08)",
+            minWidth: "220px",
           }}
         >
-          <option value="">
+          <option
+            value=""
+            style={{
+              background: "#0f172a",
+              color: "white",
+            }}
+          >
             Select Source
           </option>
 
@@ -263,6 +343,10 @@ return prev;
             <option
               key={station}
               value={station}
+              style={{
+                background: "#0f172a",
+                color: "white",
+              }}
             >
               {station}
             </option>
@@ -275,15 +359,24 @@ return prev;
             setDestination(e.target.value)
           }
           style={{
-            padding: "10px",
-            borderRadius: "8px",
-            background: "#1e293b",
+            padding: "14px 18px",
+            borderRadius: "14px",
+            background:
+              "rgba(255,255,255,0.05)",
+            backdropFilter: "blur(16px)",
             color: "white",
-            border: "1px solid #334155",
-            minWidth: "180px",
+            border:
+              "1px solid rgba(255,255,255,0.08)",
+            minWidth: "220px",
           }}
         >
-          <option value="">
+          <option
+            value=""
+            style={{
+              background: "#0f172a",
+              color: "white",
+            }}
+          >
             Select Destination
           </option>
 
@@ -291,6 +384,10 @@ return prev;
             <option
               key={station}
               value={station}
+              style={{
+                background: "#0f172a",
+                color: "white",
+              }}
             >
               {station}
             </option>
@@ -300,13 +397,23 @@ return prev;
         <button
           onClick={addDelivery}
           style={{
-            background: "#2563eb",
+            background:
+              "linear-gradient(135deg,#2563eb,#1d4ed8)",
+
             color: "white",
+
             border: "none",
-            padding: "10px 16px",
-            borderRadius: "8px",
+
+            padding: "14px 22px",
+
+            borderRadius: "14px",
+
             cursor: "pointer",
-            fontWeight: "bold",
+
+            fontWeight: "600",
+
+            boxShadow:
+              "0 8px 24px rgba(37,99,235,0.35)",
           }}
         >
           Add Delivery

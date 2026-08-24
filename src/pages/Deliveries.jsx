@@ -427,24 +427,47 @@ return prev;
             setSelectedDelivery(delivery)
           }
           style={{
-            background: "#1e293b",
-            padding: "20px",
-            marginBottom: "15px",
-            borderRadius: "12px",
+            background:
+              "rgba(255,255,255,0.05)",
+
+            backdropFilter:
+              "blur(16px)",
+
+            WebkitBackdropFilter:
+              "blur(16px)",
+
+            padding: "24px",
+
+            marginBottom: "20px",
+
+            borderRadius: "20px",
+
             cursor: "pointer",
-            border: "1px solid #334155",
-            transition: "0.3s",
+
+            border:
+              "1px solid rgba(255,255,255,0.08)",
+
+            boxShadow:
+              "0 8px 24px rgba(0,0,0,0.25)",
+
+            transition:
+              "all 0.3s ease",
           }}
         >
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
-              marginBottom: "10px",
+              marginBottom: "16px",
             }}
           >
-            <h3>
-              📦 Delivery #{delivery.id}
+            <h3
+              style={{
+                margin: 0,
+                fontSize: "22px",
+              }}
+            >
+              📦 {delivery.id}
             </h3>
 
             <span
@@ -458,9 +481,9 @@ return prev;
                     ? "#3b82f6"
                     : "#f59e0b",
                 color:
-  delivery.status === "In Transit"
-    ? "white"
-    : "black",
+                delivery.status === "In Transit"
+                  ? "white"
+                  : "black",
                 padding: "5px 10px",
                 borderRadius: "20px",
                 fontSize: "12px",
@@ -471,26 +494,65 @@ return prev;
             </span>
           </div>
 
-          <p>
-            <strong>Route:</strong>{" "}
-            {delivery.source} →{" "}
-            {delivery.destination}
-          </p>
+          <div
+            style={{
+              marginTop: "18px",
+              marginBottom: "18px",
+            }}
+          >
+            <div
+              style={{
+                fontSize: "15px",
+                fontWeight: "600",
+              }}
+            >
+              📍 {delivery.source}
+            </div>
 
-          <p>
-            <strong>Vehicle:</strong>{" "}
-            {delivery.vehicle}
-          </p>
+            <div
+              style={{
+                marginLeft: "8px",
+                color: "#64748b",
+              }}
+            >
+              ↓
+            </div>
 
-          <p>
-            <strong>Distance:</strong>{" "}
-            {delivery.distance}
-          </p>
+            <div
+              style={{
+                fontSize: "15px",
+                fontWeight: "600",
+              }}
+            >
+              📍 {delivery.destination}
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: "20px",
+              flexWrap: "wrap",
+              color: "#cbd5e1",
+              marginTop: "10px",
+            }}
+          >
+            <span>🚚 {delivery.vehicle}</span>
 
-          <p>
-            <strong>ETA:</strong>{" "}
-            {delivery.eta}
-          </p>
+            <span>📏 {delivery.distance}</span>
+
+            <span>⏱ {delivery.eta}</span>
+          </div>
+
+          <div
+            style={{
+              marginTop: "18px",
+              color: "#60a5fa",
+              fontWeight: "600",
+              fontSize: "14px",
+            }}
+          >
+            View Route →
+          </div>
         </div>
       ))}
 

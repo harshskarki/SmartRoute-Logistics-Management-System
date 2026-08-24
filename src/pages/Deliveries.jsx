@@ -312,11 +312,13 @@ return prev;
           flexWrap: "wrap",
         }}
       >
-        <select
+        <input
+          list="sourceStations"
           value={source}
           onChange={(e) =>
             setSource(e.target.value)
           }
+          placeholder="🔍 Search Source Station"
           style={{
             padding: "14px 18px",
             borderRadius: "14px",
@@ -326,38 +328,26 @@ return prev;
             color: "white",
             border:
               "1px solid rgba(255,255,255,0.08)",
-            minWidth: "220px",
+            minWidth: "260px",
           }}
-        >
-          <option
-            value=""
-            style={{
-              background: "#0f172a",
-              color: "white",
-            }}
-          >
-            Select Source
-          </option>
+        />
 
+        <datalist id="sourceStations">
           {stations.map((station) => (
             <option
               key={station}
               value={station}
-              style={{
-                background: "#0f172a",
-                color: "white",
-              }}
-            >
-              {station}
-            </option>
+            />
           ))}
-        </select>
+        </datalist>
 
-        <select
+        <input
+          list="destinationStations"
           value={destination}
           onChange={(e) =>
             setDestination(e.target.value)
           }
+          placeholder="🔍 Search Destination Station"
           style={{
             padding: "14px 18px",
             borderRadius: "14px",
@@ -367,32 +357,18 @@ return prev;
             color: "white",
             border:
               "1px solid rgba(255,255,255,0.08)",
-            minWidth: "220px",
+            minWidth: "260px",
           }}
-        >
-          <option
-            value=""
-            style={{
-              background: "#0f172a",
-              color: "white",
-            }}
-          >
-            Select Destination
-          </option>
+        />
 
+        <datalist id="destinationStations">
           {stations.map((station) => (
             <option
               key={station}
               value={station}
-              style={{
-                background: "#0f172a",
-                color: "white",
-              }}
-            >
-              {station}
-            </option>
+            />
           ))}
-        </select>
+        </datalist>
 
         <button
           onClick={addDelivery}

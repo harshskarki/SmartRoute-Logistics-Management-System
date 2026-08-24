@@ -404,7 +404,9 @@ return prev;
           }
           style={{
             background:
-              "rgba(255,255,255,0.05)",
+              delivery.status === "Delivered ✅"
+                ? "rgba(34,197,94,0.08)"
+                : "rgba(255,255,255,0.05)",
 
             backdropFilter:
               "blur(16px)",
@@ -421,7 +423,9 @@ return prev;
             cursor: "pointer",
 
             border:
-              "1px solid rgba(255,255,255,0.08)",
+              delivery.status === "Delivered ✅"
+                ? "1px solid rgba(34,197,94,0.25)"
+                : "1px solid rgba(255,255,255,0.08)",
 
             boxShadow:
               "0 8px 24px rgba(0,0,0,0.25)",
@@ -443,7 +447,10 @@ return prev;
                 fontSize: "22px",
               }}
             >
-              📦 {delivery.id}
+              {delivery.status === "Delivered ✅"
+                ? "📦✅"
+                : "📦"}{" "}
+              {delivery.id}
             </h3>
 
             <span
@@ -594,6 +601,20 @@ return prev;
           >
             View Route →
           </div>
+          
+          {delivery.status === "Delivered ✅" && (
+            <div
+              style={{
+                marginTop: "12px",
+                color: "#22c55e",
+                fontSize: "13px",
+                fontWeight: "600",
+              }}
+            >
+              ✓ Archived in Delivery History
+            </div>
+          )}
+          
         </div>
       ))}
 

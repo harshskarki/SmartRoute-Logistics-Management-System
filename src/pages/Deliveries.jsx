@@ -145,6 +145,25 @@ return prev;
   return () => clearInterval(timer);
 }, [selectedDelivery]);
 
+  const pendingDeliveries =
+    deliveries.filter(
+      (d) => d.status === "Pending"
+    ).length;
+
+  const inTransitDeliveries =
+    deliveries.filter(
+      (d) => d.status === "In Transit"
+    ).length;
+
+  const deliveredDeliveries =
+    deliveries.filter(
+      (d) =>
+        d.status === "Delivered ✅"
+    ).length;
+
+  const totalDeliveries =
+    deliveries.length;
+
   const filteredDeliveries =
   deliveries.filter((delivery) => {
     const matchesSearch =
@@ -200,29 +219,90 @@ return prev;
   </p>
 </div>
 
-      {error && (
-  <div
-    style={{
-      background: "#7f1d1d",
-      color: "white",
-      padding: "12px",
-      borderRadius: "8px",
-      marginBottom: "15px",
-      border: "1px solid #ef4444",
-    }}
-  >
-    ⚠️ {error}
-  </div>
-)}
-
-      <div
+    <div
   style={{
     display: "flex",
-    gap: "10px",
-    marginBottom: "20px",
+    gap: "20px",
     flexWrap: "wrap",
+    marginBottom: "25px",
   }}
 >
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "220px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>Total Deliveries</h4>
+    <h2>{totalDeliveries}</h2>
+  </div>
+
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "220px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>🟡 Pending</h4>
+    <h2>{pendingDeliveries}</h2>
+  </div>
+
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "220px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>🔵 In Transit</h4>
+    <h2>{inTransitDeliveries}</h2>
+  </div>
+
+  <div
+    style={{
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "12px",
+      width: "220px",
+      border: "1px solid #334155",
+    }}
+  >
+    <h4>🟢 Delivered</h4>
+    <h2>{deliveredDeliveries}</h2>
+  </div>
+</div>
+
+      {error && (
+        <div
+          style={{
+            background: "#7f1d1d",
+            color: "white",
+            padding: "12px",
+            borderRadius: "8px",
+            marginBottom: "15px",
+            border: "1px solid #ef4444",
+          }}
+        >
+          ⚠️ {error}
+        </div>
+      )}
+
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginBottom: "20px",
+          flexWrap: "wrap",
+        }}
+      >
   <input
     type="text"
     placeholder="Search Delivery ID..."
@@ -601,7 +681,7 @@ return prev;
           >
             View Route →
           </div>
-          
+
           {delivery.status === "Delivered ✅" && (
             <div
               style={{

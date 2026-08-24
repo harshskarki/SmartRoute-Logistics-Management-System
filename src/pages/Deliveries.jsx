@@ -373,6 +373,26 @@ return prev;
     </option>
 
     <option
+      value="Delayed ⚠️"
+      style={{
+        background: "#0f172a",
+        color: "white",
+      }}
+    >
+      Delayed
+    </option>
+
+    <option
+      value="Route Issue 🚫"
+      style={{
+        background: "#0f172a",
+        color: "white",
+      }}
+    >
+      Route Issue
+    </option>
+
+    <option
       value="Delivered ✅"
       style={{
         background: "#0f172a",
@@ -542,11 +562,17 @@ return prev;
                     : delivery.status ===
                       "In Transit"
                     ? "#3b82f6"
+                    : delivery.status ===
+                      "Delayed ⚠️"
+                    ? "#ef4444"
+                    : delivery.status ===
+                      "Route Issue 🚫"
+                    ? "#dc2626"
                     : "#f59e0b",
                 color:
-                delivery.status === "In Transit"
-                  ? "white"
-                  : "black",
+                delivery.status === "Pending"
+                  ? "black"
+                  : "white",
                 padding: "5px 10px",
                 borderRadius: "20px",
                 fontSize: "12px",
@@ -695,6 +721,32 @@ return prev;
             </div>
           )}
           
+          {delivery.status === "Delayed ⚠️" && (
+            <div
+              style={{
+                marginTop: "12px",
+                color: "#ef4444",
+                fontSize: "13px",
+                fontWeight: "600",
+              }}
+            >
+              ⚠ Delivery delay detected
+            </div>
+          )}
+
+          {delivery.status === "Route Issue 🚫" && (
+            <div
+              style={{
+                marginTop: "12px",
+                color: "#dc2626",
+                fontSize: "13px",
+                fontWeight: "600",
+              }}
+            >
+              🚫 Route exception reported
+            </div>
+          )}
+
         </div>
       ))}
 

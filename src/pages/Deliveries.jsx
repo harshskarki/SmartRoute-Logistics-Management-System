@@ -545,6 +545,71 @@ return prev;
 
           <div
             style={{
+              marginTop: "20px",
+              paddingTop: "15px",
+              borderTop:
+                "1px solid rgba(255,255,255,0.08)",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                flexWrap: "wrap",
+                fontSize: "13px",
+                fontWeight: "600",
+              }}
+            >
+              <span
+                style={{
+                  color:
+                    delivery.status === "Pending"
+                      ? "#f59e0b"
+                      : "#22c55e",
+                }}
+              >
+                🟡 Pending
+              </span>
+
+              <span style={{ color: "#64748b" }}>
+                →
+              </span>
+
+              <span
+                style={{
+                  color:
+                    delivery.status === "In Transit"
+                      ? "#3b82f6"
+                      : delivery.status ===
+                        "Delivered ✅"
+                      ? "#22c55e"
+                      : "#64748b",
+                }}
+              >
+                🔵 In Transit
+              </span>
+
+              <span style={{ color: "#64748b" }}>
+                →
+              </span>
+
+              <span
+                style={{
+                  color:
+                    delivery.status ===
+                    "Delivered ✅"
+                      ? "#22c55e"
+                      : "#64748b",
+                }}
+              >
+                🟢 Delivered
+              </span>
+            </div>
+          </div>
+
+          <div
+            style={{
               marginTop: "18px",
               color: "#60a5fa",
               fontWeight: "600",

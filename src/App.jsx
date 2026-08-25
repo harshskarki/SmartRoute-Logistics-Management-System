@@ -7,10 +7,10 @@ import LogisticsCenter from "./pages/LogisticsCenter";
 
 function App() {
   const navLinkClass = ({ isActive }) =>
-  `block px-4 py-3 rounded-xl transition-all duration-300 ${
+  `block px-4 py-3 rounded-xl transition-all duration-300 transform ${
     isActive
       ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg border-l-4 border-cyan-400"
-      : "text-gray-300 hover:bg-slate-700 hover:text-white"
+      : "text-gray-300 hover:bg-slate-700 hover:text-white hover:translate-x-2 hover:shadow-md"
   }`;
 
   return (

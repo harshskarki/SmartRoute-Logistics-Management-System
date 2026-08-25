@@ -110,19 +110,51 @@ function App() {
             sidebarCollapsed ? "text-center" : ""
           }`}
         >
-          <div
-            className="
-              bg-slate-700/50
-              border border-slate-600
-              rounded-lg
-              px-3 py-2
-              text-xs
-              text-gray-400
-            "
-          >
-            {sidebarCollapsed
-              ? "v1.0"
-              : "SmartRoute v1.0"}
+          <div className="space-y-2">
+            <div
+              className="
+                bg-slate-700/50
+                border border-slate-600
+                rounded-lg
+                px-3 py-2
+                text-xs
+                text-gray-400
+              "
+            >
+              {sidebarCollapsed
+                ? "v1.0"
+                : "SmartRoute v1.0"}
+            </div>
+
+            {!sidebarCollapsed && (
+              <div
+                className="
+                  bg-slate-700/30
+                  border border-slate-600
+                  rounded-lg
+                  px-3 py-2
+                  text-xs
+                  text-gray-400
+                  flex
+                  justify-between
+                  items-center
+                "
+              >
+                <span>Search</span>
+
+                <span
+                  className="
+                    bg-slate-800
+                    px-2
+                    py-1
+                    rounded
+                    text-gray-300
+                  "
+                >
+                  Ctrl + K
+                </span>
+              </div>
+            )}
           </div>
         </div>
         </aside>

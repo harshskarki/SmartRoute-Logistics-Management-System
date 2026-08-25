@@ -10,23 +10,31 @@ function App() {
   const [sidebarCollapsed, setSidebarCollapsed] =
     useState(false);
   const navLinkClass = ({ isActive }) =>
-  `block px-4 py-3 rounded-xl transition-all duration-300 transform ${
-    isActive
-      ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg border-l-4 border-cyan-400"
-      : "text-gray-300 hover:bg-slate-700 hover:text-white hover:translate-x-2 hover:shadow-md"
-  }`;
+    `flex items-center ${
+      sidebarCollapsed
+        ? "justify-center px-0"
+        : "px-4"
+    } py-3 rounded-xl transition-all duration-300 ${
+      isActive
+        ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg border-l-4 border-cyan-400"
+        : "text-gray-300 hover:bg-slate-700 hover:text-white hover:shadow-md"
+    }`;
 
   return (
     <div className="flex min-h-screen bg-slate-900 text-white">
       {/* Sidebar */}
       <aside
-        className={`${
-          sidebarCollapsed ? "w-20" : "w-64"
-        } bg-slate-800 border-r border-slate-700 p-5 transition-all duration-300`}
+        className={`${sidebarCollapsed ? "w-20" : "w-64"} bg-slate-800 border-r border-slate-700 p-5 transition-all duration-500 ease-in-out relative`}
       >
         <div className="pb-5 border-b border-slate-700">
 
-          <div className="flex justify-end mb-3">
+          <div
+            className={`flex mb-3 ${
+              sidebarCollapsed
+                ? "justify-center"
+                : "justify-end"
+            }`}
+          >
             <button
               onClick={() =>
                 setSidebarCollapsed(!sidebarCollapsed)
@@ -43,17 +51,21 @@ function App() {
               🚚
             </div>
 
-            {!sidebarCollapsed && (
-              <div>
-                <h1 className="text-xl font-bold text-white">
-                  SmartRoute
-                </h1>
+            <div
+              className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                sidebarCollapsed
+                  ? "w-0 opacity-0"
+                  : "w-auto opacity-100"
+              }`}
+            >
+              <h1 className="text-xl font-bold text-white whitespace-nowrap">
+                SmartRoute
+              </h1>
 
-                <p className="text-gray-400 text-xs">
-                  Logistics Suite
-                </p>
-              </div>
-            )}
+              <p className="text-gray-400 text-xs whitespace-nowrap">
+                Logistics Suite
+              </p>
+            </div>
 
           </div>
 
@@ -93,7 +105,27 @@ function App() {
               : "🗺 Logistics Center"}
           </NavLink>
         </nav>
-      </aside>
+        <div
+          className={`absolute bottom-5 left-0 w-full px-4 ${
+            sidebarCollapsed ? "text-center" : ""
+          }`}
+        >
+          <div
+            className="
+              bg-slate-700/50
+              border border-slate-600
+              rounded-lg
+              px-3 py-2
+              text-xs
+              text-gray-400
+            "
+          >
+            {sidebarCollapsed
+              ? "v1.0"
+              : "SmartRoute v1.0"}
+          </div>
+        </div>
+        </aside>
 
       {/* Main Content */}
       <main className="flex-1 p-8">

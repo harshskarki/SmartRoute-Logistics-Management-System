@@ -17,13 +17,21 @@ function App() {
     <div className="flex min-h-screen bg-slate-900 text-white">
       {/* Sidebar */}
       <aside className="w-64 bg-slate-800 border-r border-slate-700 p-5">
-        <h1 className="text-2xl font-bold text-blue-500">
-          🚚 SmartRoute
-        </h1>
+        <div className="flex items-center gap-3 pb-5 border-b border-slate-700">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-2xl shadow-lg">
+            🚚
+          </div>
 
-        <p className="text-gray-400 text-sm mt-1">
-          Logistics Management
-        </p>
+          <div>
+            <h1 className="text-xl font-bold text-white">
+              SmartRoute
+            </h1>
+
+            <p className="text-gray-400 text-xs">
+              Logistics Suite
+            </p>
+          </div>
+        </div>
 
         <nav className="mt-8 space-y-2">
           <NavLink to="/" end className={navLinkClass}>

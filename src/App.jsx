@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route, NavLink } from "react-router-dom";
 
 import Dashboard from "./pages/Dashboard";
@@ -6,6 +7,8 @@ import Deliveries from "./pages/Deliveries";
 import LogisticsCenter from "./pages/LogisticsCenter";
 
 function App() {
+  const [sidebarCollapsed, setSidebarCollapsed] =
+    useState(false);
   const navLinkClass = ({ isActive }) =>
   `block px-4 py-3 rounded-xl transition-all duration-300 transform ${
     isActive
@@ -16,44 +19,78 @@ function App() {
   return (
     <div className="flex min-h-screen bg-slate-900 text-white">
       {/* Sidebar */}
-      <aside className="w-64 bg-slate-800 border-r border-slate-700 p-5">
-        <div className="flex items-center gap-3 pb-5 border-b border-slate-700">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-2xl shadow-lg">
-            🚚
+      <aside
+        className={`${
+          sidebarCollapsed ? "w-20" : "w-64"
+        } bg-slate-800 border-r border-slate-700 p-5 transition-all duration-300`}
+      >
+        <div className="pb-5 border-b border-slate-700">
+
+          <div className="flex justify-end mb-3">
+            <button
+              onClick={() =>
+                setSidebarCollapsed(!sidebarCollapsed)
+              }
+              className="text-gray-300 hover:text-white"
+            >
+              {sidebarCollapsed ? "➡️" : "⬅️"}
+            </button>
           </div>
 
-          <div>
-            <h1 className="text-xl font-bold text-white">
-              SmartRoute
-            </h1>
+          <div className="flex items-center gap-3">
 
-            <p className="text-gray-400 text-xs">
-              Logistics Suite
-            </p>
+            <div className="w-12 h-12 rounded-xl bg-linear-to-br from-blue-500 to-blue-700 flex items-center justify-center text-2xl shadow-lg">
+              🚚
+            </div>
+
+            {!sidebarCollapsed && (
+              <div>
+                <h1 className="text-xl font-bold text-white">
+                  SmartRoute
+                </h1>
+
+                <p className="text-gray-400 text-xs">
+                  Logistics Suite
+                </p>
+              </div>
+            )}
+
           </div>
+
         </div>
 
         <nav className="mt-8 space-y-2">
           <NavLink to="/" end className={navLinkClass}>
-            📊 Dashboard
+            {sidebarCollapsed
+              ? "📊"
+              : "📊 Dashboard"}
           </NavLink>
 
           <NavLink
             to="/vehicles"
             className={navLinkClass}
           >
-            🚚 Vehicles
+            {sidebarCollapsed
+              ? "🚚"
+              : "🚚 Vehicles"}
           </NavLink>
 
           <NavLink
             to="/deliveries"
             className={navLinkClass}
           >
-            📦 Deliveries
+            {sidebarCollapsed
+              ? "📦"
+              : "📦 Deliveries"}
           </NavLink>
 
-          <NavLink to="/logistics-center">
-            🗺 Logistics Center
+          <NavLink
+            to="/logistics-center"
+            className={navLinkClass}
+          >
+            {sidebarCollapsed
+              ? "🗺"
+              : "🗺 Logistics Center"}
           </NavLink>
         </nav>
       </aside>

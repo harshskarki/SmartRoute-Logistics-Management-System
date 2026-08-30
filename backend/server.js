@@ -2,6 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
+const Vehicle = require("./models/Vehicle");
+const vehicleRoutes = require("./routes/vehicleRoutes");
+console.log("Vehicle Model Loaded:", Vehicle.modelName);
 
 dotenv.config();
 
@@ -11,6 +14,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/vehicles", vehicleRoutes);
 
 app.get("/", (req, res) => {
   res.send("🚚 SmartRoute Backend Running");

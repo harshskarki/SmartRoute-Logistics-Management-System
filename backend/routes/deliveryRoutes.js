@@ -1,18 +1,18 @@
 const express = require("express");
 const router = express.Router();
-const Vehicle = require("../models/Vehicle");
+const Delivery = require("../models/Delivery");
 
 router.get("/", (req, res) => {
   res.json({
-    message: "Vehicle Routes Working",
+    message: "Delivery Routes Working",
   });
 });
 
 router.post("/", async (req, res) => {
   try {
-    const vehicle = await Vehicle.create(req.body);
+    const delivery = await Delivery.create(req.body);
 
-    res.status(201).json(vehicle);
+    res.status(201).json(delivery);
   } catch (error) {
     res.status(500).json({
       error: error.message,
@@ -22,9 +22,9 @@ router.post("/", async (req, res) => {
 
 router.get("/all", async (req, res) => {
   try {
-    const vehicles = await Vehicle.find();
+    const deliveries = await Delivery.find();
 
-    res.json(vehicles);
+    res.json(deliveries);
   } catch (error) {
     res.status(500).json({
       error: error.message,
@@ -34,15 +34,15 @@ router.get("/all", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const vehicle = await Vehicle.findById(req.params.id);
+    const delivery = await Delivery.findById(req.params.id);
 
-    if (!vehicle) {
+    if (!delivery) {
       return res.status(404).json({
-        message: "Vehicle not found",
+        message: "Delivery not found",
       });
     }
 
-    res.json(vehicle);
+    res.json(delivery);
   } catch (error) {
     res.status(500).json({
       error: error.message,
@@ -52,7 +52,7 @@ router.get("/:id", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const vehicle = await Vehicle.findByIdAndUpdate(
+    const delivery = await Delivery.findByIdAndUpdate(
       req.params.id,
       req.body,
       {
@@ -61,13 +61,13 @@ router.put("/:id", async (req, res) => {
       }
     );
 
-    if (!vehicle) {
+    if (!delivery) {
       return res.status(404).json({
-        message: "Vehicle not found",
+        message: "Delivery not found",
       });
     }
 
-    res.json(vehicle);
+    res.json(delivery);
   } catch (error) {
     res.status(500).json({
       error: error.message,
@@ -77,18 +77,18 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   try {
-    const vehicle = await Vehicle.findByIdAndDelete(
+    const delivery = await Delivery.findByIdAndDelete(
       req.params.id
     );
 
-    if (!vehicle) {
+    if (!delivery) {
       return res.status(404).json({
-        message: "Vehicle not found",
+        message: "Delivery not found",
       });
     }
 
     res.json({
-      message: "Vehicle deleted successfully",
+      message: "Delivery deleted successfully",
     });
   } catch (error) {
     res.status(500).json({

@@ -1,20 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getVehicles } from "../services/vehicleService";
 
 function Vehicles() {
- const [vehicles, setVehicles] = useState([
-  {
-    id: "TRUCK-001",
-    driver: "Rahul Sharma",
-    status: "Active",
-    location: "Navi Mumbai",
-  },
-  {
-    id: "TRUCK-002",
-    driver: "Amit Patel",
-    status: "Idle",
-    location: "Thane",
-  },
-]);
+ const [vehicles, setVehicles] = useState([]);
+
+ useEffect(() => {
+    const fetchVehicles = async () => {
+      try {
+        const data = await getVehicles();
+        setVehicles(data);
+      } catch (error) {
+        console.error(
+          "Error fetching vehicles:",
+          error
+        );
+      }
+    };
+
+    fetchVehicles();
+  }, []);
 
   const [vehicleId, setVehicleId] =
     useState("");
@@ -22,17 +26,17 @@ function Vehicles() {
   const [driverName, setDriverName] =
     useState("");
 
-    const activeVehicles =
-  vehicles.filter(
-    (vehicle) =>
-      vehicle.status === "Active"
-  ).length;
+  const activeVehicles =
+    vehicles.filter(
+      (vehicle) =>
+        vehicle.status === "Available"
+    ).length;
 
-const idleVehicles =
-  vehicles.filter(
-    (vehicle) =>
-      vehicle.status === "Idle"
-  ).length;
+  const idleVehicles =
+    vehicles.filter(
+      (vehicle) =>
+        vehicle.status === "On Delivery"
+    ).length;
 
   const maintenanceVehicles =
   vehicles.filter(
@@ -427,7 +431,7 @@ setDriverName("");
   viewMode === "grid" ? (
   filteredVehicles.map((vehicle) => (
     <div
-      key={vehicle.id}
+      key={vehicle._id}
       style={{
         background:
           "rgba(255,255,255,0.05)",
@@ -463,7 +467,7 @@ setDriverName("");
             : vehicle.status === "Maintenance"
             ? "🔧"
             : "🅿️"}{" "}
-          {vehicle.id}
+          {vehicle.vehicleNumber}
         </h3>
 
         <span
@@ -513,7 +517,7 @@ setDriverName("");
           color: "#cbd5e1",
         }}
       >
-        👨‍✈️ {vehicle.driver}
+        👨‍✈️ {vehicle.driverName}
       </p>
 
       <p
@@ -551,7 +555,7 @@ setDriverName("");
 
       <button
         onClick={() =>
-          deleteVehicle(vehicle.id)
+          deleteVehicle(vehicle._id)
         }
         style={{
           marginTop: "10px",
@@ -573,7 +577,7 @@ setDriverName("");
         onChange={(e) => {
           const updatedVehicles =
             vehicles.map((v) =>
-              v.id === vehicle.id
+              v._id === vehicle._id
                 ? {
                     ...v,
                     status:
@@ -649,14 +653,14 @@ setDriverName("");
         {filteredVehicles.map(
           (vehicle) => (
             <tr
-              key={vehicle.id}
+              key={vehicle._id}
             >
               <td
                 style={{
                   padding: "16px",
                 }}
               >
-                {vehicle.id}
+                {vehicle.vehicleNumber}
               </td>
 
               <td
@@ -664,7 +668,7 @@ setDriverName("");
                   padding: "16px",
                 }}
               >
-                {vehicle.driver}
+                {vehicle.driverName}
               </td>
 
               <td
@@ -680,7 +684,7 @@ setDriverName("");
                   padding: "16px",
                 }}
               >
-                {vehicle.location}
+                {vehicle.vehicleType}
               </td>
             </tr>
           )

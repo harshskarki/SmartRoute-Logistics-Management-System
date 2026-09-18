@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getDeliveries } from "../services/deliveryService";
 import { getRoute } from "../utils/getRoute";
 import DeliveryDetails from "../components/DeliveryDetails";
 
@@ -28,6 +29,23 @@ const stations = [
 
 function Deliveries() {
   const [deliveries, setDeliveries] = useState([]);
+
+  useEffect(() => {
+    const fetchDeliveries = async () => {
+      try {
+        const data = await getDeliveries();
+        setDeliveries(data);
+      } catch (error) {
+        console.error(
+          "Error fetching deliveries:",
+          error
+        );
+      }
+    };
+
+    fetchDeliveries();
+  }, []);
+
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
   const [selectedDelivery, setSelectedDelivery] = useState(null);

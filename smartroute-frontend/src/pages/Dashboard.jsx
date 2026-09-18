@@ -57,8 +57,8 @@ function Dashboard() {
           vehicle.status === "Idle"
       ).length;
 
-const totalVehicles =
-  vehicles.length;
+  const totalVehicles =
+    vehicles.length;
 
   const pendingDeliveries =
     deliveries.filter(

@@ -1,11 +1,31 @@
 import { useEffect, useState } from "react";
 
-import {
-  vehicles,
-  deliveries,
-} from "../data/mockData";
+import { getVehicles } from "../services/vehicleService";
+import { getDeliveries } from "../services/deliveryService";
 
 function Dashboard() {
+
+  const [vehicles, setVehicles] = useState([]);
+  const [deliveries, setDeliveries] = useState([]);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const vehicleData = await getVehicles();
+        const deliveryData = await getDeliveries();
+
+        setVehicles(vehicleData);
+        setDeliveries(deliveryData);
+      } catch (error) {
+        console.error(
+          "Dashboard API Error:",
+          error
+        );
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
 
   const [displayActiveVehicles, setDisplayActiveVehicles] =
     useState(0);
@@ -28,14 +48,14 @@ function Dashboard() {
   const activeVehicles =
     vehicles.filter(
       (vehicle) =>
-        vehicle.status === "Active"
+        vehicle.status === "Available"
     ).length;
 
-      const idleVehicles =
-  vehicles.filter(
-    (vehicle) =>
-      vehicle.status === "Idle"
-  ).length;
+      const idleVehicles = 0;
+      vehicles.filter(
+        (vehicle) =>
+          vehicle.status === "Idle"
+      ).length;
 
 const totalVehicles =
   vehicles.length;
@@ -49,14 +69,14 @@ const totalVehicles =
   const completedDeliveries =
     deliveries.filter(
       (delivery) =>
-        delivery.status ==="Delivered ✅"
+        delivery.status === "Delivered"
     ).length;
 
   const activeDeliveries =
     deliveries.filter(
       (delivery) =>
         delivery.status ===
-        "In Transit"
+        "Assigned"
     ).length;
 
     const totalDeliveries = deliveries.length;
@@ -189,22 +209,22 @@ const totalVehicles =
       : "⚠️ Delivery performance needs attention";
 
         const pendingCount =
-    deliveries.filter(
-      (delivery) =>
-        delivery.status === "Pending"
-    ).length;
+          deliveries.filter(
+            (delivery) =>
+              delivery.status === "Pending"
+          ).length;
 
-  const inTransitCount =
-    deliveries.filter(
-      (delivery) =>
-        delivery.status === "In Transit"
-    ).length;
+        const inTransitCount =
+          deliveries.filter(
+            (delivery) =>
+              delivery.status === "Assigned"
+          ).length;
 
-const deliveredCount =
-  deliveries.filter(
-    (delivery) =>
-      delivery.status === "Delivered ✅"
-  ).length;
+        const deliveredCount =
+          deliveries.filter(
+            (delivery) =>
+              delivery.status === "Delivered"
+          ).length;
 
   const maintenanceVehicles =
   vehicles.filter(
